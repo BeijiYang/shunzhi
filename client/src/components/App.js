@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import '../css/App.css'
 import Home from './ui/Home'
 import Signup from './ui/Signup'
+import Sidebar from './ui/Sidebar'
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,10 +14,13 @@ class App extends Component {
     return (
       <div>
         <Router>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/signup" component={Signup} />
-          </Switch>
+          <div>
+            <Sidebar />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/signup" component={Signup} />
+            </Switch>
+          </div>
         </Router>
       </div>
     );
