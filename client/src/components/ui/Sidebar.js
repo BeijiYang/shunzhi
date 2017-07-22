@@ -11,7 +11,7 @@ import {
 class Sidebar extends Component {
 
   state = {
-    isOpen: true
+    isOpen: false
   }
 
   isMenuOpen(state) {
