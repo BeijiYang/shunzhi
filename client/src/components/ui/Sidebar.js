@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { slide as Menu } from 'react-burger-menu'
 import '../../css/sidebar.css'
+import { connect } from 'react-redux'
 
 import {
   Link
@@ -9,7 +10,7 @@ import {
 class Sidebar extends Component {
 
   state = {
-    isOpen: false
+    isOpen: true
   }
 
   isMenuOpen(state) {
@@ -24,16 +25,26 @@ class Sidebar extends Component {
   }
 
   render () {
+    const { currentUser } = this.props.account
+    let userInfo = (
+      <div>
+      {currentUser}
+      </div>
+    )
     return (
       <Menu isOpen={this.state.isOpen} onStateChange={ this.isMenuOpen }
             customCrossIcon={ false }>
-        <h1>User</h1>
-        <Link to="/" className="menu-item" href="/">Home</Link>
-        <Link to="/signup" className="menu-item" href="/">注册</Link>
-        <button className ="bm-close-button" onClick={this.closeMenu}>关闭</button>
+        {userInfo}
+        <Link onClick={this.closeMenu} to="/" className="menu-item" href="/">Home</Link>
+        <Link onClick={this.closeMenu} to="/signup" className="menu-item" href="/">注册</Link>
+        <button onClick={this.closeMenu} className ="bm-close-button" >关闭</button>
       </Menu>
     );
   }
 }
 
-export default Sidebar
+const mapStateToProps = (state) => ({
+  account: state
+})
+
+export default connect(mapStateToProps)(Sidebar)
