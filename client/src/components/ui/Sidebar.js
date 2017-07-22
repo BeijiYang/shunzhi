@@ -27,7 +27,7 @@ class Sidebar extends Component {
     const { currentUser } = this.props.account
     let userInfo = (
       <div>
-      {currentUser}
+        {currentUser}
       </div>
     )
     return (
