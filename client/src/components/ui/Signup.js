@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import store from '../../redux/store'
+import Settings from '../../settings'
 
 class SignUp extends Component {
   style = {
     'width': '300px',
-    'margin': '20px auto'
+    'margin': '0 auto',
+    'paddingTop': '50px'
   }
 
   signUp = (e) => {
@@ -13,13 +15,15 @@ class SignUp extends Component {
     let username = this.usernameInput.value
     let password = this.passwordInput.value
     let data = {username, password}
-    axios.post('http://localhost:3008/user/signup', data).then(res => {
+    axios.post(`${Settings.host}/user/signup`, data).then(res => {
       console.log(res)
       if(res.data.username) {
         store.dispatch({ type: 'AUTH_USER', username: res.data.username })
         localStorage.setItem('userId', res.data.userId)
         this.props.history.push('/')
       }
+    }).catch(err => {
+      console.log(err.response.data.msg)
     })
   }
 
