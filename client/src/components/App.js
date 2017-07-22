@@ -11,6 +11,9 @@ import {
   Route
 } from 'react-router-dom'
 
+import { withRouter } from 'react-router'
+
+
 class App extends Component {
   componentDidMount() {
     let userId = localStorage.getItem('userId')
@@ -21,9 +24,10 @@ class App extends Component {
     }
   }
   render() {
+    const { pathname } = this.props.location
     return (
       <div>
-        <Sidebar />
+        {pathname !== "/" ? <Sidebar /> : ''}
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/signup" component={Signup} />
@@ -33,4 +37,4 @@ class App extends Component {
   }
 }
 
-export default App
+export default withRouter(App)
