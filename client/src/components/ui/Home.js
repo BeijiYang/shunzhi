@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import '../../css/home.css'
 import logo from '../../img/logo.svg'
+import {
+  Link
+} from 'react-router-dom'
 
 class Home extends Component {
   render() {
@@ -16,12 +19,12 @@ class Home extends Component {
           </p>
         </div>
         <div className="actions">
-          <div className="signup">
+          <Link to="/signup">
             注册
-          </div>
-          <div className="login">
+          </Link>
+          <Link to="/login">
             登录
-          </div>
+          </Link>
         </div>
       </div>
     )

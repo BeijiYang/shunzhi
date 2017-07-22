@@ -29,7 +29,8 @@
   padding: 80px 0;
 }
 
-.home .actions>div {
+.home .actions>a {
+  display: block;
   font-size: 14px;
   color: #F77062;
   background: #FFFFFF;
