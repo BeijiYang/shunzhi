@@ -5,6 +5,8 @@ import Signup from './ui/Signup'
 import Sidebar from './ui/Sidebar'
 import { Provider } from 'react-redux'
 import store from '../redux/store'
+import axios from 'axios'
+import Settings from '../settings'
 
 import {
   BrowserRouter as Router,
@@ -13,6 +15,15 @@ import {
 } from 'react-router-dom'
 
 class App extends Component {
+  componentDidMount() {
+    let userId = localStorage.getItem('userId')
+    if(userId) {
+      axios.get(`${Settings.host}/user/${userId}`).then(res => {
+        store.dispatch({ type: 'AUTH_USER', username: res.data.user.username })
+      })
+    }
+  }
+
   render() {
     return (
       <Provider store={store}>
