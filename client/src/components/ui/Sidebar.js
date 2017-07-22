@@ -17,8 +17,7 @@ class Sidebar extends Component {
     console.log(state)
   }
 
-  closeMenu = (e) => {
-    e.preventDefault()
+  closeMenu = () => {
     this.setState({
       isOpen: false
     })
