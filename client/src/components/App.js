@@ -12,6 +12,7 @@ import {
 } from 'react-router-dom'
 
 import { withRouter } from 'react-router'
+import { connect } from 'react-redux'
 
 
 class App extends Component {
@@ -25,6 +26,7 @@ class App extends Component {
   }
   render() {
     const { pathname } = this.props.location
+    console.log(this.props.isAuthenticated, '....')
     return (
       <div>
         {pathname !== "/" ? <Sidebar /> : ''}
@@ -37,4 +39,8 @@ class App extends Component {
   }
 }
 
-export default withRouter(App)
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.isAuthenticated
+})
+
+export default connect(mapStateToProps)(withRouter(App))
