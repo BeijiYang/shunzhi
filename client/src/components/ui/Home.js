@@ -8,6 +8,7 @@ import {
 class Home extends Component {
   render() {
     return(
+
       <div className="home">
         <div className="hero">
           <img src={logo} className="app-logo" alt="logo" />
