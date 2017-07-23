@@ -4,18 +4,11 @@ import logo from '../../img/logo.svg'
 import {
   Link
 } from 'react-router-dom'
-import Sidebar from './Sidebar'
-import { connect } from 'react-redux'
 
-
-const DashBoard = () => (
-  <div>
-    <Sidebar />
-    <h1>DashBoard</h1>
-  </div>
-)
-const HomeWelcome = () =>(
-
+class Home extends Component {
+  render() {
+    return(
+      <div>
         <div className="home">
           <div className="hero">
             <img src={logo} className="app-logo" alt="logo" />
@@ -35,23 +28,10 @@ const HomeWelcome = () =>(
             </Link>
           </div>
         </div>
-)
-
-class Home extends Component {
-  render() {
-    // let { isAuthenticated } = this.props
-    // console.log(isAuthenticated)
-    let isAuthenticated = false
-    return(
-      <div>
-        { isAuthenticated ? (<DashBoard />) : (<HomeWelcome />)}
       </div>
     )
   }
 }
 
-const mapStateToProps = (state) => ({
-  isAuthenticated: state.isAuthenticated
-})
 
 export default Home
