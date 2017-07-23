@@ -1,0 +1,21 @@
+/*https://codepen.io/VaughnPaulger/pen/qZjgyN
+动态效果
+*/
+
+.alert-box {
+  background: rgba(4,4,4,0.43);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.alert-box-card {
+  width: 200px;
+  margin: 0 auto;
+  background: #fff;
+}

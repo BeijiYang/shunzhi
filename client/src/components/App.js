@@ -6,6 +6,7 @@ import Signup from './ui/pages/Signup/Signup'
 import Login from './ui/pages/Login/Login'
 import axios from 'axios'
 import Settings from '../settings'
+import AlertBox from './ui/shared/AlertBox/AlertBox'
 import store from '../redux/store'
 import {
   BrowserRouter as Router,
@@ -31,6 +32,7 @@ class App extends Component {
     console.log('....', isAuthenticated)
     return (
       <div>
+        <AlertBox />
         <Router>
           <Switch>
             <Route exact path="/" render={() => {
