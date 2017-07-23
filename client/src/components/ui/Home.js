@@ -39,8 +39,9 @@ const HomeWelcome = () =>(
 
 class Home extends Component {
   render() {
-    let { isAuthenticated } = this.props
-    console.log(isAuthenticated)
+    // let { isAuthenticated } = this.props
+    // console.log(isAuthenticated)
+    let isAuthenticated = false
     return(
       <div>
         { isAuthenticated ? (<DashBoard />) : (<HomeWelcome />)}
@@ -53,4 +54,4 @@ const mapStateToProps = (state) => ({
   isAuthenticated: state.isAuthenticated
 })
 
-export default connect(mapStateToProps)(Home)
+export default Home

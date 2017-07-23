@@ -7,6 +7,7 @@ import axios from 'axios'
 import Settings from '../settings'
 import store from '../redux/store'
 import {
+  BrowserRouter as Router,
   Switch,
   Route,
   Redirect
@@ -15,6 +16,7 @@ import {
 import { withRouter } from 'react-router'
 import { connect } from 'react-redux'
 
+const DashBoard = () => <h1>DashBoard</h1>
 
 class App extends Component {
   componentDidMount() {
@@ -26,15 +28,25 @@ class App extends Component {
     }
   }
   render() {
-    const { pathname } = this.props.location
+    const { isAuthenticated } = this.props
     console.log(this.props.isAuthenticated, '....')
+    let pathname = '/'
     return (
       <div>
         {pathname !== "/" ? <Sidebar /> : ''}
-        <Switch>
-          <Route exact path="/" component={Home}/>
-          <Route path="/signup" component={Signup} />
-        </Switch>
+        <Router>
+          <Switch>
+            <Route exact path="/" render={() => {
+                return isAuthenticated ? (
+                  <Redirect to="/dashboard" />
+                ) : (
+                  <Home />
+                )
+              }}/>
+            <Route path="/signup" component={Signup} />
+            <Route path="/dashboard" component={DashBoard} />
+          </Switch>
+        </Router>
       </div>
     );
   }
@@ -44,4 +56,4 @@ const mapStateToProps = (state) => ({
   isAuthenticated: state.isAuthenticated
 })
 
-export default connect(mapStateToProps)(withRouter(App))
+export default connect(mapStateToProps)(App)

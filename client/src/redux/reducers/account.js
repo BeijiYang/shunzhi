@@ -1,6 +1,6 @@
 let account = {
   currentUser: '',
-  isAuthenticated: false
+  isAuthenticated: true
 }
 
 export default function accountReducer(state=account, action) {
