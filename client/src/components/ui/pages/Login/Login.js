@@ -24,6 +24,9 @@ class Login extends Component {
       }
     }).catch(err => {
       console.log(err.response.data.msg)
+      const { msg } = err.response.data
+      store.dispatch({ type: 'SHOW_ALERT', message: msg })
+      this.loginForm.reset()
     })
   }
 
@@ -37,7 +40,9 @@ class Login extends Component {
           <p className="slogan">连接一个个小而确定的幸福</p>
         </div>
         <div className="form-wrap">
-          <form onSubmit={this.signUp}>
+          <form
+            ref={value => this.loginForm = value}
+            onSubmit={this.signUp}>
             <div className="input-wrap">
               <div>
                 <input ref={value => this.usernameInput = value} type="text" placeholder="用户名" />

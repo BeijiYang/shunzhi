@@ -23,6 +23,8 @@ class SignUp extends Component {
       }
     }).catch(err => {
       console.log(err.response.data.msg)
+      const { msg } = err.response.data
+      store.dispatch({ type: 'SHOW_ALERT', message: msg })
     })
   }
 

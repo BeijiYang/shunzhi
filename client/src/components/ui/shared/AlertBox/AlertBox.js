@@ -1,16 +1,31 @@
 import React, { Component } from 'react'
 import './alert-box.css'
+import store from '../../../../redux/store'
+import { connect } from 'react-redux'
 
 class AlertBox extends Component {
+
   render() {
     return(
-      <div className="alert-box">
+      <div className={this.props.showAlert ? "alert-box show": "alert-box"}>
         <div className="alert-box-card">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          { this.props.alertMessage }
+          <div
+            onClick={() => {
+              store.dispatch({ type: 'HIDE_ALERT' })
+            }}
+            className="alert-actions">
+            关闭
+          </div>
         </div>
       </div>
     )
   }
 }
 
-export default AlertBox
+const mapStateToProps = (state) => ({
+  showAlert: state.showAlert,
+  alertMessage: state.alertMessage
+})
+
+export default connect(mapStateToProps)(AlertBox)
