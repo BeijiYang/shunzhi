@@ -20,7 +20,7 @@ class Login extends Component {
       if(res.data.username) {
         store.dispatch({ type: 'AUTH_USER', username: res.data.username })
         localStorage.setItem('userId', res.data.userId)
-        this.props.history.push('/')
+        this.props.history.push('/dashboard')
       }
     }).catch(err => {
       console.log(err.response.data.msg)

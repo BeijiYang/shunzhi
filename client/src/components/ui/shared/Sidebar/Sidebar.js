@@ -14,10 +14,6 @@ class Sidebar extends Component {
     isOpen: false
   }
 
-  isMenuOpen(state) {
-    console.log(state)
-  }
-
   closeMenu = () => {
     this.setState({
       isOpen: false
@@ -39,7 +35,7 @@ class Sidebar extends Component {
       </div>
     )
     return (
-      <Menu isOpen={this.state.isOpen} onStateChange={ this.isMenuOpen }
+      <Menu isOpen={this.state.isOpen}
             customCrossIcon={ false }>
         {isAuthenticated ? userInfo : ''}
         <Link onClick={this.closeMenu} to="/" className="menu-item" href="/">Home</Link>

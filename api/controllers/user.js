@@ -21,7 +21,7 @@ exports.signup = function (req, res) {
 }
 
 
-exports.signin = function (req, res) {
+exports.login = function (req, res) {
   var _user = req.body;
   User.findOne({username:_user.username},function (err,user) {
     if (err) return res.status(500).json({msg: '登陆失败，请重试',err});
@@ -33,7 +33,7 @@ exports.signin = function (req, res) {
       if (isMatch) {
         res.json({
           userId: user._id,
-          user: user.username,
+          username: user.username,
           msg: '登陆成功'
         })
       }else {
