@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import '../css/App.css'
-import Home from './ui/Home'
-import Signup from './ui/Signup'
+import Home from './ui/pages/Home/Home'
+import DashBoard from './ui/pages/DashBoard/DashBoard'
+import Signup from './ui/pages/Signup/Signup'
 import axios from 'axios'
 import Settings from '../settings'
 import store from '../redux/store'
@@ -14,7 +15,6 @@ import {
 
 import { connect } from 'react-redux'
 
-const DashBoard = () => <h1>DashBoard</h1>
 
 class App extends Component {
   componentDidMount() {
@@ -27,6 +27,7 @@ class App extends Component {
   }
   render() {
     const { isAuthenticated } = this.props
+    console.log('....', isAuthenticated)
     return (
       <div>
         <Router>

@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import store from '../../redux/store'
-import Settings from '../../settings'
-import '../../css/signup.css'
+import store from '../../../../redux/store'
+import Settings from '../../../../settings'
+import './signup.css'
 import {
   Link
 } from 'react-router-dom'
