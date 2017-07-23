@@ -3,6 +3,7 @@ import '../css/App.css'
 import Home from './ui/pages/Home/Home'
 import DashBoard from './ui/pages/DashBoard/DashBoard'
 import Signup from './ui/pages/Signup/Signup'
+import Login from './ui/pages/Login/Login'
 import axios from 'axios'
 import Settings from '../settings'
 import store from '../redux/store'
@@ -40,6 +41,7 @@ class App extends Component {
                 )
               }}/>
             <Route path="/signup" component={Signup} />
+            <Route path="/login" component={Login} />
             <Route path="/dashboard" component={DashBoard} />
           </Switch>
         </Router>

@@ -2,19 +2,20 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import store from '../../../../redux/store'
 import Settings from '../../../../settings'
-import './signup.css'
+import Sidebar from '../../shared/Sidebar/Sidebar'
+import './login.css'
 import {
   Link
 } from 'react-router-dom'
 
-class SignUp extends Component {
+class Login extends Component {
 
   signUp = (e) => {
     e.preventDefault()
     let username = this.usernameInput.value
     let password = this.passwordInput.value
     let data = {username, password}
-    axios.post(`${Settings.host}/user/signup`, data).then(res => {
+    axios.post(`${Settings.host}/user/login`, data).then(res => {
       console.log(res)
       if(res.data.username) {
         store.dispatch({ type: 'AUTH_USER', username: res.data.username })
@@ -28,10 +29,11 @@ class SignUp extends Component {
 
   render() {
     return(
-      <div className="signup" >
+      <div className="login" >
+        <Sidebar />
         <div className="title-wrap">
-          <div className="litte-title">signup</div>
-          <h1>注册</h1>
+          <div className="litte-title">login</div>
+          <h1>登录</h1>
           <p className="slogan">连接一个个小而确定的幸福</p>
         </div>
         <div className="form-wrap">
@@ -41,18 +43,12 @@ class SignUp extends Component {
                 <input ref={value => this.usernameInput = value} type="text" placeholder="用户名" />
               </div>
               <div>
-                <input ref={value => this.emailInput = value} type="email" placeholder="Email" />
-              </div>
-              <div>
                 <input ref={value => this.passwordInput = value} type="password" placeholder="password" />
               </div>
-              <div>
-                <input type="password" placeholder="再输入一次" />
-              </div>
             </div>
-            <button className="submit-btn" type="submit">注册</button>
-            <Link to='/login' className="switch-method">
-              已有账号？点此登录
+            <button className="submit-btn" type="submit">登录</button>
+            <Link to='/signup' className="switch-method">
+              没有账号？点此注册
             </Link>
           </form>
         </div>
@@ -61,4 +57,4 @@ class SignUp extends Component {
   }
 }
 
-export default SignUp
+export default Login
