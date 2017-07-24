@@ -36,7 +36,11 @@ class App extends Component {
         <AlertBox />
         <Router>
           <div>
-            <Sidebar />
+
+            <Route render={({ location }) => {
+                return location.pathname !== '/' ?
+                       <Sidebar /> : null
+              }} />
             <Switch>
               <Route exact path="/" render={() => {
                   return isAuthenticated ? (
