@@ -30,7 +30,6 @@ class App extends Component {
   }
   render() {
     const { isAuthenticated } = this.props
-    console.log('....', this.props)
     return (
       <div>
         <AlertBox />
