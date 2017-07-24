@@ -10,7 +10,7 @@ class Dashboard extends Component {
   render() {
     const cards = [
       {name: 'Billie Zhang', content: '真是好吃'},
-      {name: 'Billie Zhang', content: '真是好吃'}
+      {name: 'Peter Wang', content: '五星'}
     ]
     const cardList = cards.map((c, index) => {
       return (
