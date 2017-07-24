@@ -10,11 +10,15 @@ import { connect } from 'react-redux'
 
 class Login extends Component {
 
-  signUp = (e) => {
+  login = (e) => {
     e.preventDefault()
     let username = this.usernameInput.value
     let password = this.passwordInput.value
     let data = {username, password}
+    if(username === ''){
+      this.props.dispatch({ type: 'SHOW_ALERT', message: '用户名不能为空' })
+      return
+    }
     axios.post(`${Settings.host}/user/login`, data).then(res => {
       console.log(res)
       if(res.data.username) {
@@ -42,7 +46,7 @@ class Login extends Component {
         <div className="form-wrap">
           <form
             ref={value => this.loginForm = value}
-            onSubmit={this.signUp}>
+            onSubmit={this.login}>
             <div className="input-wrap">
               <div>
                 <input ref={value => this.usernameInput = value} type="text" placeholder="用户名" />

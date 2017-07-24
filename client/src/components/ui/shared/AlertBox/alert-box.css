@@ -28,7 +28,6 @@
   width: 0;
   transition: opacity .3s ease;
   opacity: 0;
-  padding: 20px;
   padding-bottom: 10px;
   border-radius: 12px;
   text-align: center;
@@ -44,6 +43,7 @@
 .alert-box.show .alert-box-card {
   opacity: 1;
   width: 240px;
+  padding: 20px;
 }
 .alert-box.show .alert-box-card .alert-actions {
   display: block;
