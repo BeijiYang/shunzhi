@@ -28,15 +28,22 @@
   width: 0;
   transition: opacity .3s ease;
   opacity: 0;
+  padding: 20px;
+  padding-bottom: 10px;
+  border-radius: 12px;
+  text-align: center;
 }
 
 .alert-box .alert-box-card .alert-actions {
   display: none;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #F77062;
 }
 
 .alert-box.show .alert-box-card {
   opacity: 1;
-  width: 200px;
+  width: 240px;
 }
 .alert-box.show .alert-box-card .alert-actions {
   display: block;
