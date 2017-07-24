@@ -11,10 +11,10 @@ import {
 class Sidebar extends Component {
 
   state = {
-    isOpen: true
+    isOpen: false
   }
 
-  closeMenu = () => {
+  closeMenu = () =>{
     this.setState({
       isOpen: false
     })

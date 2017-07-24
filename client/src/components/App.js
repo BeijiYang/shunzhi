@@ -3,6 +3,7 @@ import '../css/App.css'
 import Home from './ui/pages/Home/Home'
 import DashBoard from './ui/pages/DashBoard/DashBoard'
 import Signup from './ui/pages/Signup/Signup'
+import Profile from './ui/pages/Profile/Profile'
 import Login from './ui/pages/Login/Login'
 import axios from 'axios'
 import Settings from '../settings'
@@ -45,6 +46,7 @@ class App extends Component {
             <Route path="/signup" component={Signup} />
             <Route path="/login" component={Login} />
             <Route path="/dashboard" component={DashBoard} />
+            <Route path="/profile" component={Profile} />
           </Switch>
         </Router>
       </div>
