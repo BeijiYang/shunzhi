@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import store from '../../../../redux/store'
 import Settings from '../../../../settings'
 import './signup.css'
 import {
   Link
 } from 'react-router-dom'
+
+import { connect } from 'react-redux'
 
 class SignUp extends Component {
 
@@ -15,20 +16,20 @@ class SignUp extends Component {
     let password = this.passwordInput.value
     let data = {username, password}
     axios.post(`${Settings.host}/user/signup`, data).then(res => {
-      console.log(res)
+      console.log('...then', res)
       if(res.data.username) {
-        store.dispatch({ type: 'AUTH_USER', username: res.data.username })
+        this.props.dispatch({ type: 'AUTH_USER', username: res.data.username })
         localStorage.setItem('userId', res.data.userId)
         this.props.history.push('/')
       }
     }).catch(err => {
-      console.log(err.response.data.msg)
       const { msg } = err.response.data
-      store.dispatch({ type: 'SHOW_ALERT', message: msg })
+      this.props.dispatch({ type: 'SHOW_ALERT', message: msg })
     })
   }
 
   render() {
+    console.log('render...', this.props)
     return(
       <div className="signup" >
         <div className="title-wrap">
@@ -43,7 +44,7 @@ class SignUp extends Component {
                 <input ref={value => this.usernameInput = value} type="text" placeholder="用户名" />
               </div>
               <div>
-                <input ref={value => this.emailInput = value} type="email" placeholder="Email" />
+                <input ref={value => this.emailInput = value} type="text" placeholder="Email" />
               </div>
               <div>
                 <input ref={value => this.passwordInput = value} type="password" placeholder="password" />
@@ -63,4 +64,4 @@ class SignUp extends Component {
   }
 }
 
-export default SignUp
+export default connect(null)(SignUp)

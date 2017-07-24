@@ -8,7 +8,6 @@ import Login from './ui/pages/Login/Login'
 import axios from 'axios'
 import Settings from '../settings'
 import AlertBox from './ui/shared/AlertBox/AlertBox'
-import store from '../redux/store'
 import Sidebar from './ui/shared/Sidebar/Sidebar'
 import {
   BrowserRouter as Router,
@@ -25,13 +24,13 @@ class App extends Component {
     let userId = localStorage.getItem('userId')
     if(userId) {
       axios.get(`${Settings.host}/user/${userId}`).then(res => {
-        store.dispatch({ type: 'AUTH_USER', username: res.data.user.username })
+        this.props.dispatch({ type: 'AUTH_USER', username: res.data.user.username })
       })
     }
   }
   render() {
     const { isAuthenticated } = this.props
-    console.log('....', isAuthenticated)
+    console.log('....', this.props)
     return (
       <div>
         <AlertBox />

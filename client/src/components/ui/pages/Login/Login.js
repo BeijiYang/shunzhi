@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import store from '../../../../redux/store'
 import Settings from '../../../../settings'
 import Sidebar from '../../shared/Sidebar/Sidebar'
 import './login.css'
 import {
   Link
 } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 class Login extends Component {
 
@@ -18,14 +18,14 @@ class Login extends Component {
     axios.post(`${Settings.host}/user/login`, data).then(res => {
       console.log(res)
       if(res.data.username) {
-        store.dispatch({ type: 'AUTH_USER', username: res.data.username })
+        this.props.dispatch({ type: 'AUTH_USER', username: res.data.username })
         localStorage.setItem('userId', res.data.userId)
         this.props.history.push('/dashboard')
       }
     }).catch(err => {
       console.log(err.response.data.msg)
       const { msg } = err.response.data
-      store.dispatch({ type: 'SHOW_ALERT', message: msg })
+      this.props.dispatch({ type: 'SHOW_ALERT', message: msg })
       this.loginForm.reset()
     })
   }
@@ -62,4 +62,4 @@ class Login extends Component {
   }
 }
 
-export default Login
+export default connect(null)(Login)
