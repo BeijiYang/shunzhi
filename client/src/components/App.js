@@ -9,6 +9,7 @@ import axios from 'axios'
 import Settings from '../settings'
 import AlertBox from './ui/shared/AlertBox/AlertBox'
 import store from '../redux/store'
+import Sidebar from './ui/shared/Sidebar/Sidebar'
 import {
   BrowserRouter as Router,
   Switch,
@@ -35,19 +36,22 @@ class App extends Component {
       <div>
         <AlertBox />
         <Router>
-          <Switch>
-            <Route exact path="/" render={() => {
-                return isAuthenticated ? (
-                  <Redirect to="/dashboard" />
-                ) : (
-                  <Home />
-                )
-              }}/>
-            <Route path="/signup" component={Signup} />
-            <Route path="/login" component={Login} />
-            <Route path="/dashboard" component={DashBoard} />
-            <Route path="/profile" component={Profile} />
-          </Switch>
+          <div>
+            <Sidebar />
+            <Switch>
+              <Route exact path="/" render={() => {
+                  return isAuthenticated ? (
+                    <Redirect to="/dashboard" />
+                  ) : (
+                    <Home />
+                  )
+                }}/>
+              <Route path="/signup" component={Signup} />
+              <Route path="/login" component={Login} />
+              <Route path="/dashboard" component={DashBoard} />
+              <Route path="/profile" component={Profile} />
+            </Switch>
+          </div>
         </Router>
       </div>
     );
