@@ -16,11 +16,13 @@ class FeedItem extends Component {
     return(
       <div onClick={this.toggleExpand}
         className={this.state.expand ? "feed-item expand" : "feed-item"}>
-        <div className="feed-expand">
-          {this.props.content}
-        </div>
+
         <div className="feed-card">
           {this.props.name}
+        </div>
+
+        <div className="feed-expand">
+          {this.props.content}
         </div>
       </div>
     )
