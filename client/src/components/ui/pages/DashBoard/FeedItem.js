@@ -20,14 +20,15 @@ class FeedItem extends Component {
   render() {
     console.log('render...this.props.data.like', this.props.data.like)
     let likeButton = ''
-    if(this.props.data.like !== undefined ) {
+    if(this.props.data.like) {
       likeButton = (
-        <div className="db-button"
-          to="" onClick={() => this.toggleExpand('like')}>赞</div>
+        <div className="like-stars">
+          {this.props.data.like}
+        </div>
       )
     }
     let commentButton = ''
-    if(this.props.data.comment !== undefined ) {
+    if(this.props.data.comment) {
       commentButton = (
         <div className="db-button"
           to="" onClick={() => this.toggleExpand('comment')}>评论</div>
@@ -42,7 +43,7 @@ class FeedItem extends Component {
           {commentButton}
         </div>
         <div className="feed-expand">
-          {this.props.data.like}
+          {this.props.data.comment}
         </div>
       </div>
     )
