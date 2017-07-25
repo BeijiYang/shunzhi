@@ -9,12 +9,13 @@ class Dashboard extends Component {
 
   render() {
     const cards = [
-      {name: 'Billie Zhang', content: '真是好吃'},
-      {name: 'Peter Wang', content: '五星'}
+      {username: 'Billie Zhang', comment: '真是好吃', like: '4星'},
+      {username: 'Peter Wang', comment: '不错'},
+      {username: 'Peter Wang', like: '3星'},
     ]
     const cardList = cards.map((c, index) => {
       return (
-        <FeedItem key={index} name={c.name} content={c.content} />
+        <FeedItem key={index} data={c} />
       )
     })
     return(

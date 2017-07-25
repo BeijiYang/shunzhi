@@ -1,38 +1,48 @@
 import React, { Component } from 'react'
 
-import {
-  Link
-} from 'react-router-dom'
-
 class FeedItem extends Component {
 
   state = {
-    expand: false
+    expand: false,
+    content: ''
   }
 
   toggleExpand = (option) => {
     console.log('toggleExpand...', option)
-    let expand
-    expand = this.state.expand === false ? true : false
+    let expand = this.state.expand === false ? true : false
+    let content = option
     this.setState({
-      expand
+      expand,
+      content
     })
   }
 
-
   render() {
+    console.log('render...this.props.data.like', this.props.data.like)
+    let likeButton = ''
+    if(this.props.data.like !== undefined ) {
+      likeButton = (
+        <div className="db-button"
+          to="" onClick={() => this.toggleExpand('like')}>赞</div>
+      )
+    }
+    let commentButton = ''
+    if(this.props.data.comment !== undefined ) {
+      commentButton = (
+        <div className="db-button"
+          to="" onClick={() => this.toggleExpand('comment')}>评论</div>
+      )
+    }
     return(
       <div
         className={this.state.expand ? "feed-item expand" : "feed-item"}>
         <div className="feed-card">
-          {this.props.name}
-          <div className="db-button"
-            to="" onClick={this.toggleExpand}>赞</div>
-          <div className="db-button"
-            to="" onClick={this.toggleExpand}>评论</div>
+          {this.props.data.username}
+          {likeButton}
+          {commentButton}
         </div>
         <div className="feed-expand">
-          {this.props.content}
+          {this.props.data.like}
         </div>
       </div>
     )
