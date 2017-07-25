@@ -9,6 +9,7 @@ import axios from 'axios'
 import Settings from '../settings'
 import AlertBox from './ui/shared/AlertBox/AlertBox'
 import Sidebar from './ui/shared/Sidebar/Sidebar'
+import Dishes from './ui/pages/Dishes/Dishes'
 import {
   BrowserRouter as Router,
   Switch,
@@ -52,6 +53,7 @@ class App extends Component {
               <Route path="/login" component={Login} />
               <Route path="/dashboard" component={DashBoard} />
               <Route path="/profile" component={Profile} />
+              <Route path="/dishes" component={Dishes} />
             </Switch>
           </div>
         </Router>

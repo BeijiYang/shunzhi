@@ -1,0 +1,37 @@
+.dishes {
+  border: 1px solid yellow;
+}
+
+.dishes .dish-header {
+  color: white;
+  text-align: center;
+  margin-top: 45px;
+}
+
+.dishes .slick-slider {
+  background-color: blue;
+  color: white;
+}
+
+.dish-card {
+  height: 80vh;
+  width: 90%;
+  margin: 0 auto;
+  background-color: #fff;
+  color: pink;
+}
+
+
+.slick-dots {
+  bottom: -40px;
+}
+
+.slick-dots li.slick-active button:before {
+  opacity: .9;
+  color: white;
+}
+
+.slick-dots li button:before {
+  opacity: .4;
+  color: white;
+}

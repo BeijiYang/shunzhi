@@ -4,9 +4,6 @@ import FeedItem from  './FeedItem'
 
 class Dashboard extends Component {
 
-
-
-
   render() {
     const cards = [
       {username: 'Billie Zhang', comment: '真是好吃', like: '4星'},
