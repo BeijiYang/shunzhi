@@ -9,22 +9,27 @@ class FeedItem extends Component {
   state = {
     expand: false
   }
+
   toggleExpand = (option) => {
     console.log('toggleExpand...', option)
-    let expand = this.state.expand ? false : true
+    let expand
+    expand = this.state.expand === false ? true : false
     this.setState({
       expand
     })
   }
 
+
   render() {
     return(
-      <div onClick={this.toggleExpand}
+      <div
         className={this.state.expand ? "feed-item expand" : "feed-item"}>
         <div className="feed-card">
           {this.props.name}
-          <Link to="" onClick={() => this.toggleExpand('like')}>赞</Link>
-          <Link to="" onClick={() => this.toggleExpand('comment')}>评论</Link>
+          <div className="db-button"
+            to="" onClick={this.toggleExpand}>赞</div>
+          <div className="db-button"
+            to="" onClick={this.toggleExpand}>评论</div>
         </div>
         <div className="feed-expand">
           {this.props.content}

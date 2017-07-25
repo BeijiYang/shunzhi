@@ -57,3 +57,9 @@
 .dashboard .feed-item.expand .feed-expand {
   top: 120px;
 }
+
+.dashboard .db-button {
+  width: 70px;
+  display: block;
+  line-height: 40px;
+}
