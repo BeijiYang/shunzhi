@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import Settings from '../../../../settings'
+import TitleHeader from '../../shared/TitleHeader/TitleHeader'
 import './signup.css'
 import {
   Link
@@ -10,7 +11,7 @@ import { connect } from 'react-redux'
 
 class SignUp extends Component {
 
-  signUp = (e) => {
+  signup = (e) => {
     e.preventDefault()
     let username = this.usernameInput.value
     let password = this.passwordInput.value
@@ -29,37 +30,36 @@ class SignUp extends Component {
   }
 
   render() {
-    console.log('render...', this.props)
     return(
-      <div className="signup" >
-        <div className="title-wrap">
-          <div className="litte-title">signup</div>
-          <h1>注册</h1>
-          <p className="slogan">连接一个个小而确定的幸福</p>
+      <div className="signup">
+      <TitleHeader title="signup" />
+      <div className="signup-content">
+        <div className="signup-hero" >
+          <h1 className="title">
+            注册
+          </h1>
+          <p className="slogan">
+            连接小而确定的幸福
+          </p>
         </div>
-        <div className="form-wrap">
-          <form onSubmit={this.signUp}>
-            <div className="input-wrap">
-              <div>
-                <input ref={value => this.usernameInput = value} type="text" placeholder="用户名" />
-              </div>
-              <div>
-                <input ref={value => this.emailInput = value} type="text" placeholder="Email" />
-              </div>
-              <div>
-                <input ref={value => this.passwordInput = value} type="password" placeholder="password" />
-              </div>
-              <div>
-                <input type="password" placeholder="再输入一次" />
-              </div>
+        <form onSubmit={this.signup} className="signup-form">
+          <div className="signup-text-inputs">
+            <div className="signup-text-inputs-inner">
+              <input ref={value => this.usernameInput = value }type="text" placeholder="用户名" />
+              <input ref={value => this.emailInput = value }type="text" placeholder="Email" />
+              <input ref={value => this.passwordInput = value }type="password" placeholder="password" />
+              <input ref={value => this.passConInput = value }type="password" placeholder="再输一遍" />
             </div>
-            <button className="submit-btn" type="submit">注册</button>
-            <Link to='/login' className="switch-method">
-              已有账号？点此登录
-            </Link>
-          </form>
+          </div>
+          <div className="signup-actions">
+            <button type="submit">注册</button>
+          </div>
+        </form>
+        <div className="signup-other-option">
+          <Link to="/login">已有账号？直接登录</Link>
         </div>
       </div>
+    </div>
     )
   }
 }

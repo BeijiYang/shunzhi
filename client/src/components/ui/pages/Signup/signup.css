@@ -1,81 +1,92 @@
 .signup {
   height: 100vh;
-  color: white;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+}
+.signup-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
-.signup .litte-title {
-  text-align: center;
-  margin-top: 42px;
+
+/*  Hero 部分 */
+.signup-hero {
+  height: 140px;
 }
 
-.signup  h1 {
+.signup-hero .title {
   font-size: 36px;
   color: #FFFFFF;
   line-height: 42px;
   text-align: center;
-  margin-top: 90px;
-  margin-bottom: 5px;
+  margin-top: 54px;
 }
 
-.signup .slogan {
-  /* 连接一个个小而确定的幸福: */
-  font-family: .PingFangSC-Regular;
-  font-size: 16px;
-  margin-top: 10px;
+.signup-hero .slogan {
   text-align: center;
+  margin-top: 10px;
+  font-size: 16px;
   color: #FFFFFF;
 }
 
-.signup .form-wrap {
 
+/* form input 部分 */
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
   width: 280px;
   margin: 0 auto;
-  margin-bottom: 60px;
+  flex-grow: 1;
 }
 
-.signup .input-wrap {
-  background: #FFFFFF;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
-  border-radius: 2px;
+.signup-text-inputs {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-around;
 }
 
-/* FIXME: input 在手机上显示还不太美观：参考： https://codepen.io/MichaelArestad/full/ohLIa/*/
-
-.signup form>div {
-  border-bottom: 1px solid #E3E9EC;
-}
-.signup input{
-  width: 100%;
-  line-height: 50px;
-  color: #212121;
-  padding-left: 20px;
-  outline: 0;
+.signup-form input {
+  line-height: 56px;
   border: 0;
-}
-.signup input::placeholder{
-  font-size: 12px;
+  outline: 0;
+  border-bottom: 1px solid #E3E9EC;
+  text-indent: 20px;
   color: #878787;
 }
 
-.signup .submit-btn {
-  margin-top: 8px;
-  background: #FFFFFF;
+.signup-form input::placeholder {
+  color: #CECECE;
+}
+
+.signup-text-inputs-inner {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-other-option {
+  margin-bottom: 35px;
+  margin-top: 15px;
   text-align: center;
+}
+.signup-other-option a {
+  color: white;
+  line-height: 20px;
+}
+
+.signup-actions button {
+  display: block;
+  border: 0;
+  line-height: 56px;
+  outline: 0;
+  width: 280px;
+  margin: 0 auto;
+  text-align: center;
+  background: #FFFFFF;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.20);
   border-radius: 2px;
   font-size: 14px;
   color: #F77062;
-  border: 0;
-  line-height: 56px;
-  width: 100%;
-}
-
-.signup .switch-method {
-  color: white;
-  text-align: center;
-  display: block;
-  padding: 20px;
 }

@@ -1,4 +1,4 @@
 const Settings = {
-  host: 'http://192.168.1.100:3008'
+  host: 'http://yummy.haoduoshipin.com'
 }
 export default Settings
