@@ -32,8 +32,8 @@ class SignUp extends Component {
   render() {
     return(
       <div className="signup">
-      <TitleHeader title="signup" />
-      <div className="signup-content">
+        <TitleHeader title="signup" />
+        <div className="signup-content">
         <div className="signup-hero" >
           <h1 className="title">
             注册
@@ -59,7 +59,7 @@ class SignUp extends Component {
           <Link to="/login">已有账号？直接登录</Link>
         </div>
       </div>
-    </div>
+      </div>
     )
   }
 }

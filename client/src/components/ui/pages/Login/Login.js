@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import Settings from '../../../../settings'
 import Sidebar from '../../shared/Sidebar/Sidebar'
+import TitleHeader from '../../shared/TitleHeader/TitleHeader'
 import './login.css'
 import {
   Link
@@ -36,31 +37,32 @@ class Login extends Component {
 
   render() {
     return(
-      <div className="login" >
-        <Sidebar />
-        <div className="title-wrap">
-          <div className="litte-title">login</div>
-          <h1>登录</h1>
-          <p className="slogan">连接一个个小而确定的幸福</p>
+      <div className="login">
+        <TitleHeader title="login" />
+        <div className="login-content">
+        <div className="login-hero" >
+          <h1 className="title">
+            登录
+          </h1>
+          <p className="slogan">
+            连接小而确定的幸福
+          </p>
         </div>
-        <div className="form-wrap">
-          <form
-            ref={value => this.loginForm = value}
-            onSubmit={this.login}>
-            <div className="input-wrap">
-              <div>
-                <input ref={value => this.usernameInput = value} type="text" placeholder="用户名" />
-              </div>
-              <div>
-                <input ref={value => this.passwordInput = value} type="password" placeholder="password" />
-              </div>
+        <form onSubmit={this.login} className="login-form">
+          <div className="login-text-inputs">
+            <div className="login-text-inputs-inner">
+              <input ref={value => this.usernameInput = value }type="text" placeholder="用户名" />
+              <input ref={value => this.passwordInput = value }type="password" placeholder="password" />
             </div>
-            <button className="submit-btn" type="submit">登录</button>
-            <Link to='/signup' className="switch-method">
-              没有账号？点此注册
-            </Link>
-          </form>
+          </div>
+          <div className="login-actions">
+            <button type="submit">注册</button>
+          </div>
+        </form>
+        <div className="login-other-option">
+          <Link to="/signup">没有账号？请先登录</Link>
         </div>
+      </div>
       </div>
     )
   }
