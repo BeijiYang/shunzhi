@@ -34,3 +34,33 @@ password 'String' 密码
   msg: '注册成功'
 }
 ```
+
+#### 登录功能
+
+```
+POST /user/login
+```
+
+接收数据
+
+```js
+username `String` 用户名
+password 'String' 密码
+```
+
+错误返回：
+
+```
+{msg: '登陆失败，用户名不存在'}
+{msg: '密码错误，请核对后重试'}
+``
+
+正确返回：
+
+```
+{
+  userId: user._id,
+  username: user.username,
+  msg: '登陆成功'
+}
+```
