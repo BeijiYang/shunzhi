@@ -48,7 +48,8 @@ class Login extends Component {
             连接小而确定的幸福
           </p>
         </div>
-        <form onSubmit={this.login} className="login-form">
+        <form ref={value => this.loginForm = value}
+          onSubmit={this.login} className="login-form">
           <div className="login-text-inputs">
             <div className="login-text-inputs-inner">
               <input ref={value => this.usernameInput = value }type="text" placeholder="用户名" />
