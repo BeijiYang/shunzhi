@@ -1,5 +1,7 @@
 # 后台 API
 
+请求链接： http://yummy.haoduoshipin.com
+
 ## 用户注册登录
 
 实现登录注册
@@ -18,6 +20,8 @@ password 'String' 密码
 ```
 
 用户不可重复注册，重复返回403错误
+
+采用 err.response.data.msg 拿到
 
 ```js
 {
@@ -43,12 +47,15 @@ POST /user/login
 
 接收数据
 
+
 ```js
 username `String` 用户名
 password 'String' 密码
 ```
 
 错误返回：
+
+采用 err.response.data.msg 拿到
 
 ```
 {msg: '登陆失败，用户名不存在'}
