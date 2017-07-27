@@ -10,6 +10,9 @@ import Settings from '../settings'
 import AlertBox from './ui/shared/AlertBox/AlertBox'
 import Sidebar from './ui/shared/Sidebar/Sidebar'
 import Dishes from './ui/pages/Dishes/Dishes'
+import Cart from './ui/pages/Cart/Cart'
+import CartButton from './ui/shared/CartButton/CartButton'
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -34,6 +37,7 @@ class App extends Component {
     return (
       <div>
         <AlertBox />
+        <CartButton />
         <Router>
           <div>
 
@@ -54,6 +58,7 @@ class App extends Component {
               <Route path="/dashboard" component={DashBoard} />
               <Route path="/profile" component={Profile} />
               <Route path="/dishes" component={Dishes} />
+              <Route path="/cart" component={Cart} />
             </Switch>
           </div>
         </Router>
