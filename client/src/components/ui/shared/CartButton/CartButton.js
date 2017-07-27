@@ -9,14 +9,26 @@ class CartButton extends Component {
       'boxShadow': '0 2px 4px 0 rgba(0,0,0,0.50)',
       'width': '50px',
       'height': '50px',
-      'padding': '12px',
+      'padding': '15px',
       'position': 'fixed',
       'bottom': '20px',
       'right': '10px'
     },
     img: {
-      'width': '26px',
-      'height': '26px'
+      'width': '20px',
+      'height': '20px'
+    },
+    cartNo: {
+      'position': 'absolute',
+      'top': '0',
+      'right': '0',
+      'width': '17px',
+      'height': '17px',
+      'borderRadius': '50%',
+      'background': '#212121',
+      'textAlign': 'center',
+      'lineHeight': '17px',
+      'color': 'white'
     }
 
   }
@@ -24,7 +36,12 @@ class CartButton extends Component {
     return(
       <div style={this.styles.button}
       className="cart-button">
-        <img src={cartIcon} alt="icon" />
+        <div style={this.styles.cartNo}
+          className="cart-no">
+          0
+        </div>
+        <img style={this.styles.img}
+        src={cartIcon} alt="icon" />
       </div>
     )
   }
