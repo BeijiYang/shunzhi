@@ -37,10 +37,10 @@ class App extends Component {
     return (
       <div>
         <AlertBox />
-        <CartButton />
+
         <Router>
           <div>
-
+            <CartButton />
             <Route render={({ location }) => {
                 return location.pathname !== '/' ?
                        <Sidebar /> : null

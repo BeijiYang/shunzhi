@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import cartIcon from './cartIcon.svg'
+import {
+  Link
+} from 'react-router-dom'
 
 class CartButton extends Component {
   styles = {
@@ -34,7 +37,7 @@ class CartButton extends Component {
   }
   render() {
     return(
-      <div style={this.styles.button}
+      <Link to="/cart" style={this.styles.button}
       className="cart-button">
         <div style={this.styles.cartNo}
           className="cart-no">
@@ -42,7 +45,7 @@ class CartButton extends Component {
         </div>
         <img style={this.styles.img}
         src={cartIcon} alt="icon" />
-      </div>
+    </Link>
     )
   }
 }
