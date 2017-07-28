@@ -3,6 +3,7 @@ import cartIcon from './cartIcon.svg'
 import {
   Link
 } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 class CartButton extends Component {
   styles = {
@@ -41,7 +42,7 @@ class CartButton extends Component {
       className="cart-button">
         <div style={this.styles.cartNo}
           className="cart-no">
-          0
+          {this.props.total}
         </div>
         <img style={this.styles.img}
         src={cartIcon} alt="icon" />
@@ -50,4 +51,8 @@ class CartButton extends Component {
   }
 }
 
-export default CartButton
+const mapStateToProps = (state) => ({
+  total: state.cart.total
+})
+
+export default connect(mapStateToProps)(CartButton)

@@ -59,7 +59,7 @@ class Sidebar extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  account: state
+  account: state.account
 })
 
 export default connect(mapStateToProps)(Sidebar)
