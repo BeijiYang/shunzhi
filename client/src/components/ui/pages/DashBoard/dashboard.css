@@ -12,7 +12,7 @@
   width: 90%;
   margin: 10px auto;
   position: relative;
-  height: 120px;
+  height: 150px;
   transition: height .5s ease;
 }
 
@@ -29,6 +29,7 @@
   background-color: #fff;
   padding: 20px;
   height: 140px;
+  transition: box-shadow .5s ease;
 }
 
 .dashboard .feed-item.expand .feed-card {
@@ -37,9 +38,9 @@
 
 .dashboard .feed-expand {
   position: absolute;
-  left: 0;
+  left: 2%;
   top: 70px;
-  width: 100%;
+  width: 96%;
   color: white;
   transition: top .5s ease;
   height: 70px;
