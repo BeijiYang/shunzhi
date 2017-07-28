@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import Settings from '../../../../settings'
-import Sidebar from '../../shared/Sidebar/Sidebar'
 import TitleHeader from '../../shared/TitleHeader/TitleHeader'
 import './login.css'
 import {
