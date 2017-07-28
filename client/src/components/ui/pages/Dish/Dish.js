@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import TitleHeader from '../../shared/TitleHeader/TitleHeader'
 import './dish.css'
 import ShoppingIcon from './ShoppingIcon'
+import CommentIcon from '../../icons/CommentIcon'
 import { connect } from 'react-redux'
 
 class Dish extends Component {
@@ -37,6 +38,15 @@ class Dish extends Component {
             <div onClick={this.buy}
               className="shopping-icon-wrap">
               <ShoppingIcon color={this.state.buy ? '#F77062' : '#D0D0D0'}/>
+            </div>
+            <p className="dish-desc">
+              很甜，而且有巧克力和芝士。很甜，而且有巧克力和芝士。很甜，而且有巧克力和芝士。
+            </p>
+            <div className="dish-comment-icon-wrap">
+              <CommentIcon color="#D0D0D0" />
+              <span className="dish-comment-no">
+                43
+              </span>
             </div>
           </div>
         </div>

@@ -54,9 +54,33 @@
 .dish .shopping-icon-wrap {
   text-align: center;
   width: 30px;
-  margin: 10px auto;
+  margin: 20px auto;
 }
 
 .dish .shopping-icon-wrap svg {
   display: inline-block;
+}
+
+.dish .dish-desc {
+  font-size: 14px;
+  margin-top: 20px;
+  color: #878787;
+  text-align: center;
+  line-height: 24px;
+}
+
+.dish-comment-icon-wrap {
+  width: 44px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dish-comment-icon-wrap>* {
+  display: block;
+}
+
+.dish-comment-icon-wrap .dish-comment-no {
+  line-height: 20px;
+  color: #D0D0D0;
 }

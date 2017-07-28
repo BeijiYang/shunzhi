@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import CommentIcon from './CommentIcon'
+import CommentIcon from '../../icons/CommentIcon'
 import { Link } from 'react-router-dom'
 
 const FeedCard = ({username, feedItem}) => (

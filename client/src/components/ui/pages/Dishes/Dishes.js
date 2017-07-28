@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import './dishes.css'
 import DishCard from './DishCard'
+import TitleHeader from '../../shared/TitleHeader/TitleHeader'
 
 class Dishes extends Component {
   render(){
@@ -17,14 +18,12 @@ class Dishes extends Component {
     }
     return(
       <div className="dishes">
-        <div className="dish-header">
-          猜你喜欢
-        </div>
+        <TitleHeader title="猜你喜欢" />
         <Slider {...settings}>
-          <div><DishCard /></div>
-          <div><DishCard /></div>
-          <div><DishCard /></div>
-          <div><DishCard /></div>
+          <div className="dish-card-wrap"><DishCard /></div>
+          <div className="dish-card-wrap"><DishCard /></div>
+          <div className="dish-card-wrap"><DishCard /></div>
+          <div className="dish-card-wrap"><DishCard /></div>
         </Slider>
       </div>
     )
