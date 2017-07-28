@@ -40,7 +40,6 @@ class App extends Component {
 
         <Router>
           <div>
-            <CartButton />
             <Route render={({ location }) => {
                 return location.pathname !== '/' ?
                        <Sidebar /> : null
@@ -60,6 +59,8 @@ class App extends Component {
               <Route path="/dishes" component={Dishes} />
               <Route path="/cart" component={Cart} />
             </Switch>
+            <CartButton />
+
           </div>
         </Router>
       </div>

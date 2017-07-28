@@ -114,3 +114,7 @@
   margin: 30px auto;
   line-height: 39px;
 }
+
+.bm-overlay {
+  z-index: 10000;
+}
