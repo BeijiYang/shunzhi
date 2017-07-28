@@ -10,6 +10,7 @@ import Settings from '../settings'
 import AlertBox from './ui/shared/AlertBox/AlertBox'
 import Sidebar from './ui/shared/Sidebar/Sidebar'
 import Dishes from './ui/pages/Dishes/Dishes'
+import Dish from './ui/pages/Dish/Dish'
 import Cart from './ui/pages/Cart/Cart'
 import CartButton from './ui/shared/CartButton/CartButton'
 
@@ -57,6 +58,7 @@ class App extends Component {
               <Route path="/profile" component={Profile} />
               <Route path="/dishes" component={Dishes} />
               <Route path="/cart" component={Cart} />
+              <Route path="/dish" component={Dish} />
             </Switch>
             <CartButton />
           </div>
