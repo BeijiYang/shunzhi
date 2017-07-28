@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import CommentIcon from './CommentIcon'
-
+import { Link } from 'react-router-dom'
 
 const FeedCard = ({username, feedItem}) => (
   <div className="feed-card">
@@ -22,6 +22,8 @@ const FeedCard = ({username, feedItem}) => (
         <CommentIcon color={feedItem.state.expand ? '#FE5196' : '#D0D0D0'}/>
       </div>
     </div>
+    <Link to="/dish" className='feed-dish'>
+    </Link>
   </div>
 )
 
