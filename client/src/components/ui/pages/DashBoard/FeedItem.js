@@ -3,9 +3,24 @@ import React, { Component } from 'react'
 
 const FeedCard = ({username, toggleExpand}) => (
   <div className="feed-card">
-    {username}
-    <div className="db-button"
-      to="" onClick={toggleExpand}>评论</div>
+    <div className="feed-card-header">
+      <div className="feed-user">
+        <img src="http://media.haoduoshipin.com/yummy/default-avatar.png"
+          alt="avatar" />
+        <div className="feed-user-info">
+          <div className="feed-username">
+            {username}
+          </div>
+          <div className="feed-time">
+            周三下午四点
+          </div>
+        </div>
+      </div>
+      <div className="feed-button"
+        to="" onClick={toggleExpand}>
+        评论
+      </div>
+    </div>
   </div>
 )
 
@@ -32,7 +47,7 @@ class FeedItem extends Component {
       <div
         className={`feed-item ${this.state.expand ? 'expand' : ''}`}>
         <FeedExpand comment={this.props.comment}/>
-        <FeedCard toggleExpand={this.toggleExpand}/>
+        <FeedCard username={this.props.username} toggleExpand={this.toggleExpand}/>
       </div>
     )
   }

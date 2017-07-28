@@ -32,6 +32,38 @@
   transition: box-shadow .5s ease;
 }
 
+.dashboard .feed-card-header {
+  border: 3px solid red;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dashboard .feed-user {
+  display: flex;
+}
+
+.dashboard .feed-card-header img {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  margin-right: 10px;
+  margin-left: 8px;
+  margin-bottom: 18px;
+}
+
+.dashboard .feed-username {
+  font-size: 16px;
+  color: #F77062;
+  line-height: 25px;
+  margin-top: 5px;
+}
+
+.dashboard .feed-time {
+  font-size: 12px;
+  color: #878787;
+}
+
+
 .dashboard .feed-item.expand .feed-card {
   box-shadow: 0 10px 10px 0 rgba(0,0,0,0.21);
 }
@@ -55,9 +87,10 @@
   top: 120px;
 }
 
-.dashboard .db-button {
+.dashboard .feed-button {
   width: 70px;
   display: block;
   line-height: 40px;
   cursor: pointer;
+  border: 2px solid red;
 }
