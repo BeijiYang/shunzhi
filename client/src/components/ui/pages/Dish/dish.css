@@ -31,4 +31,32 @@
   margin-top: 10px;
   background: #FFFFFF;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
+  padding: 10px;
+}
+
+.dish-info-card h1.dish-name {
+  text-align: center;
+  font-size: 26px;
+  color: #F77062;
+  line-height: 32px;
+  margin-top: 20px;
+}
+
+.dish-info-card .price-tag {
+  color: #878787;
+  text-align: center;
+}
+
+.dish-info-card .price-tag span.unit {
+  color: #F77062;
+}
+
+.dish .shopping-icon-wrap {
+  text-align: center;
+  width: 30px;
+  margin: 10px auto;
+}
+
+.dish .shopping-icon-wrap svg {
+  display: inline-block;
 }
