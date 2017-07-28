@@ -1,5 +1,20 @@
 import React, { Component } from 'react'
 
+
+const FeedCard = ({username, toggleExpand}) => (
+  <div className="feed-card">
+    {username}
+    <div className="db-button"
+      to="" onClick={toggleExpand}>评论</div>
+  </div>
+)
+
+const FeedExpand = ({comment}) => (
+  <div className="feed-expand">
+    {comment}
+  </div>
+)
+
 class FeedItem extends Component {
 
   state = {
@@ -7,24 +22,17 @@ class FeedItem extends Component {
   }
 
   toggleExpand = () => {
-    let expand = this.state.expand === false ? true : false
     this.setState({
-      expand
+      expand: !this.state.expand
     })
   }
 
   render() {
     return(
       <div
-        className={this.state.expand ? "feed-item expand" : "feed-item"}>
-        <div className="feed-card">
-          {this.props.username}
-          <div className="db-button"
-            to="" onClick={this.toggleExpand}>评论</div>
-        </div>
-        <div className="feed-expand">
-          {this.props.comment}
-        </div>
+        className={`feed-item ${this.state.expand ? 'expand' : ''}`}>
+        <FeedCard toggleExpand={this.toggleExpand}/>
+        <FeedExpand comment={this.props.comment}/>
       </div>
     )
   }

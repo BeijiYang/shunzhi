@@ -37,7 +37,6 @@ class App extends Component {
     return (
       <div>
         <AlertBox />
-
         <Router>
           <div>
             <Route render={({ location }) => {
@@ -60,7 +59,6 @@ class App extends Component {
               <Route path="/cart" component={Cart} />
             </Switch>
             <CartButton />
-
           </div>
         </Router>
       </div>
