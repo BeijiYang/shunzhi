@@ -30,9 +30,6 @@ class DishCard extends Component {
             </div>
           </p>
         </div>
-
-
-
       </Link>
     )
   }
