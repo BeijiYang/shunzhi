@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import CommentIcon from './CommentIcon'
 
 
 const FeedCard = ({username, toggleExpand}) => (
@@ -18,7 +19,7 @@ const FeedCard = ({username, toggleExpand}) => (
       </div>
       <div className="feed-button"
         to="" onClick={toggleExpand}>
-        评论
+        <CommentIcon color={'#D0D0D0'}/>
       </div>
     </div>
   </div>

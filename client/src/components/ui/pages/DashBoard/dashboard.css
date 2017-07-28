@@ -4,7 +4,6 @@
 
 .dashboard .feed-wrap {
   background-color: #F9FAFB;
-  border: 2px solid red;
   padding-bottom: 100px;
 }
 
@@ -33,7 +32,6 @@
 }
 
 .dashboard .feed-card-header {
-  border: 3px solid red;
   display: flex;
   justify-content: space-between;
 }
@@ -88,9 +86,8 @@
 }
 
 .dashboard .feed-button {
-  width: 70px;
+  width: 20px;
   display: block;
   line-height: 40px;
   cursor: pointer;
-  border: 2px solid red;
 }
