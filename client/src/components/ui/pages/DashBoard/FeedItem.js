@@ -31,8 +31,8 @@ class FeedItem extends Component {
     return(
       <div
         className={`feed-item ${this.state.expand ? 'expand' : ''}`}>
-        <FeedCard toggleExpand={this.toggleExpand}/>
         <FeedExpand comment={this.props.comment}/>
+        <FeedCard toggleExpand={this.toggleExpand}/>
       </div>
     )
   }
