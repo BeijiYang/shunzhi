@@ -9,6 +9,7 @@ class Dashboard extends Component {
       {username: 'Billie Zhang', comment: '真是好吃'},
       {username: 'Peter Wang', comment: '不错'},
       {username: '李逵', comment: '3星'},
+      {username: '李逵', comment: '3星'},
     ]
     const cardList = cards.map((c, index) => {
       return (
@@ -17,7 +18,7 @@ class Dashboard extends Component {
     })
     return(
       <div className="dashboard">
-        <div className="dashboard-content">
+        <div className="feed-wrap">
           {cardList}
         </div>
       </div>
