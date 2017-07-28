@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import CommentIcon from './CommentIcon'
 
 
-const FeedCard = ({username, toggleExpand}) => (
+const FeedCard = ({username, feedItem}) => (
   <div className="feed-card">
     <div className="feed-card-header">
       <div className="feed-user">
@@ -18,8 +18,8 @@ const FeedCard = ({username, toggleExpand}) => (
         </div>
       </div>
       <div className="feed-button"
-        to="" onClick={toggleExpand}>
-        <CommentIcon color={'#D0D0D0'}/>
+        to="" onClick={feedItem.toggleExpand}>
+        <CommentIcon color={feedItem.state.expand ? '#FE5196' : '#D0D0D0'}/>
       </div>
     </div>
   </div>
@@ -48,7 +48,7 @@ class FeedItem extends Component {
       <div
         className={`feed-item ${this.state.expand ? 'expand' : ''}`}>
         <FeedExpand comment={this.props.comment}/>
-        <FeedCard username={this.props.username} toggleExpand={this.toggleExpand}/>
+        <FeedCard username={this.props.username} feedItem={this}/>
       </div>
     )
   }
