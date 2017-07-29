@@ -5,7 +5,7 @@ exports.all = function (req, res) {
     if (err) return res.status(500).json({msg: '查找失败',err});
     if (dishes) {
       let result = dishes.reduce(function(map, obj) {
-          map[obj._id] = { name: obj.name, desc: obj.desc, poster obj.poster}
+          map[obj._id] = { name: obj.name, desc: obj.desc, poster: obj.poster}
           return map;
       }, {});
       return res.json({msg: '读取成功', result})
