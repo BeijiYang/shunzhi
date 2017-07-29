@@ -11,17 +11,19 @@ class Dish extends Component {
     buy: false
   }
 
-  buy = () => {
+
+
+  buy = (dish) => {
     this.setState({
       buy: true
     })
-    this.props.dispatch({ type: 'ADD_CART', dishId: this.props.match.params.dishId })
+    this.props.dispatch({ type: 'ADD_CART', dishId: this.props.match.params.dishId, dish: dish })
   }
 
   render(){
-    let { dishId } = this.props.match.params
-    let dish = this.props.dishes[dishId]
     if(Object.keys(this.props.dishes).length !== 0){
+      let dish = this.props.dishes[this.props.match.params.dishId]
+
       return (
         <div className="dish">
           <TitleHeader title="草莓派" />
@@ -38,7 +40,7 @@ class Dish extends Component {
               <div className="price-tag">
                 {dish.price}<span className="unit">元</span>
               </div>
-              <div onClick={this.buy}
+              <div onClick={() => this.buy(dish)}
                 className="shopping-icon-wrap">
                 <ShoppingIcon color={this.state.buy ? '#F77062' : '#D0D0D0'}/>
               </div>
