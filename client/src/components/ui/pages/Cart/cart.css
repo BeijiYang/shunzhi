@@ -1,11 +1,13 @@
 .cart {
-  min-height: 80vh;
+  height: 100vh;
   border: 2px solid yellow;
+  display: flex;
+  flex-direction: column;
 }
 
 .cart-hero {
-  height: 40vh;
-  padding-top: 15vh;
+  height: 230px;
+  padding-top: 12vh;
 }
 
 .cart-hero h1 {
@@ -16,10 +18,16 @@
 
 .cart-list-wrap {
   background-color: #fff;
-  min-height: 100vh;
+  flex-grow: 1;
+  border: 2px solid green;
 }
+
 .cart-item-list {
+  border: 2px solid red;
   background-color: #fff;
   margin: 0 10px;
+  margin-top: -40px;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
+  overflow: auto;
+  height: 40vh;
 }
