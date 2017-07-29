@@ -13,10 +13,10 @@ class DishCard extends Component {
         </div>
         <div className="dish-card-detail">
           <h1 className="dish-name">
-            草莓派
+            {dish.name}
           </h1>
           <div className="price-tag">
-            24<span className="unit">元</span>
+            {dish.price}<span className="unit">元</span>
           </div>
           <div className="dish-card-icon-wrap">
             <div className="dish-card-icon-inner">
@@ -27,7 +27,7 @@ class DishCard extends Component {
             </div>
           </div>
           <div className="dish-desc">
-            很甜，而且有巧克力和芝士。很甜，而且有巧克力和芝士。很甜，而且有巧克力和芝士。
+            {dish.desc}
             <div className="dish-desc-mask">
             </div>
           </div>
