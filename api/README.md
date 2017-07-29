@@ -71,3 +71,16 @@ password 'String' 密码
   msg: '登陆成功'
 }
 ```
+
+#### 读取 dishes
+
+
+```
+GET /user/login
+```
+
+返回
+
+```
+{"msg":"读取成功","dishes":[{"_id":"597be20c2bbfdbaa14bfa248","name":"草莓派","poster":"http://media.haoduoshipin.com/yummy/dishes/dish1.jpg","desc":"草莓，果酱，芝士，非常甜美可口","price":"23"},{"_id":"597be2122bbfdbaa14bfa249","name":"提拉米苏","poster":"http://media.haoduoshipin.com/yummy/dishes/dish2.jpg","desc":"俄罗斯风味，芝士，非常甜美可口","price":"33"},{"_id":"597be2182bbfdbaa14bfa24a","name":"黑森林","poster":"http://media.haoduoshipin.com/yummy/dishes/dish3.jpg","desc":"很多巧克力，芝士，非常甜美可口","price":"33"}]}%
+```
