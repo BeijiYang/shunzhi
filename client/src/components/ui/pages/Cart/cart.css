@@ -1,0 +1,14 @@
+.cart {
+  min-height: 80vh;
+  border: 2px solid yellow;
+}
+
+.cart-hero {
+  height: 40vh;
+  padding-top: 15vh;
+}
+
+.cart-hero h1 {
+  text-align: center;
+  color: white;
+}

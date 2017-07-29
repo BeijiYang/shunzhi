@@ -1,6 +1,7 @@
 let cart = {
   total: 0,
-  dishes: []
+  dishes: [],
+  totalPrice: 60
 }
 
 export default function cartReducer(state=cart, action) {
