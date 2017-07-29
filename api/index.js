@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 
 app.use(cors());
 
-let dbURL = 'mongodb://localhost:27017/aa-api';
+let dbURL = 'mongodb://localhost:27017/yummy';
 mongoose.Promise = global.Promise;
 mongoose.connect(dbURL)
 var db = mongoose.connection;
