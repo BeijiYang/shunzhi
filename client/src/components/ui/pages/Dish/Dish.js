@@ -63,9 +63,8 @@ class Dish extends Component {
       </div>
     )
     return(
-      {/*this.props.dishes === {} ? '' : dishStr*/}
       <div>
-        hello
+        {dishStr}
       </div>
     )
   }
