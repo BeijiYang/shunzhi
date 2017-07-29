@@ -12,3 +12,13 @@
   text-align: center;
   color: white;
 }
+
+.cart-list-wrap {
+  background-color: #fff;
+  min-height: 100vh;
+}
+.cart-item-list {
+  background-color: #fff;
+  margin: 0 10px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
+}

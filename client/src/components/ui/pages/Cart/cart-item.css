@@ -1,0 +1,9 @@
+.cart-item {
+  border-bottom: 1px solid red;
+  display: flex;
+}
+
+.cart-item-poster {
+  width: 100px;
+  height: 100px;
+}

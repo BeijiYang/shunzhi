@@ -1,6 +1,6 @@
 let cart = {
-  total: 0,
-  dishes: [],
+  total: 2,
+  dishes: ['597be20c2bbfdbaa14bfa248','597be2122bbfdbaa14bfa249'],
   totalPrice: 60
 }
 
