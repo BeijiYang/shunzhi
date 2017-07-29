@@ -7,7 +7,7 @@ class DishCard extends Component {
   render() {
     const { dish } = this.props
     return(
-      <Link to="/dish" className="dish-card">
+      <Link to={`/dish/${dish._id}`} className="dish-card">
         <div style={{ 'backgroundImage' : `url(${dish.poster})` }}
           className="dish-card-poster">
         </div>
@@ -27,7 +27,7 @@ class DishCard extends Component {
             </div>
           </div>
           <div className="dish-desc">
-            {dish.desc}
+            {dish.desc + dish.desc + dish.desc + dish.desc}
             <div className="dish-desc-mask">
             </div>
           </div>

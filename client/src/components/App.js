@@ -67,7 +67,7 @@ class App extends Component {
               <Route path="/profile" component={Profile} />
               <Route path="/dishes" component={Dishes} />
               <Route path="/cart" component={Cart} />
-              <Route path="/dish" component={Dish} />
+              <Route path="/dish/:dishId" component={Dish} />
             </Switch>
             <CartButton />
           </div>

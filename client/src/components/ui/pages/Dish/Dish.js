@@ -16,10 +16,11 @@ class Dish extends Component {
     this.setState({
       buy: true
     })
-    this.props.dispatch({ type: 'ADD_CART', dishID: 'xxx'})
+    this.props.dispatch({ type: 'ADD_CART', dishID: this.props.match.params.dishId })
   }
 
   render(){
+    console.log('in Dish...', this.props.dishes, this.props.match.params.dishId)
     return(
       <div className="dish">
         <TitleHeader title="草莓派" />
@@ -55,4 +56,8 @@ class Dish extends Component {
   }
 }
 
-export default connect(null)(Dish)
+const mapStateToProps = (state) => ({
+  dishes: state.dish.all
+})
+
+export default connect(mapStateToProps)(Dish)
