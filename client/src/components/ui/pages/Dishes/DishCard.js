@@ -5,9 +5,11 @@ import { Link } from 'react-router-dom'
 
 class DishCard extends Component {
   render() {
+    const { dish } = this.props
     return(
       <Link to="/dish" className="dish-card">
-        <div className="dish-card-poster">
+        <div style={{ 'backgroundImage' : `url(${dish.poster})` }}
+          className="dish-card-poster">
         </div>
         <div className="dish-card-detail">
           <h1 className="dish-name">
@@ -24,11 +26,11 @@ class DishCard extends Component {
               </span>
             </div>
           </div>
-          <p className="dish-desc">
+          <div className="dish-desc">
             很甜，而且有巧克力和芝士。很甜，而且有巧克力和芝士。很甜，而且有巧克力和芝士。
             <div className="dish-desc-mask">
             </div>
-          </p>
+          </div>
         </div>
       </Link>
     )

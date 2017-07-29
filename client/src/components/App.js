@@ -26,12 +26,21 @@ import { connect } from 'react-redux'
 
 class App extends Component {
   componentDidMount() {
+    // AUTH_USER
     let userId = localStorage.getItem('userId')
     if(userId) {
       axios.get(`${Settings.host}/user/${userId}`).then(res => {
         this.props.dispatch({ type: 'AUTH_USER', username: res.data.user.username })
       })
     }
+
+    // LOAD_DISHES
+
+    axios.get(`${Settings.host}/dishes`).then(res => {
+        this.props.dispatch({ type: 'LOAD_DISHES', dishes: res.data.dishes })
+      }
+    )
+
   }
   render() {
     const { isAuthenticated } = this.props
