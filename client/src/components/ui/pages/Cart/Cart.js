@@ -6,6 +6,11 @@ import './cart.css'
 import { Link } from 'react-router-dom'
 
 class Cart extends Component {
+
+  checkout = () => {
+    console.log('checkout');
+  }
+  
   render() {
     const { dishes, cart } = this.props
     if(Object.keys(dishes).length !== 0 && cart.dishes.length !== 0) {
@@ -25,6 +30,10 @@ class Cart extends Component {
           <div className="cart-list-wrap">
             <div className="cart-item-list">
               {itemList}
+            </div>
+            <div onClick={this.checkout}
+              className="cart-checkout-button">
+              结算
             </div>
           </div>
         </div>
