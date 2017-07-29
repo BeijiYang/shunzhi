@@ -8,7 +8,7 @@ exports.all = function (req, res) {
           map[obj._id] = { name: obj.name, desc: obj.desc, poster: obj.poster}
           return map;
       }, {});
-      return res.json({msg: '读取成功', result})
+      return res.json({msg: '读取成功', dishes: result})
     }
   })
 }

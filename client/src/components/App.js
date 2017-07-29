@@ -37,6 +37,7 @@ class App extends Component {
     // LOAD_DISHES
 
     axios.get(`${Settings.host}/dishes`).then(res => {
+        console.log('axios..', res.data)
         this.props.dispatch({ type: 'LOAD_DISHES', dishes: res.data.dishes })
       }
     )

@@ -19,8 +19,8 @@ class Dishes extends Component {
     }
     console.log('dishes', this.props.dishes)
     const { dishes } = this.props
-    let slideStr = dishes.map(item => (
-      <div key={item._id} className="dish-card-wrap"><DishCard dish={item} /></div>
+    let slideStr = Object.keys(dishes).map(id => (
+      <div key={id} className="dish-card-wrap"><DishCard dish={dishes[id]} /></div>
     ))
 
     let slide = (
