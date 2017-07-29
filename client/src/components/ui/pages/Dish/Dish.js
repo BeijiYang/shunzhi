@@ -21,6 +21,8 @@ class Dish extends Component {
 
   render(){
     console.log('in Dish...', this.props.dishes, this.props.match.params.dishId)
+    let dishId = this.props.match.params
+    let dish = this.props.dishes[dishId]
     return(
       <div className="dish">
         <TitleHeader title="草莓派" />
@@ -31,17 +33,17 @@ class Dish extends Component {
           </div>
           <div className="dish-info-card">
             <h1 className="dish-name">
-              草莓派
+              {dish.name}
             </h1>
             <div className="price-tag">
-              24<span className="unit">元</span>
+              {dish.price}<span className="unit">元</span>
             </div>
             <div onClick={this.buy}
               className="shopping-icon-wrap">
               <ShoppingIcon color={this.state.buy ? '#F77062' : '#D0D0D0'}/>
             </div>
             <p className="dish-desc">
-              很甜，而且有巧克力和芝士。很甜，而且有巧克力和芝士。很甜，而且有巧克力和芝士。
+              {dish.desc}
             </p>
             <div className="dish-comment-icon-wrap">
               <CommentIcon color="#D0D0D0" />

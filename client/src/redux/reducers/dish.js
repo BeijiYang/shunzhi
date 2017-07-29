@@ -1,5 +1,5 @@
 let dish = {
-  all: []
+  all: {}
 }
 
 export default function dishReducer(state=dish, action) {
