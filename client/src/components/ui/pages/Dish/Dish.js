@@ -22,8 +22,15 @@ class Dish extends Component {
   render(){
     console.log('in Dish...', this.props.dishes, this.props.match.params.dishId)
     let dishId = this.props.match.params
-    let dish = this.props.dishes[dishId]
-    return(
+    // let dish = this.props.dishes[dishId]
+    let dish = {
+      name: 'dd',
+      price: '23',
+      desc: 'www'
+    }
+    console.log('.....ddd...', this.props.dishes)
+
+    let dishStr = (
       <div className="dish">
         <TitleHeader title="草莓派" />
         <div className="dish-info">
@@ -53,6 +60,12 @@ class Dish extends Component {
             </div>
           </div>
         </div>
+      </div>
+    )
+    return(
+      {/*this.props.dishes === {} ? '' : dishStr*/}
+      <div>
+        hello
       </div>
     )
   }
