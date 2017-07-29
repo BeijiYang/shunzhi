@@ -12,17 +12,15 @@ class Dish extends Component {
   }
 
   buy = () => {
-    console.log('buy...')
     this.setState({
       buy: true
     })
-    this.props.dispatch({ type: 'ADD_CART', dishID: this.props.match.params.dishId })
+    this.props.dispatch({ type: 'ADD_CART', dishId: this.props.match.params.dishId })
   }
 
   render(){
     let { dishId } = this.props.match.params
     let dish = this.props.dishes[dishId]
-    console.log('in Dish...', this.props.dishes, dishId)
     if(Object.keys(this.props.dishes).length !== 0){
       return (
         <div className="dish">
