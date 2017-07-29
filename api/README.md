@@ -76,7 +76,7 @@ password 'String' 密码
 
 
 ```
-GET /user/login
+GET /dishes
 ```
 
 返回
