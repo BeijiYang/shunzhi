@@ -12,11 +12,11 @@ class Cart extends Component {
   }
 
   render() {
-    const { dishes, cart } = this.props
-    if(Object.keys(dishes).length !== 0 && cart.dishes.length !== 0) {
-      let itemList = this.props.cart.dishes.map(item => {
+    const { dishes } = this.props
+    if(Object.keys(dishes).length !== 0 ) {
+      let itemList = Object.keys(dishes).map(id => {
         return (
-          <CartItem key={item} dish={dishes[item]} dishId={item}/>
+          <CartItem key={id} dish={dishes[id]} dishId={id}/>
         )
       })
       return(
@@ -24,7 +24,7 @@ class Cart extends Component {
           <TitleHeader title="购物车" />
           <div className="cart-hero">
             <h1 className="total-price">
-              {this.props.cart.totalPrice} 元
+              {this.props.totalPrice} 元
             </h1>
           </div>
           <div className="cart-list-wrap">
@@ -50,7 +50,7 @@ class Cart extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  cart: state.cart,
-  dishes: state.dish.all
+  dishes: state.cart.dishes,
+  totalPrice: state.cart.totalPrice
 })
 export default connect(mapStateToProps)(Cart)
