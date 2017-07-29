@@ -4,12 +4,26 @@ import './cart-item.css'
 
 class CartItem extends Component {
 
-  decrement(id){
-    console.log(id)
+  state = {
+    itemCount: 1
+
   }
 
-  increment(id) {
-    console.log(id);
+  decrement = () => {
+    console.log(this.props.dishId)
+    let itemCount = this.state.itemCount - 1
+    this.setState({
+      itemCount
+    })
+  }
+
+  increment = () => {
+    console.log(this.props.dishId)
+    let itemCount = this.state.itemCount + 1
+    this.setState({
+      itemCount
+    })
+    this.props.dispatch({ type: 'INCR_CART_ITEM', dishId: this.porps.dishId })
   }
 
   render(){
@@ -31,14 +45,14 @@ class CartItem extends Component {
           </div>
         </div>
         <div className="cart-action">
-          <div onClick={() => this.decrement('id')}
+          <div onClick={this.decrement}
             className="minus">
             -
           </div>
           <div className="item-count">
-            2
+            {this.state.itemCount}
           </div>
-          <div onClick={() => this.increment('id')}
+          <div onClick={this.increment}
             className="plus">
             +
           </div>

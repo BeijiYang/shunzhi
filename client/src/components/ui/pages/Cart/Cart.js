@@ -10,13 +10,13 @@ class Cart extends Component {
   checkout = () => {
     console.log('checkout');
   }
-  
+
   render() {
     const { dishes, cart } = this.props
     if(Object.keys(dishes).length !== 0 && cart.dishes.length !== 0) {
       let itemList = this.props.cart.dishes.map(item => {
         return (
-          <CartItem key={item} dish={dishes[item]} />
+          <CartItem key={item} dish={dishes[item]} dishId={item}/>
         )
       })
       return(
