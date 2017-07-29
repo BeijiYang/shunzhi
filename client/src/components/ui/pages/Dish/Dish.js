@@ -20,53 +20,46 @@ class Dish extends Component {
   }
 
   render(){
-    console.log('in Dish...', this.props.dishes, this.props.match.params.dishId)
-    let dishId = this.props.match.params
-    // let dish = this.props.dishes[dishId]
-    let dish = {
-      name: 'dd',
-      price: '23',
-      desc: 'www'
-    }
-    console.log('.....ddd...', this.props.dishes)
-
-    let dishStr = (
-      <div className="dish">
-        <TitleHeader title="草莓派" />
-        <div className="dish-info">
-          <div className="dish-img-wrap">
-            <div className="img">
+    let { dishId } = this.props.match.params
+    let dish = this.props.dishes[dishId]
+    console.log('in Dish...', this.props.dishes, dishId)
+    if(Object.keys(this.props.dishes).length !== 0){
+      return (
+        <div className="dish">
+          <TitleHeader title="草莓派" />
+          <div className="dish-info">
+            <div className="dish-img-wrap">
+              <div style={{ 'backgroundImage' : `url(${dish.poster})`}}
+                className="img">
+              </div>
             </div>
-          </div>
-          <div className="dish-info-card">
-            <h1 className="dish-name">
-              {dish.name}
-            </h1>
-            <div className="price-tag">
-              {dish.price}<span className="unit">元</span>
-            </div>
-            <div onClick={this.buy}
-              className="shopping-icon-wrap">
-              <ShoppingIcon color={this.state.buy ? '#F77062' : '#D0D0D0'}/>
-            </div>
-            <p className="dish-desc">
-              {dish.desc}
-            </p>
-            <div className="dish-comment-icon-wrap">
-              <CommentIcon color="#D0D0D0" />
-              <span className="dish-comment-no">
-                43
-              </span>
+            <div className="dish-info-card">
+              <h1 className="dish-name">
+                {dish.name}
+              </h1>
+              <div className="price-tag">
+                {dish.price}<span className="unit">元</span>
+              </div>
+              <div onClick={this.buy}
+                className="shopping-icon-wrap">
+                <ShoppingIcon color={this.state.buy ? '#F77062' : '#D0D0D0'}/>
+              </div>
+              <p className="dish-desc">
+                {dish.desc}
+              </p>
+              <div className="dish-comment-icon-wrap">
+                <CommentIcon color="#D0D0D0" />
+                <span className="dish-comment-no">
+                  43
+                </span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    )
-    return(
-      <div>
-        {dishStr}
-      </div>
-    )
+      )
+    } else {
+      return null
+    }
   }
 }
 
