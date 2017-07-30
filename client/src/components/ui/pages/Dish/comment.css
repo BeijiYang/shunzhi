@@ -1,0 +1,24 @@
+.comment {
+}
+
+.comment-item {
+  border: 2px solid red;
+  display: flex;
+}
+
+.comment-item img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.comment-item .username-time {
+  border: 1px solid blue;
+  display: flex;
+  justify-content: space-between;
+}
+
+.comment-item .comment-detail {
+  border: 1px solid green;
+  flex-grow: 1;
+}

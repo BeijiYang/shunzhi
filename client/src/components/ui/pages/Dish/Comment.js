@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import Settings from '../../../../settings'
 import { connect } from 'react-redux'
+import './comment.css'
 
 class Comment extends Component {
 
@@ -17,8 +18,30 @@ class Comment extends Component {
   }
 
   render(){
+    let { comments } = this.props
+    console.log('...', comments)
+    let commentList = Object.keys(comments).map( id => (
+        <li className="comment-item"
+          key={id}>
+          <img src={comments[id].avatar} alt="avatar" />
+          <div className="comment-detail">
+            <div className="username-time">
+              <div className="comment-username">
+                username{comments[id].username}
+              </div>
+              <div className="comment-time">
+                time
+              </div>
+            </div>
+            <div className="comment-content">
+              {comments[id].content}
+            </div>
+          </div>
+        </li>
+      ))
     return(
       <div className="comment">
+        {commentList}
         <form onSubmit={this.newComment}>
           <input ref={value => this.commentInput = value}
            type="text" placeholder="输入评论内容" />
@@ -29,4 +52,8 @@ class Comment extends Component {
   }
 }
 
-export default connect(null)(Comment)
+const mapStateToProps = (state) => ({
+  comments: state.comment.all
+})
+
+export default connect(mapStateToProps)(Comment)
