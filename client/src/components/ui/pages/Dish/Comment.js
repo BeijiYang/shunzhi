@@ -25,8 +25,9 @@ class Comment extends Component {
 
   render(){
     let { comments } = this.props
-    console.log('....', comments)
-    let commentList = Object.keys(comments).map( id => (
+    let hereCommentKeys = Object.keys(comments).filter(id => comments[id].dish._id === this.props.dishId)
+
+    let commentList = hereCommentKeys.map( id => (
         <li className="comment-item"
           key={id}>
           <img src="http://media.haoduoshipin.com/yummy/default-avatar.png" alt="avatar" />
