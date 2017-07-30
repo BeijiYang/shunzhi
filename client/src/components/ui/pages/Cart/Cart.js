@@ -10,6 +10,7 @@ class Cart extends Component {
   checkout = () => {
     console.log('checkout');
     this.props.dispatch({ type: 'SHOW_ALERT', message: '结算成功，欢迎继续逛逛'})
+    this.props.dispatch({ type: 'CLEAE_CART'})
     this.props.history.push('/dashboard')
   }
 

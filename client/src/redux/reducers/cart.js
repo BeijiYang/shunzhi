@@ -52,6 +52,8 @@ export default function cartReducer(state=cart, action) {
                    }
       nextPrice = calPrice(nextDishes)
       return { ...state, dishes: nextDishes, totalPrice: nextPrice }
+    case 'CLEAE_CART':
+      return { total: 0, dishes: {}, totalPrice: 0 }
     default:
       return state
   }
