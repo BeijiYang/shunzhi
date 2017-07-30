@@ -21,6 +21,26 @@ exports.signup = function (req, res) {
 }
 
 
+exports.update = function (req, res) {
+  let _user = req.body;
+  User.findOne({username:_user.username},function (err,user) {
+    if (err) return res.status(500).json({msg: '注册失败，请重试',err});
+    if (user) {
+      user.slogan = _user.slogan
+      user.save(function (err,user) {
+        if (err) return res.status(500).json({msg: '注册失败，请重试',err});
+        res.json({
+          slogan: user.slogan,
+          username: user.username,
+          msg: '更新成功'
+        })
+      })
+    }
+  })
+}
+
+
+
 exports.login = function (req, res) {
   var _user = req.body;
   User.findOne({username:_user.username},function (err,user) {

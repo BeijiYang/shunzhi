@@ -33,10 +33,11 @@ class Profile extends Component {
     e.preventDefault()
     let slogan = this.sloganInput.value
     let data = {
+      username: this.props.user.username,
       slogan
     }
     console.log(data)
-    axios.put(`${Settings.host}/user/${this.userid}`, data).then( res => {
+    axios.put(`${Settings.host}/user`, data).then( res => {
       console.log(res.data)
     })
   }
