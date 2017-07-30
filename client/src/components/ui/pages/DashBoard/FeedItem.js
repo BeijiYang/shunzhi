@@ -3,12 +3,6 @@ import CommentIcon from '../../icons/CommentIcon'
 import { Link } from 'react-router-dom'
 
 
-const FeedExpand = ({comment}) => (
-  <div className="feed-expand">
-    {comment}
-  </div>
-)
-
 class FeedItem extends Component {
 
   state = {
@@ -27,8 +21,10 @@ class FeedItem extends Component {
     return(
       <div
         className={`feed-item ${this.state.expand ? 'expand' : ''}`}>
-        <FeedExpand comment={comment.content}/>
-          <div className="feed-card">
+        <div className="feed-expand">
+          {comment.content}
+        </div>
+        <div className="feed-card">
             <div className="feed-card-header">
               <div className="feed-user">
                 <img src="http://media.haoduoshipin.com/yummy/default-avatar.png"
@@ -38,7 +34,7 @@ class FeedItem extends Component {
                     {comment.user.username}
                   </div>
                   <div className="feed-time">
-                    周三下午四点
+                    {comment.createdAt}
                   </div>
                 </div>
               </div>
@@ -48,7 +44,7 @@ class FeedItem extends Component {
               </div>
             </div>
             <Link   style={{ 'backgroundImage': `url(${comment.dish.poster})`}}
-              to="/dish" className='feed-dish'>
+              to={`/dish/${comment.dish._id}`} className='feed-dish'>
             </Link>
           </div>
       </div>

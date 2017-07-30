@@ -15,7 +15,7 @@ class Dashboard extends Component {
       {username: '李逵', comment: '3星'},
       {username: '李逵', comment: '3星'},
     ]
-    const cardList = Object.keys(comments).map(id => {
+    const cardList = Object.keys(comments).reverse().map(id => {
       return (
         <FeedItem key={id} comment={comments[id]} />
       )
