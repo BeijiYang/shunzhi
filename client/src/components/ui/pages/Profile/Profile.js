@@ -8,9 +8,7 @@ import editIcon from './editIcon.svg'
 
 class Profile extends Component {
   state = {
-    edit: false,
-    defaultSlogan: '个性签名',
-    defaultAvatar: 'http://media.haoduoshipin.com/yummy/default-avatar.png'
+    edit: false
   }
 
   edit = () => {
@@ -42,40 +40,45 @@ class Profile extends Component {
     console.log(data)
     axios.put(`${Settings.host}/user`, data).then( res => {
       console.log(res.data)
+      this.props.dispatch({ type: 'LOAD_USER', user: res.data.user })
+      this.setState({
+        edit: false
+      })
     })
+
   }
 
   render() {
     console.log('Profile...', this.props.user)
     let editForm = (
-      <form onSubmit={this.updateUser}>
-        <input type="text" placeholder={this.props.user.username} />
-        <input ref={value => this.sloganInput = value}
-          type="text" placeholder={this.state.defaultSlogan} />
-        <button type="submit">提交</button>
+      <form className="profile-form"
+        onSubmit={this.updateUser}>
+        <input className="profile-slogan-input"
+          ref={value => this.sloganInput = value}
+          type="text" placeholder={this.props.user.slogan} />
+        <button type="submit">保存</button>
       </form>
     )
-
     const { user } = this.props
+    let   slogan   = user.slogan.length === 0 ? this.state.defaultSlogan : user.slogan
     return(
       <div className="profile">
         <TitleHeader title="个人中心" />
         <div className="profile-editable">
           <img className="profile-avatar"
-            src={ user.avatar.length === 0 ? this.state.defaultAvatar : user.avatar } alt="avatar" />
+            src={ user.avatar } alt="avatar" />
           <div className="profile-username-slogan">
             <div className="profile-username">
               {user.username}
             </div>
             <div className="profile-slogan">
-              { user.slogan.length === 0 ? this.state.defaultSlogan : user.slogan }
+              { this.state.edit ? editForm : slogan }
             </div>
           </div>
           <div onClick={this.edit}
             className="profile-edit-btn">
             <img src={editIcon} alt="edit" />
           </div>
-          { this.state.edit ? editForm : ''}
         </div>
       </div>
     )

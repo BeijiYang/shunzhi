@@ -30,8 +30,11 @@ exports.update = function (req, res) {
       user.save(function (err,user) {
         if (err) return res.status(500).json({msg: '注册失败，请重试',err});
         res.json({
-          slogan: user.slogan,
-          username: user.username,
+          user: {
+            slogan: user.slogan,
+            username: user.username,
+            avatar: user.avatar
+          },
           msg: '更新成功'
         })
       })

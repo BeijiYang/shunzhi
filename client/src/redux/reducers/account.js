@@ -3,8 +3,8 @@ let account = {
   isAuthenticated: false,
   user: {
     username: '',
-    avatar: '',
-    slogan: ''
+    avatar: 'http://media.haoduoshipin.com/yummy/default-avatar.png',
+    slogan: '个性签名'
   },
   showAlert: false,
   alertMessage: ''
@@ -18,8 +18,8 @@ export default function accountReducer(state=account, action) {
       console.log('LOAD_USER', action.user)
       return { ...state, user: {
         username: action.user.username,
-        avatar: action.user.avater ? action.user.avatar: '',
-        slogan: action.user.slogan ? action.user.slogan: ''
+        avatar: action.user.avater ? action.user.avatar: state.user.avatar,
+        slogan: action.user.slogan ? action.user.slogan: state.user.slogan
       }}
     case 'LOG_OUT':
       return { ...state, currentUser: '', isAuthenticated: false }
