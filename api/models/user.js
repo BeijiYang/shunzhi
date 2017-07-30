@@ -5,11 +5,10 @@ var ObjectId = mongoose.Schema.Types.ObjectId;
 
 var UserSchema = new mongoose.Schema(
   {
-    username: { type:String, maxlength: 18 },
+    username: { type: String, maxlength: 18 },
     password: String,
-    // admin>10
-    role: { type: Number, default: 0 },
-    carts: [{ type: ObjectId, ref: 'Shopping' }]
+    avatar: String,
+    slogan: String
   },
   {timestamps:true}
 )
