@@ -15,9 +15,9 @@ class Dashboard extends Component {
       {username: '李逵', comment: '3星'},
       {username: '李逵', comment: '3星'},
     ]
-    const cardList = cards.map((c, index) => {
+    const cardList = Object.keys(comments).map(id => {
       return (
-        <FeedItem key={index} comment={c.comment} username={c.username} />
+        <FeedItem key={id} comment={comments[id]} />
       )
     })
     return(
