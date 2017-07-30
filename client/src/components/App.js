@@ -41,6 +41,19 @@ class App extends Component {
       }
     )
 
+    // LOAD_COMMENTS
+
+
+    axios.get(`${Settings.host}/comments`).then(
+      res => {
+        const { comments } = res.data
+        this.props.dispatch({ type: 'LOAD_COMMENTS', comments })
+      }
+    )
+
+
+
+
   }
   render() {
     const { isAuthenticated } = this.props

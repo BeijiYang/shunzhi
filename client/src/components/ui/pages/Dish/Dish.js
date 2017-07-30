@@ -5,19 +5,8 @@ import ShoppingIcon from './ShoppingIcon'
 import CommentIcon from '../../icons/CommentIcon'
 import Comment from './Comment'
 import { connect } from 'react-redux'
-import axios from 'axios'
-import Settings from '../../../../settings'
 
 class Dish extends Component {
-
-  componentWillMount() {
-    axios.get(`${Settings.host}/comments`).then(
-      res => {
-        const { comments } = res.data
-        this.props.dispatch({ type: 'LOAD_COMMENTS', comments })
-      }
-    )
-  }
 
   state = {
     buy: false
