@@ -13,7 +13,6 @@ class Dish extends Component {
   componentWillMount() {
     axios.get(`${Settings.host}/comments`).then(
       res => {
-        console.log('componentWillMount', res.data.comments)
         const { comments } = res.data
         this.props.dispatch({ type: 'LOAD_COMMENTS', comments })
       }

@@ -21,21 +21,14 @@ exports.all = function (req, res) {
   Comment.find().populate('user', 'username avatar slogan').exec().then(
     comments => {
       console.log(comments)
-      return res.json({msg: '读取成功', comments})
+      let result = comments.reduce(function(map, obj) {
+          map[obj._id] = {
+            user: obj.user,
+            content: obj.content
+          }
+          return map;
+      }, {})
+      return res.json({msg: '读取所有评论成功', comments: result })
     }
   )
 }
-
-  // (function (err, comments) {
-  //   if (err) return res.status(500).json({msg: '查找失败',err});
-  //   if (comments) {
-  //     let result = comments.reduce(function(map, obj) {
-  //         map[obj._id] = { name: obj.name,
-  //           userId: obj.userId,
-  //           content: obj.content
-  //         }
-  //         return map;
-  //     }, {});
-  //     return res.json({msg: '读取成功', comments: result})
-  //   }
-  // })
