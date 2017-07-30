@@ -18,7 +18,7 @@ exports.new = function (req, res) {
 }
 
 exports.all = function (req, res) {
-  Comment.find().populate('user', 'username avatar slogan').exec().then(
+  Comment.find().populate('user dish', 'username avatar slogan poster').exec().then(
     comments => {
       console.log(comments)
       let result = comments.reduce(function(map, obj) {
