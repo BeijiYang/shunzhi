@@ -7,7 +7,8 @@ import { connect } from 'react-redux'
 class Profile extends Component {
   state = {
     edit: false,
-    defaultSlogan: '个性签名'
+    defaultSlogan: '个性签名',
+    defaultAvatar: 'http://media.haoduoshipin.com/yummy/default-avatar.png'
   }
 
   edit = () => {
@@ -58,6 +59,7 @@ class Profile extends Component {
       <div className="profile">
         <TitleHeader title="个人中心" />
         <div className="profile-editable">
+          <img src={ user.avatar.length === 0 ? this.state.defaultAvatar : user.avatar } alt="avatar" />
           <div className="profile-username">
             { user.username }
             { user.slogan.length === 0 ? this.state.defaultSlogan : user.slogan }
