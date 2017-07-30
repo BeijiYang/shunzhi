@@ -27,7 +27,7 @@ class Comment extends Component {
           <div className="comment-detail">
             <div className="username-time">
               <div className="comment-username">
-                username{comments[id].username}
+                {comments[id].userId}
               </div>
               <div className="comment-time">
                 time
