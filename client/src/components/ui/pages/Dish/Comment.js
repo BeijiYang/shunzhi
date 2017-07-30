@@ -12,6 +12,7 @@ class Comment extends Component {
     let user = localStorage.getItem('userId')
     axios.post(`${Settings.host}/comment`, { content, user }).then(res => {
       const { comment } = res.data
+      console.log('newComment...', res.data)
       this.props.dispatch({ type: 'ADD_COMMENT', comment })
       this.commentInput.value = ''
     })
