@@ -13,7 +13,12 @@ class Comment extends Component {
     axios.post(`${Settings.host}/comment`, { content, user }).then(res => {
       const { comment } = res.data
       console.log('newComment...', res.data)
-      this.props.dispatch({ type: 'ADD_COMMENT', comment })
+      axios.get(`${Settings.host}/comments`).then(
+        res => {
+          const { comments } = res.data
+          this.props.dispatch({ type: 'LOAD_COMMENTS', comments })
+        }
+      )
       this.commentInput.value = ''
     })
   }
