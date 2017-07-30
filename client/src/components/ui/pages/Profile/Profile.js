@@ -3,6 +3,8 @@ import TitleHeader from '../../shared/TitleHeader/TitleHeader'
 import axios from 'axios'
 import Settings from '../../../../settings'
 import { connect } from 'react-redux'
+import './profile.css'
+import editIcon from './editIcon.svg'
 
 class Profile extends Component {
   state = {
@@ -59,14 +61,19 @@ class Profile extends Component {
       <div className="profile">
         <TitleHeader title="个人中心" />
         <div className="profile-editable">
-          <img src={ user.avatar.length === 0 ? this.state.defaultAvatar : user.avatar } alt="avatar" />
-          <div className="profile-username">
-            { user.username }
-            { user.slogan.length === 0 ? this.state.defaultSlogan : user.slogan }
+          <img className="profile-avatar"
+            src={ user.avatar.length === 0 ? this.state.defaultAvatar : user.avatar } alt="avatar" />
+          <div className="profile-username-slogan">
+            <div className="profile-username">
+              {user.username}
+            </div>
+            <div className="profile-slogan">
+              { user.slogan.length === 0 ? this.state.defaultSlogan : user.slogan }
+            </div>
           </div>
           <div onClick={this.edit}
             className="profile-edit-btn">
-            edit
+            <img src={editIcon} alt="edit" />
           </div>
           { this.state.edit ? editForm : ''}
         </div>

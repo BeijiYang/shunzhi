@@ -1,0 +1,32 @@
+.profile-editable {
+  display: flex;
+  padding: 20px
+}
+
+.profile-avatar {
+  display: block;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  box-shadow: 0 10px 20px 0 rgba(0,0,0,0.30);
+}
+
+.profile-username-slogan {
+  border: 2px solid yellow;
+  padding: 20px;
+  color: white;
+  flex-grow: 1;
+}
+.profile-username {
+  font-size: 17px;
+}
+
+.profile-slogan {
+  font-size: 15px;
+  opacity: .8;
+}
+
+.profile-edit-btn {
+  border: 2px solid yellow;
+  padding: 25px 10px;
+}
