@@ -24,7 +24,8 @@ exports.all = function (req, res) {
       let result = comments.reduce(function(map, obj) {
           map[obj._id] = {
             user: obj.user,
-            content: obj.content
+            content: obj.content,
+            createdAt: obj.createdAt
           }
           return map;
       }, {})

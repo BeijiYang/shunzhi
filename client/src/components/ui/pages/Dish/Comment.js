@@ -24,14 +24,14 @@ class Comment extends Component {
     let commentList = Object.keys(comments).map( id => (
         <li className="comment-item"
           key={id}>
-          <img src={comments[id].avatar} alt="avatar" />
+          <img src="http://media.haoduoshipin.com/yummy/default-avatar.png" alt="avatar" />
           <div className="comment-detail">
             <div className="username-time">
               <div className="comment-username">
-                {comments[id].userId}
+                {comments[id].user.username}
               </div>
               <div className="comment-time">
-                time
+                {comments[id].createdAt}
               </div>
             </div>
             <div className="comment-content">
