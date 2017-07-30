@@ -53,7 +53,11 @@ exports.getById  = function (req, res) {
   User.findOne({_id: req.params.userId},function (err,user) {
     if (err) return res.status(500).json({msg: '查找用户失败',err});
     if (user) {
-      return res.json({msg: '读取用户成功', user})
+      return res.json({msg: '读取用户成功', user: {
+        username: user.username,
+        avatar: user.avatar,
+        slogan: user.slogan
+      }})
     }
   })
 }

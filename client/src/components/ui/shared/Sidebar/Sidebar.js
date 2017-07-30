@@ -29,10 +29,10 @@ class Sidebar extends Component {
   render () {
     const { currentUser, isAuthenticated } = this.props.account
     let userInfo = (
-      <div className="user-info-text">
-        <div className="bm-user-name">
+      <div onClick={this.closeMenu} className="user-info-text">
+        <Link to="/profile" className="bm-user-name">
           {currentUser}
-        </div>
+        </Link>
         <Link to="" onClick={this.logout}>退出</Link>
       </div>
     )

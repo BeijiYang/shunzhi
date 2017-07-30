@@ -21,7 +21,7 @@ class SignUp extends Component {
       if(res.data.username) {
         this.props.dispatch({ type: 'AUTH_USER', username: res.data.username })
         localStorage.setItem('userId', res.data.userId)
-        this.props.history.push('/')
+        this.props.history.push('/dashboard')
       }
     }).catch(err => {
       const { msg } = err.response.data

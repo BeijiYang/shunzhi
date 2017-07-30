@@ -19,7 +19,7 @@ class CartItem extends Component {
   }
 
   render(){
-    const { name, poster, price, count } = this.props.dish
+    const { name, poster, price} = this.props.dish
     return(
       <div className="cart-item">
         <div className="cart-item-info">

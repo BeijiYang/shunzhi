@@ -14,7 +14,8 @@ const calPrice = (dishes) => {
   let totalPrice = 0;
   Object.keys(dishes).map(item => {
     console.log(dishes[item].price)
-    totalPrice = totalPrice + parseInt(dishes[item].price) * parseInt(dishes[item].count)
+    totalPrice = totalPrice + parseInt(dishes[item].price, 10) * parseInt(dishes[item].count, 10)
+    return null
   })
   return totalPrice
 }

@@ -56,11 +56,11 @@ class Login extends Component {
             </div>
           </div>
           <div className="login-actions">
-            <button type="submit">注册</button>
+            <button type="submit">登录</button>
           </div>
         </form>
         <div className="login-other-option">
-          <Link to="/signup">没有账号？请先登录</Link>
+          <Link to="/signup">没有账号？请先注册</Link>
         </div>
       </div>
       </div>
