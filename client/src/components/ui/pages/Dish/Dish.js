@@ -32,7 +32,8 @@ class Dish extends Component {
 
   render(){
     if(Object.keys(this.props.dishes).length !== 0){
-      let dish = this.props.dishes[this.props.match.params.dishId]
+      let { dishId } = this.props.match.params
+      let dish = this.props.dishes[dishId]
       return (
         <div className="dish">
           <TitleHeader title="草莓派" />
@@ -62,7 +63,7 @@ class Dish extends Component {
                   { Object.keys(this.props.comments).length }
                 </span>
               </div>
-              <Comment />
+              <Comment dishId={dishId}/>
             </div>
           </div>
         </div>

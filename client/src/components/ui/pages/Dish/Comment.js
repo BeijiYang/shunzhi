@@ -10,7 +10,8 @@ class Comment extends Component {
     e.preventDefault()
     let content = this.commentInput.value
     let user = localStorage.getItem('userId')
-    axios.post(`${Settings.host}/comment`, { content, user }).then(res => {
+    let dish = this.props.dishId
+    axios.post(`${Settings.host}/comment`, { content, user, dish }).then(res => {
       console.log('newComment...', res.data)
       axios.get(`${Settings.host}/comments`).then(
         res => {
@@ -24,6 +25,7 @@ class Comment extends Component {
 
   render(){
     let { comments } = this.props
+    console.log('....', comments)
     let commentList = Object.keys(comments).map( id => (
         <li className="comment-item"
           key={id}>

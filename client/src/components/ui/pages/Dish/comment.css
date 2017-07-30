@@ -2,8 +2,8 @@
 }
 
 .comment-item {
-  border: 2px solid red;
   display: flex;
+  margin: 10px 0;
 }
 
 .comment-item img {
@@ -13,12 +13,10 @@
 }
 
 .comment-item .username-time {
-  border: 1px solid blue;
   display: flex;
   justify-content: space-between;
 }
 
 .comment-item .comment-detail {
-  border: 1px solid green;
   flex-grow: 1;
 }
