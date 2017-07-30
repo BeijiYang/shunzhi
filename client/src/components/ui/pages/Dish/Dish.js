@@ -3,15 +3,26 @@ import TitleHeader from '../../shared/TitleHeader/TitleHeader'
 import './dish.css'
 import ShoppingIcon from './ShoppingIcon'
 import CommentIcon from '../../icons/CommentIcon'
+import Comment from './Comment'
 import { connect } from 'react-redux'
+import axios from 'axios'
+import Settings from '../../../../settings'
 
 class Dish extends Component {
+
+  componentWillMount() {
+    axios.get(`${Settings.host}/comments`).then(
+      res => {
+        console.log('componentWillMount', res.data.comments)
+        const { comments } = res.data
+        this.props.dispatch({ type: 'LOAD_COMMENTS', comments })
+      }
+    )
+  }
 
   state = {
     buy: false
   }
-
-
 
   buy = (dish) => {
     this.setState({
@@ -23,7 +34,6 @@ class Dish extends Component {
   render(){
     if(Object.keys(this.props.dishes).length !== 0){
       let dish = this.props.dishes[this.props.match.params.dishId]
-
       return (
         <div className="dish">
           <TitleHeader title="草莓派" />
@@ -50,9 +60,10 @@ class Dish extends Component {
               <div className="dish-comment-icon-wrap">
                 <CommentIcon color="#D0D0D0" />
                 <span className="dish-comment-no">
-                  43
+                  { Object.keys(this.props.comments).length }
                 </span>
               </div>
+              <Comment />
             </div>
           </div>
         </div>
@@ -64,7 +75,8 @@ class Dish extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  dishes: state.dish.all
+  dishes: state.dish.all,
+  comments: state.comment.all
 })
 
 export default connect(mapStateToProps)(Dish)
