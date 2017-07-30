@@ -10,24 +10,16 @@ class CartItem extends Component {
   }
 
   decrement = () => {
-    console.log(this.props.dishId)
-    let itemCount = this.state.itemCount - 1
-    this.setState({
-      itemCount
-    })
+    this.props.dispatch({ type: 'DECR_CART_ITEM', dishId: this.props.dishId })
   }
 
   increment = () => {
     console.log(this.props.dishId)
-    let itemCount = this.state.itemCount + 1
-    this.setState({
-      itemCount
-    })
-    this.props.dispatch({ type: 'INCR_CART_ITEM', dishId: this.porps.dishId })
+    this.props.dispatch({ type: 'INCR_CART_ITEM', dishId: this.props.dishId })
   }
 
   render(){
-    const { name, poster, price } = this.props.dish
+    const { name, poster, price, count } = this.props.dish
     return(
       <div className="cart-item">
         <div className="cart-item-info">
@@ -50,7 +42,7 @@ class CartItem extends Component {
             -
           </div>
           <div className="item-count">
-            {this.state.itemCount}
+            {this.props.dishes[this.props.dishId].count}
           </div>
           <div onClick={this.increment}
             className="plus">
@@ -62,6 +54,10 @@ class CartItem extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return ({
+    dishes: state.cart.dishes
+  })
+}
 
-
-export default connect(null)(CartItem)
+export default connect(mapStateToProps)(CartItem)
