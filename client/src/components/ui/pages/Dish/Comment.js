@@ -9,8 +9,8 @@ class Comment extends Component {
   newComment = (e) => {
     e.preventDefault()
     let content = this.commentInput.value
-    let userId = localStorage.getItem('userId')
-    axios.post(`${Settings.host}/comment`, { content, userId }).then(res => {
+    let user = localStorage.getItem('userId')
+    axios.post(`${Settings.host}/comment`, { content, user }).then(res => {
       const { comment } = res.data
       this.props.dispatch({ type: 'ADD_COMMENT', comment })
       this.commentInput.value = ''
