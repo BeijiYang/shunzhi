@@ -43,7 +43,7 @@ class FeedItem extends Component {
                 <CommentIcon color={this.state.expand ? '#FE5196' : '#D0D0D0'}/>
               </div>
             </div>
-            <Link  to="" style={{ 'backgroundImage': `url(${comment.dish.poster})`}}
+            <Link  style={{ 'backgroundImage': `url(${comment.dish.poster})`}}
               to={`/dish/${comment.dish._id}`} className='feed-dish'>
             </Link>
           </div>

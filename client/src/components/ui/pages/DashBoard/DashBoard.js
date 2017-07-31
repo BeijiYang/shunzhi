@@ -9,12 +9,7 @@ class Dashboard extends Component {
     const { comments } = this.props
     console.log('Dashboard', comments)
     // FIXME: dashboard 这里其实就是显示所有评论，附带上它们对应的 dish 而已
-    const cards = [
-      {username: 'Billie Zhang', comment: '真是好吃'},
-      {username: 'Peter Wang', comment: '不错'},
-      {username: '李逵', comment: '3星'},
-      {username: '李逵', comment: '3星'},
-    ]
+
     const cardList = Object.keys(comments).reverse().map(id => {
       return (
         <FeedItem key={id} comment={comments[id]} />
@@ -23,7 +18,7 @@ class Dashboard extends Component {
     return(
       <div className="dashboard">
         <div className="feed-wrap">
-          {cardList}
+          {Object.keys(comments).length === 0 ? '暂无好友更新' : cardList}
         </div>
       </div>
     )
