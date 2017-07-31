@@ -20,3 +20,14 @@
 .comment-item .comment-detail {
   flex-grow: 1;
 }
+
+.comment-form input {
+  border: 0;
+  outline: 0;
+  background: #D8D8D8;
+}
+
+.comment-item input:focus {
+  outline: 0;
+  border: 0;
+}

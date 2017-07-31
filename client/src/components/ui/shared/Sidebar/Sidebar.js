@@ -5,7 +5,8 @@ import { connect } from 'react-redux'
 import store from '../../../../redux/store'
 
 import {
-  Link
+  Link,
+  withRouter
 } from 'react-router-dom'
 
 class Sidebar extends Component {
@@ -62,4 +63,4 @@ const mapStateToProps = (state) => ({
   account: state.account
 })
 
-export default connect(mapStateToProps)(Sidebar)
+export default connect(mapStateToProps)(withRouter(Sidebar))

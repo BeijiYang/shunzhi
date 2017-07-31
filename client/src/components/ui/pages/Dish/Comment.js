@@ -49,7 +49,8 @@ class Comment extends Component {
     return(
       <div className="comment">
         {commentList}
-        <form onSubmit={this.newComment}>
+        <form className="comment-form"
+          onSubmit={this.newComment}>
           <input ref={value => this.commentInput = value}
            type="text" placeholder="输入评论内容" />
           <button type="submit">提交</button>
