@@ -45,8 +45,11 @@ class Dish extends Component {
               <p className="dish-desc">
                 {dish.desc}
               </p>
-
+              <h1 className="dish-sub-title">营养成分</h1>
+              <p className="dish-sub-detail">点击各部分查看详情</p>
               <PieChart />
+              <h1 className="dish-sub-title">销售额</h1>
+              <p className="dish-sub-detail">单位：份</p>
               <AreaChart />
               <div className="dish-comment-icon-wrap">
                 <CommentIcon color="#D0D0D0" />

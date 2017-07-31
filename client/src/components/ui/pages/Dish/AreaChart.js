@@ -3,11 +3,11 @@ import React, { Component } from 'react';
 
 import  {AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip} from 'recharts'
 const data = [
-      {name: '3', amount: 70},
-      {name: '4', amount: 100},
-      {name: '5', amount: 300},
-      {name: '6', amount: 200},
-      {name: '7', amount: 278},
+      {name: '3月', amount: 70},
+      {name: '4月', amount: 100},
+      {name: '5月', amount: 300},
+      {name: '6月', amount: 200},
+      {name: '7月', amount: 278},
 ];
 
 class MyAreaChart extends Component {

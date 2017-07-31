@@ -50,11 +50,11 @@ class MyPieChart extends Component {
 
     return (
       <div>
-        <PieChart width={width} height={400} onMouseEnter={this.onPieEnter}>
+        <PieChart width={width} height={220} onMouseEnter={this.onPieEnter}>
         <Pie
           data={data}
           cx={width/2}
-          cy={200}
+          cy={110}
           dataKey={'value'}
           labelLine={false}
           outerRadius={80}

@@ -34,6 +34,8 @@
 
 .dish-info-card h1.dish-name {
   text-align: center;
+  font-weight: 400;
+  margin-bottom: 10px;
   font-size: 26px;
   color: #F77062;
   line-height: 32px;
@@ -81,4 +83,21 @@
 .dish-comment-icon-wrap .dish-comment-no {
   line-height: 20px;
   color: #D0D0D0;
+}
+
+
+.dish-sub-title {
+  color: #414141;
+  font-size: 20px;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  font-weight: 200;
+  text-align: center;
+}
+
+.dish-sub-detail {
+  text-align: center;
+  color: #818181;
+  opacity: .8;
+  margin-bottom: 20px;
 }
