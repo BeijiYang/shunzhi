@@ -3,12 +3,17 @@ import axios from 'axios'
 import Settings from '../../../../settings'
 import { connect } from 'react-redux'
 import './comment.css'
+import moment from 'moment'
 
 class Comment extends Component {
 
   newComment = (e) => {
     e.preventDefault()
     let content = this.commentInput.value
+    if(!content) {
+      this.props.dispatch( { type: 'SHOW_ALERT', message: '评论内容不能为空' })
+      return
+    }
     let user = localStorage.getItem('userId')
     let dish = this.props.dishId
     axios.post(`${Settings.host}/comment`, { content, user, dish }).then(res => {
@@ -25,6 +30,7 @@ class Comment extends Component {
 
   render(){
     let { comments } = this.props
+    console.log('...', comments)
     let hereCommentKeys = Object.keys(comments).filter(id => comments[id].dish._id === this.props.dishId)
 
     let commentList = hereCommentKeys.map( id => (
@@ -37,7 +43,7 @@ class Comment extends Component {
                 {comments[id].user.username}
               </div>
               <div className="comment-time">
-                {comments[id].createdAt}
+                {moment(comments[id].createdAt).fromNow()}
               </div>
             </div>
             <div className="comment-content">
