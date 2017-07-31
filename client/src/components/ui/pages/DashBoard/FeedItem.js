@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import CommentIcon from '../../icons/CommentIcon'
 import { Link } from 'react-router-dom'
+import moment from 'moment'
 
 
 class FeedItem extends Component {
@@ -34,7 +35,7 @@ class FeedItem extends Component {
                     {comment.user.username}
                   </div>
                   <div className="feed-time">
-                    {comment.createdAt}
+                    {moment(comment.createdAt).fromNow()}
                   </div>
                 </div>
               </div>
