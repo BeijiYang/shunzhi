@@ -5,9 +5,17 @@ import { connect } from 'react-redux'
 
 class AlertBox extends Component {
 
+  componentDidMount = () => {
+    var fixed = document.getElementById('fixed');
+    fixed.addEventListener('touchmove', (e) => {
+      e.preventDefault()
+    })
+  }
+
   render() {
     return(
-      <div className={this.props.showAlert ? "alert-box show": "alert-box"}>
+      <div id="fixed" ref={value => { this.alertDiv == value }}
+        className={this.props.showAlert ? "alert-box show": "alert-box"}>
         <div className="alert-box-card">
           { this.props.alertMessage }
           <div

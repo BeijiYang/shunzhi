@@ -46,6 +46,7 @@
   justify-content: space-between;
   background-color: #f7f7f7;
   padding: 10px;
+  margin: 40px 0px;
 }
 .comment-form input {
   border: 0;
