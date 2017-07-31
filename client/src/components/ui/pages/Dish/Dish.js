@@ -8,14 +8,9 @@ import { connect } from 'react-redux'
 
 class Dish extends Component {
 
-  state = {
-    buy: false
-  }
-
-  buy = (dish) => {
-    this.setState({
-      buy: true
-    })
+  buy = (dish, isInCart) => {
+    if(isInCart) return
+    console.log('buy....')
     this.props.dispatch({ type: 'ADD_CART', dishId: this.props.match.params.dishId, dish: dish })
   }
 
@@ -23,7 +18,8 @@ class Dish extends Component {
     if(Object.keys(this.props.dishes).length !== 0){
       let { dishId } = this.props.match.params
       let dish = this.props.dishes[dishId]
-      console.log('dish')
+      console.log('dish', this.props.cartDishes)
+      let isInCart =  Object.keys(this.props.cartDishes).includes(dishId)
       return (
         <div className="dish">
           <TitleHeader title="草莓派" />
@@ -40,9 +36,9 @@ class Dish extends Component {
               <div className="price-tag">
                 {dish.price}<span className="unit">元</span>
               </div>
-              <div onClick={() => this.buy(dish)}
+              <div onClick={() => this.buy(dish, isInCart)}
                 className="shopping-icon-wrap">
-                <ShoppingIcon color={this.state.buy ? '#F77062' : '#D0D0D0'}/>
+                <ShoppingIcon color={isInCart ? '#F77062' : '#D0D0D0'}/>
               </div>
               <p className="dish-desc">
                 {dish.desc}
@@ -66,7 +62,8 @@ class Dish extends Component {
 
 const mapStateToProps = (state) => ({
   dishes: state.dish.all,
-  comments: state.comment.all
+  comments: state.comment.all,
+  cartDishes: state.cart.dishes,
 })
 
 export default connect(mapStateToProps)(Dish)

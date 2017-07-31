@@ -11,7 +11,6 @@ class Comment extends Component {
     e.preventDefault()
     let content = this.commentInput.value
     if(!content) {
-      this.props.dispatch( { type: 'SHOW_ALERT', message: '评论内容不能为空' })
       return
     }
     let user = localStorage.getItem('userId')
