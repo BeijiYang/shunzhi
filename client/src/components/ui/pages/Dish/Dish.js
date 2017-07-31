@@ -4,6 +4,8 @@ import './dish.css'
 import ShoppingIcon from './ShoppingIcon'
 import CommentIcon from '../../icons/CommentIcon'
 import Comment from './Comment'
+import PieChart from './PieChart'
+import AreaChart from './AreaChart'
 import { connect } from 'react-redux'
 
 class Dish extends Component {
@@ -43,6 +45,9 @@ class Dish extends Component {
               <p className="dish-desc">
                 {dish.desc}
               </p>
+
+              <PieChart />
+              <AreaChart />
               <div className="dish-comment-icon-wrap">
                 <CommentIcon color="#D0D0D0" />
                 <span className="dish-comment-no">
