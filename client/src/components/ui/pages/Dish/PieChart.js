@@ -45,7 +45,7 @@ class MyPieChart extends Component {
       </div>
     ));
 
-    let width = window.innerWidth
+    let width = window.innerWidth - 40
     console.log('render', width)
 
     return (

@@ -12,11 +12,11 @@ const data = [
 
 class MyAreaChart extends Component {
 	render () {
-    let width = window.innerWidth
+    let width = window.innerWidth - 40
   	return (
       <div>
       	<AreaChart width={width} height={200} data={data}
-              margin={{top: 10, right: 30, left: -20, bottom: 0}}>
+              margin={{top: 10, right: 10, left: -20, bottom: 0}}>
           <XAxis axisLine={false}
                 tickLine={false}
                 dataKey="name"
