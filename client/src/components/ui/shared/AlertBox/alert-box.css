@@ -1,4 +1,3 @@
-
 .alert-box {
   background: rgba(4,4,4,0.43);
   display: flex;
@@ -19,7 +18,6 @@
   z-index: 1000;
   width: 100%;
   height: auto;
-  /* 为了覆盖在汉堡按钮之上 */
 }
 
 .alert-box .alert-box-card {
