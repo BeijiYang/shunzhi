@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import TitleHeader from '../../shared/TitleHeader/TitleHeader'
 import { connect } from 'react-redux'
+import './user.css'
 
 class User extends Component {
   render(){
@@ -16,12 +17,24 @@ class User extends Component {
       return(
         <div className="user">
           <TitleHeader title="peter" />
-          <img src={hisAvatar} alt="avatar" />
-          <div className="user-name">
-            {hisUsername}
-          </div>
-          <div className="slogan">
-            {hisSlogan}
+          <div style={{ 'height' : `${window.innerHeight - 160}px`}}
+            className="user-info-wrap">
+            <img className="user-avatar"
+              src={hisAvatar} alt="avatar" />
+            <div className="user-name">
+              {hisUsername}
+            </div>
+            <div className="user-info-card">
+              <div className="user-info-card-title">
+                个性签名
+              </div>
+              <div className="slogan">
+                {hisSlogan}
+              </div>
+            </div>
+            <div className="user-follow-btn">
+              加为好友
+            </div>
           </div>
         </div>
       )
