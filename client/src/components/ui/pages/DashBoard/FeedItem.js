@@ -26,7 +26,8 @@ class FeedItem extends Component {
         </div>
         <div className="feed-card">
             <div className="feed-card-header">
-              <div className="feed-user">
+              <Link to={`/user/${comment.user._id}`}
+                className="feed-user">
                 <img src="http://media.haoduoshipin.com/yummy/default-avatar.png"
                   alt="avatar" />
                 <div className="feed-user-info">
@@ -37,7 +38,7 @@ class FeedItem extends Component {
                     {moment(comment.createdAt).fromNow()}
                   </div>
                 </div>
-              </div>
+              </Link>
               <div className="feed-button"
                 to="" onClick={this.toggleExpand}>
                 <CommentIcon color={this.state.expand ? '#FE5196' : '#D0D0D0'}/>

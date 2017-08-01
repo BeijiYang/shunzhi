@@ -13,6 +13,7 @@ import Dishes from './ui/pages/Dishes/Dishes'
 import Dish from './ui/pages/Dish/Dish'
 import Cart from './ui/pages/Cart/Cart'
 import CartButton from './ui/shared/CartButton/CartButton'
+import User from './ui/pages/User/User'
 
 import {
   BrowserRouter as Router,
@@ -81,6 +82,7 @@ class App extends Component {
               <Route path="/dishes" component={Dishes} />
               <Route path="/cart" component={Cart} />
               <Route path="/dish/:dishId" component={Dish} />
+              <Route path="/user/:userId" component={User} />
             </Switch>
             <CartButton />
           </div>
