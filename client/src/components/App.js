@@ -35,22 +35,26 @@ class App extends Component {
       })
     }
 
-    // LOAD_DISHES
+    // LOAD_USERS
+    axios.get(`${Settings.host}/users`).then(res => {
+        this.props.dispatch({ type: 'LOAD_USERS', users: res.data.users })
+      }
+    )
 
+    // LOAD_DISHES
     axios.get(`${Settings.host}/dishes`).then(res => {
         this.props.dispatch({ type: 'LOAD_DISHES', dishes: res.data.dishes })
       }
     )
 
     // LOAD_COMMENTS
-
-
     axios.get(`${Settings.host}/comments`).then(
       res => {
         const { comments } = res.data
         this.props.dispatch({ type: 'LOAD_COMMENTS', comments })
       }
     )
+
 
 
 

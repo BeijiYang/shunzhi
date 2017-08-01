@@ -65,6 +65,7 @@ exports.login = function (req, res) {
     })
   })
 }
+
 // 登出功能
 exports.logout = function (req,res) {
   res.json({ msg: '登出成功' })
@@ -81,6 +82,25 @@ exports.getById  = function (req, res) {
         avatar: user.avatar,
         slogan: user.slogan
       }})
+    }
+  })
+}
+
+
+// 读取所有用户
+exports.all = function(req, res) {
+  User.find((err, users) => {
+    if (err) return res.status(500).json({msg: '查找失败',err});
+    if (users) {
+      let result = users.reduce(function(map, obj) {
+          map[obj._id] = { name: obj.name,
+            username: obj.username,
+            slogan: obj.slogan,
+            avatar: obj.avatar
+          }
+          return map;
+      }, {});
+      return res.json({msg: '读取成功', users: result})
     }
   })
 }

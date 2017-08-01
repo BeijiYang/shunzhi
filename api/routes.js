@@ -8,6 +8,7 @@ module.exports = function (app) {
   app.post('/user/login', User.login)
   app.put('/user', User.update)
   app.get('/user/logout', User.logout)
+  app.get('/users', User.all)
   app.get('/user/:userId', User.getById)
   app.get('/dishes', Dish.all)
 
