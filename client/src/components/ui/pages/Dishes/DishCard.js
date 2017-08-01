@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom'
 class DishCard extends Component {
   render() {
     const { dish } = this.props
-    console.log('DishCard', dish)
     return(
       <Link to={`/dish/${this.props.dishId}`} className="dish-card">
         <div style={{ 'backgroundImage' : `url(${dish.poster})` }}

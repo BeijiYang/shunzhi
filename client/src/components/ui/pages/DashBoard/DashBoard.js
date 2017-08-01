@@ -7,8 +7,6 @@ class Dashboard extends Component {
 
   render() {
     const { comments } = this.props
-    console.log('Dashboard', comments)
-    // FIXME: dashboard 这里其实就是显示所有评论，附带上它们对应的 dish 而已
 
     const cardList = Object.keys(comments).reverse().map(id => {
       return (

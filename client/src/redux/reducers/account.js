@@ -15,7 +15,6 @@ export default function accountReducer(state=account, action) {
     case 'AUTH_USER':
       return { ...state, currentUser: action.username, isAuthenticated: true }
     case 'LOAD_USER':
-      console.log('LOAD_USER', action.user)
       return { ...state, user: {
         username: action.user.username,
         avatar: action.user.avater ? action.user.avatar: state.user.avatar,

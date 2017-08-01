@@ -23,7 +23,6 @@ class Profile extends Component {
     this.userId = localStorage.getItem('userId')
     axios.get(`${Settings.host}/user/${this.userId}`).then(
       res => {
-        console.log(res.data.user)
         let { user} = res.data
         this.props.dispatch({ type: 'LOAD_USER', user })
       }
@@ -49,7 +48,6 @@ class Profile extends Component {
   }
 
   render() {
-    console.log('Profile...', this.props.user)
     let editForm = (
       <form className="profile-form"
         onSubmit={this.updateUser}>

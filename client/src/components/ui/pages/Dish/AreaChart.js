@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-import  {AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip} from 'recharts'
+import  {AreaChart, Area, XAxis, YAxis, Tooltip} from 'recharts'
 const data = [
       {name: '3月', amount: 70},
       {name: '4月', amount: 100},

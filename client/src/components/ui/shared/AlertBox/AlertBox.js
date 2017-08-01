@@ -14,7 +14,7 @@ class AlertBox extends Component {
 
   render() {
     return(
-      <div id="fixed" ref={value => { this.alertDiv == value }}
+      <div id="fixed" ref={value => { this.alertDiv = value }}
         className={this.props.showAlert ? "alert-box show": "alert-box"}>
         <div className="alert-box-card">
           { this.props.alertMessage }

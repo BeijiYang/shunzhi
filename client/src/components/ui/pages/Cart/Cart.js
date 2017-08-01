@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom'
 class Cart extends Component {
 
   checkout = () => {
-    console.log('checkout');
     this.props.dispatch({ type: 'SHOW_ALERT', message: "欢迎继续购物" })
     this.props.dispatch({ type: 'CLEAE_CART'})
     this.props.history.push('/dashboard')

@@ -25,7 +25,6 @@ export default function cartReducer(state=cart, action) {
   let nextPrice
   switch (action.type) {
     case 'ADD_CART':
-      console.log(action)
       nextDishes = {...state.dishes, [action.dishId]: {
           name: action.dish.name,
           poster: action.dish.poster,

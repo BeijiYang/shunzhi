@@ -19,7 +19,6 @@ class Dish extends Component {
     if(Object.keys(this.props.dishes).length !== 0){
       let { dishId } = this.props.match.params
       let dish = this.props.dishes[dishId]
-      console.log('dish', this.props.cartDishes)
       let isInCart =  Object.keys(this.props.cartDishes).includes(dishId)
       return (
         <div className="dish">
