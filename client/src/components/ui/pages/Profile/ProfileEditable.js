@@ -75,23 +75,16 @@ class ProfileEditable extends Component {
 
 
 
-        <div className="upload-img"
+        <label className="profile-upload-img"
           style={{
-            'width': '100px',
-            'height': '100px',
-            'padding': '20px',
-            'border': '2px solid yellow',
-            'backgroundImage': `url(${this.state.image})`,
-            'backgroundSize': '200px',
-            'backgroundPosition': 'center center'
+            'backgroundImage': `url(${this.state.image ? this.state.image : hisAvatar})`,
            }}
           >
           <input type='file' className='profile-image-input'
             onChange={this.handleChange}
             />
-        </div>
-        <img className="profile-avatar"
-          src={hisAvatar} alt="avatar" />
+        </label>
+
         <div className="profile-username-slogan">
           <div className="profile-username">
             {hisUsername}
