@@ -1,6 +1,9 @@
 let User = require('./controllers/user');
 let Dish = require('./controllers/dish')
 let Comment = require('./controllers/comment')
+let multer = require('multer')
+var upload = multer({dest: './public/uploads/avatars'})
+
 
 module.exports = function (app) {
   // account
@@ -15,4 +18,7 @@ module.exports = function (app) {
   // comment
   app.post('/comment', Comment.new)
   app.get('/comments', Comment.all)
+
+  // upload avatar
+  app.post('/avatar', upload.single('avatar'), User.updateAvatar)
 }

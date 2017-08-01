@@ -104,3 +104,12 @@ exports.all = function(req, res) {
     }
   })
 }
+
+
+exports.updateAvatar = function(req, res) {
+  let user = new User()
+  console.log('-----', req.filename)
+  if(req.file && req.filename) {
+    console.log('filename', req.filename)
+  }
+}
