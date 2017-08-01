@@ -2,11 +2,8 @@
 
 请求链接： http://yummy.haoduoshipin.com
 
-## 用户注册登录
 
-实现登录注册
-
-#### 注册功能
+### 注册功能
 
 ```
 POST /user/signup
@@ -39,7 +36,7 @@ password 'String' 密码
 }
 ```
 
-#### 登录功能
+### 登录功能
 
 ```
 POST /user/login
@@ -72,7 +69,7 @@ password 'String' 密码
 }
 ```
 
-#### 读取 dishes
+### 读取 dishes
 
 ```
 GET /dishes
@@ -82,4 +79,41 @@ GET /dishes
 
 ```
 {"msg":"读取成功","dishes":[{"_id":"597be20c2bbfdbaa14bfa248","name":"草莓派","poster":"http://media.haoduoshipin.com/yummy/dishes/dish1.jpg","desc":"草莓，果酱，芝士，非常甜美可口","price":"23"},{"_id":"597be2122bbfdbaa14bfa249","name":"提拉米苏","poster":"http://media.haoduoshipin.com/yummy/dishes/dish2.jpg","desc":"俄罗斯风味，芝士，非常甜美可口","price":"33"},{"_id":"597be2182bbfdbaa14bfa24a","name":"黑森林","poster":"http://media.haoduoshipin.com/yummy/dishes/dish3.jpg","desc":"很多巧克力，芝士，非常甜美可口","price":"33"}]}%
+```
+
+
+### 发评论
+
+```
+POST /comment
+```
+
+接收数据
+
+
+```js
+content: `String`
+user: `ObjectId` 评论者的 id
+dish: `ObjectId` 当前 dish 的 id
+```
+
+成功返回：
+
+```
+{
+  comment : {
+    content : "my comment"
+    _id : "5980116e148fa3d9d5b5c5cf"
+  }
+  msg : "保存评论成功"
+}
+```
+
+失败返回：
+
+```
+{
+  msg: '保存失败，请重试',
+  err
+}
 ```
