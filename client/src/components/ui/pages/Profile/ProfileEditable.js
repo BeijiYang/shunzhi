@@ -38,7 +38,16 @@ class ProfileEditable extends Component {
 
   handleChange = (event) => {
       const file = event.target.files[0];
-      console.log('xxx', file)
+      console.log('xxxxx', file)
+      let formData = new FormData()
+      formData.append('name', file.name)
+      formData.append('content', file.content)
+      formData.append('post', file.file)
+      axios.post(`${Settings.host}/avatar`, formData ).then(
+        res => {
+          console.log(res)
+        }
+      )
       if (!file.type.match('image.*')) {
         console.log('请上传图片');
       } else {
@@ -48,6 +57,7 @@ class ProfileEditable extends Component {
             image: event.target.result,
           });
           console.log('image staee', this.state.image)
+
         }
         reader.readAsDataURL(file);
       }
@@ -72,7 +82,6 @@ class ProfileEditable extends Component {
 
     return(
       <div className="profile-editable">
-
 
 
         <label className="profile-upload-img"

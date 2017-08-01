@@ -10,7 +10,7 @@ label.profile-upload-img {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  box-shadow: 0 10px 20px 0 rgba(0,0,0,0.30);
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.30);
   background-size: 150px;
   background-position: center center;
 }
