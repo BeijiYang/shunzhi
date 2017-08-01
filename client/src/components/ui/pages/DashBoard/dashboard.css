@@ -1,5 +1,4 @@
 .dashboard {
-  padding-top: 100px;
 }
 
 .dashboard .feed-wrap {
@@ -104,4 +103,8 @@
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 350px;
+}
+
+.no-update {
+  padding: 10px;
 }
