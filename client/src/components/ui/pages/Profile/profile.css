@@ -49,3 +49,8 @@
   color: white;
   font-size: 15px;
 }
+
+.profile-details {
+  min-height: 40vh;
+  background: #F9FAFB;
+}

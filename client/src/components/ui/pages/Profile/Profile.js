@@ -3,6 +3,7 @@ import TitleHeader from '../../shared/TitleHeader/TitleHeader'
 import { connect } from 'react-redux'
 import './profile.css'
 import ProfileEditable from './ProfileEditable'
+import UserList from './UserList'
 
 class Profile extends Component {
 
@@ -15,6 +16,9 @@ class Profile extends Component {
         <div className="profile">
           <TitleHeader title="个人中心" />
           <ProfileEditable user={user} userId={userId}/>
+          <div className="profile-details">
+            <UserList users={users}/>
+          </div>
         </div>
       )
     }else{
