@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './dish-card.css'
 import CommentIcon from '../../icons/CommentIcon'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 class DishCard extends Component {
   render() {
@@ -22,7 +23,7 @@ class DishCard extends Component {
             <div className="dish-card-icon-inner">
               <CommentIcon color="#D0D0D0" />
               <span className="dish-comment-no">
-                43
+                {Object.keys(this.props.comments).length}
               </span>
             </div>
           </div>
@@ -37,4 +38,8 @@ class DishCard extends Component {
   }
 }
 
-export default DishCard
+const mapStateToProps = (state) => ({
+  comments: state.comment.all
+})
+
+export default connect(mapStateToProps)(DishCard)

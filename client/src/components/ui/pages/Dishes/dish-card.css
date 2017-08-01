@@ -48,7 +48,7 @@
   width: 44px;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .dish-card-icon-inner>* {
@@ -64,6 +64,7 @@
 .dish-card .price-tag {
   color: #878787;
   text-align: center;
+  margin-top: 20px;
 }
 
 .dish-card .price-tag span.unit {

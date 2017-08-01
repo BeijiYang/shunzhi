@@ -49,12 +49,11 @@ class Dish extends Component {
               <h1 className="dish-sub-title">销售额</h1>
               <p className="dish-sub-detail">单位：份</p>
               <AreaChart />
-              <div className="dish-comment-icon-wrap">
-                <CommentIcon color="#D0D0D0" />
-                <span className="dish-comment-no">
-                  { Object.keys(this.props.comments).length }
-                </span>
-              </div>
+              <h1 className="dish-sub-title">评论区</h1>
+              <p className="dish-sub-detail">
+                评论数：
+                { Object.keys(this.props.comments).length }
+              </p>
               <Comment dishId={dishId}/>
             </div>
           </div>
