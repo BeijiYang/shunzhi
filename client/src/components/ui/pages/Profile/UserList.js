@@ -1,8 +1,19 @@
 import React, { Component } from 'react'
 import './user-list.css'
 import Settings from '../../../../settings'
+import Toggle from 'react-toggle'
+
 
 class UserList extends Component {
+
+  state = {
+    following: true
+  }
+
+  toggleFollow = () => {
+
+  }
+
   render(){
     const { users } = this.props
     const listStr = Object.keys(users).map(id => (
@@ -14,7 +25,12 @@ class UserList extends Component {
          {users[id].username}
        </div>
        <div className="user-list-switch">
-         switch
+         <label>
+           <Toggle
+             defaultChecked={this.state.following}
+             icons={false}
+             onChange={this.toggleFollow} />
+         </label>
        </div>
     </li>
     ))
