@@ -38,7 +38,6 @@ class ProfileEditable extends Component {
 
   handleChange = (event) => {
       const file = event.target.files[0];
-      console.log('-------haaaaaa-----', file)
       let formData = new FormData()
 
       if (!file.type.match('image.*')) {
@@ -52,10 +51,10 @@ class ProfileEditable extends Component {
           console.log('image staee', this.state.image)
           formData.append('avatar', file)
           formData.append('userId', this.props.userId )
-          console.log('-------bbbbbb-----', file)
           axios.post(`${Settings.host}/avatar`, formData ).then(
             res => {
-              console.log(res)
+              console.log(res.data)
+              this.props.dispatch({ type: 'UPDATE_USER', userId: this.props.userId , user: { ...this.props.user, avatar: res.data.user.avatar }})
             }
           )
 
@@ -67,7 +66,7 @@ class ProfileEditable extends Component {
   render(){
     const { user } = this.props
     const  { avatar, username, slogan } = user
-    const hisAvatar = avatar ? avatar : 'http://media.haoduoshipin.com/yummy/default-avatar.png'
+    const hisAvatar = avatar ? `${Settings.host}/uploads/avatars/${avatar}` : 'http://media.haoduoshipin.com/yummy/default-avatar.png'
     const hisUsername = username ? username : 'no name'
     const hisSlogan =  slogan ? slogan : '此人很个性，还没有填写个性签名'
 

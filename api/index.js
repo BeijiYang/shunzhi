@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const mongoose = require('mongoose');
+const path = require('path');
+
 
 app.use(cors());
 
@@ -13,6 +15,7 @@ db.once('open',function () {
   console.log('mongodb connect success');
 })
 
+app.use(express.static(path.join(__dirname, 'public')));
 
 const bodyParser = require('body-parser');
 
