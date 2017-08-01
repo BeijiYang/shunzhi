@@ -14,7 +14,6 @@ class CartItem extends Component {
   }
 
   increment = () => {
-    console.log(this.props.dishId)
     this.props.dispatch({ type: 'INCR_CART_ITEM', dishId: this.props.dishId })
   }
 

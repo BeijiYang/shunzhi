@@ -10,6 +10,9 @@ class AlertBox extends Component {
     fixed.addEventListener('touchmove', (e) => {
       e.preventDefault()
     })
+    fixed.addEventListener('wheel', (e) => {
+      e.preventDefault()
+    });
   }
 
   render() {
