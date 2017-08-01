@@ -108,8 +108,19 @@ exports.all = function(req, res) {
 
 exports.updateAvatar = function(req, res) {
   let user = new User()
-  console.log('-----', req.filename)
-  if(req.file && req.filename) {
-    console.log('filename', req.filename)
-  }
+  console.log('updateAvatar', req.body)
+  User.findOne({_id: req.body.userId},function (err,user) {
+    if(req.file && req.file.filename) {
+      console.log('filename', req.file.filename)
+      user.avatar = req.file.filename
+    }
+    user.save(err => {
+      if(err) return console.log(err)
+      res.json({
+        user,
+        message: '用户头像更新成功'
+      })
+    })
+  })
+
 }

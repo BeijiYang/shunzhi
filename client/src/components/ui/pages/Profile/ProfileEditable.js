@@ -51,6 +51,7 @@ class ProfileEditable extends Component {
           });
           console.log('image staee', this.state.image)
           formData.append('avatar', file)
+          formData.append('userId', this.props.userId )
           console.log('-------bbbbbb-----', file)
           axios.post(`${Settings.host}/avatar`, formData ).then(
             res => {
