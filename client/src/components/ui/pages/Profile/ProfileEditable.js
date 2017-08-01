@@ -7,7 +7,8 @@ import { connect } from 'react-redux'
 class ProfileEditable extends Component {
 
   state = {
-    edit: false
+    edit: false,
+    image: ''
   }
 
   edit = () => {
@@ -35,6 +36,23 @@ class ProfileEditable extends Component {
 
   }
 
+  handleChange = (event) => {
+      const file = event.target.files[0];
+      console.log('xxx', file)
+      if (!file.type.match('image.*')) {
+        console.log('请上传图片');
+      } else {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          this.setState({
+            image: event.target.result,
+          });
+          console.log('image staee', this.state.image)
+        }
+        reader.readAsDataURL(file);
+      }
+    }
+
   render(){
     const { user } = this.props
     const  { avatar, username, slogan } = user
@@ -54,6 +72,24 @@ class ProfileEditable extends Component {
 
     return(
       <div className="profile-editable">
+
+
+
+        <div className="upload-img"
+          style={{
+            'width': '100px',
+            'height': '100px',
+            'padding': '20px',
+            'border': '2px solid yellow',
+            'backgroundImage': `url(${this.state.image})`,
+            'backgroundSize': '200px',
+            'backgroundPosition': 'center center'
+           }}
+          >
+          <input type='file' className='profile-image-input'
+            onChange={this.handleChange}
+            />
+        </div>
         <img className="profile-avatar"
           src={hisAvatar} alt="avatar" />
         <div className="profile-username-slogan">
