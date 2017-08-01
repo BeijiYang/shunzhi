@@ -12,7 +12,6 @@ class Dish extends Component {
 
   buy = (dish, isInCart) => {
     if(isInCart) return
-    console.log('buy....')
     this.props.dispatch({ type: 'ADD_CART', dishId: this.props.match.params.dishId, dish: dish })
   }
 
