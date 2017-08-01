@@ -14,7 +14,6 @@
 
 
 .user-avatar {
-  /* avatar.astronaut: */
   box-shadow: 0 10px 20px 0 rgba(0,0,0,0.30);
   width: 120px;
   height: 120px;
@@ -45,6 +44,8 @@
   padding: 10px;
   padding-top: 0;
   text-align: center;
+  flex-grow: 1;
+  margin-bottom: 5px;
 }
 
 .user-info-card-title {
