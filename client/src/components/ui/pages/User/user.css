@@ -23,6 +23,8 @@
   left: 50%;
   margin-left: -60px;
   top: -60px;
+  background-position: center center;
+  background-size: 180px;
 }
 
 .user-name {

@@ -20,8 +20,10 @@ class User extends Component {
           <TitleHeader title={username} />
           <div style={{ 'height' : `${window.innerHeight - 160}px`}}
             className="user-info-wrap">
-            <img className="user-avatar"
-              src={hisAvatar} alt="avatar" />
+            <div className="user-avatar"
+                 style={{ 'backgroundImage' : `url(${hisAvatar})`}}
+              >
+            </div>
             <div className="user-name">
               {hisUsername}
             </div>
