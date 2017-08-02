@@ -4,18 +4,23 @@ import Settings from '../../../../settings'
 import { connect } from 'react-redux'
 import './comment.css'
 import moment from 'moment'
+import 'moment/locale/zh-cn'
+// https://github.com/facebookincubator/create-react-app/pull/2187/commits/97226a0670063b579215e7b44987f3957842c5df
 import {
   Link
 } from 'react-router-dom'
+
+
+
 
 class Comment extends Component {
 
   newComment = (e) => {
     e.preventDefault()
     let content = this.commentInput.value
-    // if(!content) {
-    //   return
-    // }
+    if(!content) {
+      return
+    }
     let user = localStorage.getItem('userId')
     let dish = this.props.dishId
     axios.post(`${Settings.host}/comment`, { content, user, dish }).then(res => {
@@ -37,7 +42,9 @@ class Comment extends Component {
 
   render(){
     let { comments } = this.props
-    console.log('...', comments)
+    moment.locale('zh-cn')
+
+
     let hereCommentKeys = Object.keys(comments).filter(id => comments[id].dish._id === this.props.dishId)
 
     let commentList = hereCommentKeys.map( id => (
