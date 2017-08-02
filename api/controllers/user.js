@@ -7,6 +7,7 @@ exports.signup = function (req, res) {
     if (user) {
       return res.status(403).json({msg: '用户名重复，请重新注册'})
     }else {
+      _user.username = _user.username.trim()
       user = new User(_user);
       user.save(function (err,user) {
         if (err) return res.status(500).json({msg: '注册失败，请重试',err});
@@ -43,7 +44,7 @@ exports.update = function (req, res) {
 
 exports.login = function (req, res) {
   var _user = req.body;
-  User.findOne({username:_user.username},function (err,user) {
+  User.findOne({username:_user.username.trim()},function (err,user) {
     if (err) return res.status(500).json({msg: '登陆失败，请重试',err});
     if (!user) {
       return res.status(401).json({msg: '登陆失败，用户名不存在'})
