@@ -1,3 +1,19 @@
+.profile-plz-login {
+  margin: 100px auto;
+  background: #fff;
+  color: gray;
+  width: 90%;
+  background: #FFFFFF;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
+  padding: 20px;
+  text-align: center;
+}
+
+.profile-plz-login a {
+  color: #F77062;
+}
+
+
 .profile-editable {
   display: flex;
   padding: 20px
