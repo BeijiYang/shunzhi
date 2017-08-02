@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import TitleHeader from '../../shared/TitleHeader/TitleHeader'
 import { connect } from 'react-redux'
 import './user.css'
+import Settings from '../../../../settings'
 
 class User extends Component {
   render(){
@@ -11,7 +12,7 @@ class User extends Component {
       console.log('users-inif', users)
       const user = users[userId]
       const { username, slogan, avatar } = user
-      const hisAvatar = avatar ? avatar : 'http://media.haoduoshipin.com/yummy/default-avatar.png'
+      const hisAvatar = avatar ? `${Settings.host}/uploads/avatars/${avatar}` : 'http://media.haoduoshipin.com/yummy/default-avatar.png'
       const hisUsername = username ? username : 'no name'
       const hisSlogan =  slogan ? slogan : '还没有填写个性签名'
       return(
