@@ -6,7 +6,7 @@ exports.new = function (req, res) {
   console.log('comment', comment)
   comment = new Comment(comment)
   comment.save(function (err, comment) {
-    if (err) return res.status(500).json({msg: '保存失败，请重试',err})
+    if (err) return res.status(403).json({msg: '保存失败，请重试',err})
     res.json({
       comment: {
         _id: comment._id,

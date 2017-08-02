@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 
 const CommentSchema = new mongoose.Schema(
   {
-    content: { type: String },
-    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-    dish: { type: mongoose.Schema.Types.ObjectId, ref: 'Dish' }
+    content: { type: String,  required: true },
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User',  required: true },
+    dish: { type: mongoose.Schema.Types.ObjectId, ref: 'Dish',  required: true }
   },
   { timestamps:true }
 )

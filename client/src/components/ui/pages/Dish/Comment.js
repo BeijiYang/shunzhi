@@ -10,9 +10,9 @@ class Comment extends Component {
   newComment = (e) => {
     e.preventDefault()
     let content = this.commentInput.value
-    if(!content) {
-      return
-    }
+    // if(!content) {
+    //   return
+    // }
     let user = localStorage.getItem('userId')
     let dish = this.props.dishId
     axios.post(`${Settings.host}/comment`, { content, user, dish }).then(res => {
@@ -24,6 +24,11 @@ class Comment extends Component {
         }
       )
       this.commentInput.value = ''
+    }).catch(err => {
+      console.log('err', err)
+      if(err.response) { console.log('err.response', err.response.data.err)}
+      // 如果用户填写评论为空，那么界面上没有任何反应（应该在用户输入内容前禁用按钮），
+      // 终端里会报出“content, required” 这样的报错信息。
     })
   }
 

@@ -9,7 +9,7 @@ class Dashboard extends Component {
 
   render() {
     const { comments } = this.props
-
+    console.log('dashboard', comments)
     const cardList = Object.keys(comments).reverse().map(id => {
       return (
         <FeedItem key={id} comment={comments[id]} />
