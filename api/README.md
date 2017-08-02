@@ -177,8 +177,8 @@ ContentType: mutlipart
 
 ```
 {
-  avatar: file # formData file
-  userId: `String`
+  avatar: file # formData.append(file)
+  userId: `String` # formData.append(userId)
 }
 ```
 
