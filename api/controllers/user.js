@@ -107,17 +107,23 @@ exports.updateAvatar = function(req, res) {
   let user = new User()
   console.log('updateAvatar', req.body)
   User.findOne({_id: req.body.userId},function (err,user) {
-    if(req.file && req.file.filename) {
-      console.log('filename', req.file.filename)
-      user.avatar = req.file.filename
-    }
-    user.save(err => {
-      if(err) return console.log(err)
-      res.json({
-        user,
-        message: '用户头像更新成功'
+    if(user) {
+      if(req.file && req.file.filename) {
+        console.log('filename', req.file.filename)
+        user.avatar = req.file.filename
+      }
+      user.save(err => {
+        if(err) return console.log(err)
+        res.json({
+          user,
+          message: '用户头像更新成功'
+        })
       })
-    })
+    } else {
+      res.status(404).json({
+        message: '没有该用户'
+      })
+    }
   })
 
 }

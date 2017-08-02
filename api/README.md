@@ -117,3 +117,80 @@ dish: `ObjectId` 当前 dish 的 id
   err
 }
 ```
+
+### 更新用户个性签名
+
+```
+PUT /comment
+```
+
+接收数据
+
+```
+slogan: `String`
+```
+
+成功返回
+
+```
+{
+  user: {
+    slogan: user.slogan,
+    username: user.username,
+    avatar: user.avatar
+  },
+  msg: '更新成功'
+}
+```
+
+失败返回
+
+```
+{
+  msg: '注册失败，
+  请重试',err
+}
+```
+
+
+### 更新头像
+
+
+```
+POST /avatar
+```
+
+
+请求报头
+
+```
+ContentType: mutlipart
+```
+
+请求数据
+
+```
+avatar: file # formData file
+userId: `String`
+```
+
+成功返回：
+
+```
+{
+  user: {
+    slogan: user.slogan,
+    username: user.username,
+    avatar: user.avatar
+  },
+  msg: '用户头像更新成功'
+}
+```
+
+错误返回
+
+```
+{
+  message: '没有该用户'
+}
+```
