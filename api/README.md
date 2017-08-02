@@ -12,8 +12,10 @@ POST /user/signup
 接收数据
 
 ```js
-username `String` 用户名
-password 'String' 密码
+{
+  username `String` 用户名
+  password 'String' 密码
+}
 ```
 
 用户不可重复注册，重复返回403错误
@@ -127,7 +129,11 @@ PUT /comment
 接收数据
 
 ```
-slogan: `String`
+{
+  slogan: `String`,
+  username: `String`
+}
+
 ```
 
 成功返回
