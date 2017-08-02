@@ -37,6 +37,15 @@ class Sidebar extends Component {
         <Link to="" onClick={this.logout}>退出</Link>
       </div>
     )
+
+    let profileLink =(
+      <Link onClick={this.closeMenu} to="/profile" className="menu-item" >个人中心</Link>
+    )
+
+    let loginLink =(
+      <Link onClick={this.closeMenu} to="/login" className="menu-item" >登录</Link>
+    )
+
     return (
       <Menu isOpen={this.state.isOpen}
             customCrossIcon={ false }>
@@ -47,8 +56,7 @@ class Sidebar extends Component {
             </div>
             <div className="bm-link-list">
               <Link onClick={this.closeMenu} to="/" className="menu-item" >首页</Link>
-              <Link onClick={this.closeMenu} to="/profile" className="menu-item" >个人中心</Link>
-              <Link onClick={this.closeMenu} to="/cart" className="menu-item" >购物车</Link>
+              {isAuthenticated ? profileLink : loginLink}
               <Link onClick={this.closeMenu} to="/dishes" className="menu-item" >猜你喜欢</Link>
             </div>
             <div className="bottom-button">
