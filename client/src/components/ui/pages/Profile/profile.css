@@ -42,12 +42,14 @@ label.profile-upload-img {
 }
 
 .profile-username-slogan {
-  padding: 20px;
+  padding: 10px;
   color: white;
   flex-grow: 1;
 }
+
 .profile-username {
   font-size: 17px;
+  margin-bottom: 10px;
 }
 
 .profile-slogan {

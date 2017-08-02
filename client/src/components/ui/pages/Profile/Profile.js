@@ -24,7 +24,7 @@ class Profile extends Component {
           <div className="profile">
             <TitleHeader title="个人中心" />
             <ProfileEditable user={user} userId={userId}/>
-            <div style={{ 'minHeight': `${window.innerHeight - 205}px`}}
+            <div style={{ 'minHeight': `${window.innerHeight - 200}px`}}
               className="profile-details">
               <UserList users={users}/>
             </div>
