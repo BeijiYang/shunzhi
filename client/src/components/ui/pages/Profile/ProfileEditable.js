@@ -8,7 +8,8 @@ class ProfileEditable extends Component {
 
   state = {
     edit: false,
-    image: ''
+    image: '',
+    slogan: this.props.user.slogan ? this.props.user.slogan : '还没有填写个性签名'
   }
 
   edit = () => {
@@ -68,20 +69,27 @@ class ProfileEditable extends Component {
       }
     }
 
+  editSlogan = () => {
+    this.setState({
+      slogan: this.sloganInput.value
+    })
+  }
+
   render(){
     console.log('render....ProfileEditable');
     const { user } = this.props
     const  { avatar, username, slogan } = user
     const hisAvatar = avatar ? `${Settings.host}/uploads/avatars/${avatar}` : 'http://media.haoduoshipin.com/yummy/default-avatar.png'
     const hisUsername = username ? username : 'no name'
-    const hisSlogan =  slogan ? slogan : '还没有填写个性签名'
 
     let editForm = (
       <form className="profile-form"
         onSubmit={this.updateUser}>
         <input className="profile-slogan-input"
           ref={value => this.sloganInput = value}
-          type="text" placeholder={hisSlogan} />
+          type="text"  value={this.state.slogan}
+          onChange={this.editSlogan}
+          />
         <button type="submit">保存</button>
       </form>
     )
@@ -105,7 +113,7 @@ class ProfileEditable extends Component {
             {hisUsername}
           </div>
           <div className="profile-slogan">
-            { this.state.edit ? editForm : hisSlogan }
+            { this.state.edit ? editForm : this.state.slogan }
           </div>
         </div>
         <div onClick={this.edit}

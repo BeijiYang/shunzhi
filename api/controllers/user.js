@@ -24,11 +24,14 @@ exports.signup = function (req, res) {
 exports.update = function (req, res) {
   let _user = req.body;
   User.findOne({username:_user.username},function (err,user) {
-    if (err) return res.status(500).json({msg: '注册失败，请重试',err});
+    if (err) return res.status(500).json({msg: '更新失败，请重试',err});
     if (user) {
+      if(_user.slogan.trim() === ''){
+        return res.status(500).json({msg: '提交 slogan 为空',err});
+      }
       user.slogan = _user.slogan
       user.save(function (err,user) {
-        if (err) return res.status(500).json({msg: '注册失败，请重试',err});
+        if (err) return res.status(500).json({msg: '更新失败，请重试',err});
         res.json({
           user: {
             slogan: user.slogan,

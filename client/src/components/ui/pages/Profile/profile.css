@@ -48,7 +48,7 @@ label.profile-upload-img {
 }
 
 .profile-username {
-  font-size: 17px;
+  font-size: 19px;
   margin-bottom: 10px;
 }
 
@@ -63,6 +63,9 @@ label.profile-upload-img {
 
 .profile-form button {
   color: white;
+  outline: 0;
+  background: none;
+  border: none;
 }
 
 .profile-slogan-input {
