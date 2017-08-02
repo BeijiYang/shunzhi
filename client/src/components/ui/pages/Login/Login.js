@@ -27,9 +27,10 @@ class Login extends Component {
         this.props.history.push('/dashboard')
       }
     }).catch(err => {
-      console.log(err.response.data.msg)
-      const { msg } = err.response.data
-      this.props.dispatch({ type: 'SHOW_ALERT', message: msg })
+      if(err.response){
+        const { msg } = err.response.data
+        this.props.dispatch({ type: 'SHOW_ALERT', message: msg })
+      }
       this.loginForm.reset()
     })
   }
