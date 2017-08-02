@@ -176,8 +176,10 @@ ContentType: mutlipart
 请求数据
 
 ```
-avatar: file # formData file
-userId: `String`
+{
+  avatar: file # formData file
+  userId: `String`
+}
 ```
 
 成功返回：
