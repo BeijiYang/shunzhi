@@ -77,3 +77,13 @@
   border: 0;
   outline: 0;
 }
+
+
+.comment-plz-login {
+  padding: 20px;
+  color: #ccc;
+}
+
+.comment-plz-login a {
+  color: #FE5196;
+}
