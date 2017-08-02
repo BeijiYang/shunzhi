@@ -19,9 +19,8 @@ class UserList extends Component {
     const listStr = Object.keys(users).map(id => (
       <li className="user-list-item"
       key={id}>
-       <img src={users[id].avatar ? `${Settings.host}/uploads/avatars/${users[id].avatar}` : Settings.defaultAvatar}
-         alt="avatar" />
-       <div className="user-list-avatar">
+       <div style={{ 'backgroundImage': `url(${users[id].avatar ? `${Settings.host}/uploads/avatars/${users[id].avatar}` : Settings.defaultAvatar})`}}
+         className="user-list-avatar">
        </div>
        <div className="user-list-username">
          {users[id].username}

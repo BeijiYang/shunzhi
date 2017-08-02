@@ -13,10 +13,10 @@ class User extends Component {
       const { username, slogan, avatar } = user
       const hisAvatar = avatar ? avatar : 'http://media.haoduoshipin.com/yummy/default-avatar.png'
       const hisUsername = username ? username : 'no name'
-      const hisSlogan =  slogan ? slogan : '此人很个性，还没有填写个性签名'
+      const hisSlogan =  slogan ? slogan : '还没有填写个性签名'
       return(
         <div className="user">
-          <TitleHeader title="peter" />
+          <TitleHeader title={username} />
           <div style={{ 'height' : `${window.innerHeight - 160}px`}}
             className="user-info-wrap">
             <img className="user-avatar"

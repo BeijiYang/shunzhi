@@ -33,7 +33,6 @@ UserSchema.methods = {
       let isMatch = false
       if(this.password === _password) {
         isMatch = true
-        console.log('isMatch is now: ', isMatch)
       }
       cb(null, isMatch);
   }
