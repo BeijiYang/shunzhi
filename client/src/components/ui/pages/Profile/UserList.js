@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './user-list.css'
 import Settings from '../../../../settings'
 import Toggle from 'react-toggle'
+import { Link } from 'react-router-dom'
 
 
 class UserList extends Component {
@@ -22,9 +23,9 @@ class UserList extends Component {
        <div style={{ 'backgroundImage': `url(${users[id].avatar ? `${Settings.host}/uploads/avatars/${users[id].avatar}` : Settings.defaultAvatar})`}}
          className="user-list-avatar">
        </div>
-       <div className="user-list-username">
+       <Link to={`/user/${id}`} className="user-list-username">
          {users[id].username}
-       </div>
+       </Link>
        <div className="user-list-switch">
          <label>
            <Toggle
