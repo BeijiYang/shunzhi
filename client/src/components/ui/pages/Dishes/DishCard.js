@@ -23,7 +23,7 @@ class DishCard extends Component {
             <div className="dish-card-icon-inner">
               <CommentIcon color="#D0D0D0" />
               <span className="dish-comment-no">
-                {Object.keys(this.props.comments).length}
+                {Object.keys(this.props.comments).filter(id => this.props.comments[id].dish._id === this.props.dishId).length}
               </span>
             </div>
           </div>

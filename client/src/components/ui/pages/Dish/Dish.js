@@ -19,6 +19,7 @@ class Dish extends Component {
       let { dishId } = this.props.match.params
       let dish = this.props.dishes[dishId]
       let isInCart =  Object.keys(this.props.cartDishes).includes(dishId)
+      let { comments } = this.props
       return (
         <div className="dish">
           <TitleHeader title="草莓派" />
@@ -51,7 +52,7 @@ class Dish extends Component {
               <h1 className="dish-sub-title">评论区</h1>
               <p className="dish-sub-detail">
                 评论数：
-                { Object.keys(this.props.comments).length }
+                { Object.keys(comments).filter(id => comments[id].dish._id === this.props.dishId).length }
               </p>
               <Comment dishId={dishId}/>
             </div>
