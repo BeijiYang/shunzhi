@@ -20,7 +20,6 @@ exports.signup = function (req, res) {
   })
 }
 
-
 exports.update = function (req, res) {
   let _user = req.body;
   User.findOne({username:_user.username},function (err,user) {
@@ -41,8 +40,6 @@ exports.update = function (req, res) {
     }
   })
 }
-
-
 
 exports.login = function (req, res) {
   var _user = req.body;
@@ -123,4 +120,17 @@ exports.updateAvatar = function(req, res) {
     })
   })
 
+}
+
+
+exports.updateTouxiang = function(req, res) {
+  let user = new User()
+  console.log('updateTouxiang', req.body)
+  if(req.file && req.file.filename) {
+    console.log('filename...', req.file.filename)
+  }
+  res.json({
+    filename: req.file.filename,
+    message: '上传成功'
+  })
 }

@@ -21,4 +21,5 @@ module.exports = function (app) {
 
   // upload avatar
   app.post('/avatar', upload.single('avatar'), User.updateAvatar)
+  app.post('/touxiang', upload.single('avatar'), User.updateTouxiang)
 }
