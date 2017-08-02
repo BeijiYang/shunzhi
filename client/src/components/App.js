@@ -56,27 +56,10 @@ class App extends Component {
         this.props.dispatch({ type: 'LOAD_COMMENTS', comments })
       }
     )
-
-
-
-
-
   }
   render() {
     const { isAuthenticated } = this.props
 
-
-    const PrivateRoute = ({ component: Component, ...rest }) => (
-      <Route {...rest} render={props => (
-        isAuthenticated ? (
-          <Component {...props}/>
-        ) : (
-          <Redirect to={{
-            pathname: '/login'
-          }}/>
-        )
-      )}/>
-    )
     return (
       <div>
         <AlertBox />
@@ -96,11 +79,11 @@ class App extends Component {
                 }}/>
               <Route path="/signup" component={Signup} />
               <Route path="/login" component={Login} />
-              <PrivateRoute path="/dashboard" component={DashBoard} />
-              <PrivateRoute path="/profile" component={Profile} />
+              <Route path="/dashboard" component={DashBoard} />
+              <Route path="/profile" component={Profile} />
               <Route path="/dishes" component={Dishes} />
               <Route path="/cart" component={Cart} />
-              <PrivateRoute path="/dish/:dishId" component={Dish} />
+              <Route path="/dish/:dishId" component={Dish} />
               <Route path="/user/:userId" component={User} />
             </Switch>
             <CartButton />

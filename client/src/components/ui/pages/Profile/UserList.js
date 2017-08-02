@@ -21,6 +21,8 @@ class UserList extends Component {
       key={id}>
        <img src={users[id].avatar ? `${Settings.host}/uploads/avatars/${users[id].avatar}` : Settings.defaultAvatar}
          alt="avatar" />
+       <div className="user-list-avatar">
+       </div>
        <div className="user-list-username">
          {users[id].username}
        </div>
