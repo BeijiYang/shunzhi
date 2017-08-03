@@ -2,7 +2,7 @@ import React from 'react'
 import moment from 'moment'
 import { Link } from 'react-router-dom'
 
-const SchoolTableColumns = [
+const DishTableColumns = [
 {
   title: '海报',
   dataIndex: 'poster',
@@ -19,9 +19,9 @@ const SchoolTableColumns = [
   title: '价格',
   dataIndex: 'price',
   key: 'price',
-  render: (text) => {
-    return <span>{`${text}元`}</span>
-  },
+  // render: (text) => {
+  //   return <span>{`${text}元`}</span>
+  // },
 }, {
   title: '操作',
   dataIndex: '_id',
@@ -31,4 +31,4 @@ const SchoolTableColumns = [
   },
 }]
 
-export default SchoolTableColumns
+export default DishTableColumns

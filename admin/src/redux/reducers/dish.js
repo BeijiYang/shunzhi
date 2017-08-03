@@ -6,7 +6,7 @@ let dish = {
 const dishReducer = (state=dish, action) => {
   switch (action.type) {
     case 'LOAD_DISHES':
-      return action.dishes
+      return { ...dish, all: action.dishes }
     default:
       return state
   }
