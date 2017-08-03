@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
 
 import { Form, Icon, Input, Button } from 'antd'
 const FormItem = Form.Item
+
 
 class LoginForm extends Component {
   constructor(props) {
@@ -17,7 +19,7 @@ class LoginForm extends Component {
     const email = this.state.email
     const password = this.state.password
     const data = { email, password }
-    // axios.post('....')
+    this.props.history.push('/dashboard')
   }
 
   handleEmailChange = (e) => {
@@ -46,4 +48,4 @@ class LoginForm extends Component {
   }
 }
 
-export default LoginForm
+export default withRouter(LoginForm)

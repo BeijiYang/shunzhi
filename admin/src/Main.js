@@ -1,5 +1,6 @@
-import Home from './pages/Home/Home'
 import React, { Component } from 'react'
+import Home from './pages/Home/Home'
+import Dashboard from './pages/Dashboard/Dashboard'
 
 import {
   Switch,
@@ -11,6 +12,7 @@ class Main extends Component {
     return(
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route path="/dashboard" component={Dashboard} />
       </Switch>
     )
   }
