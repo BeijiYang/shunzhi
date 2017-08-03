@@ -1,3 +1,4 @@
+
 .home {
   height: 100vh;
   color: white;
@@ -38,4 +39,5 @@
   text-align: center;
   width: 150px;
   line-height: 56px;
+  min-height: 56px;
 }
