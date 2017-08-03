@@ -4,6 +4,7 @@ import Dashboard from './pages/Dashboard/Dashboard'
 import Settings from './settings.js'
 import axios from 'axios'
 import { connect } from 'react-redux'
+import store from './redux/store'
 
 import {
   Switch,
@@ -17,7 +18,7 @@ class Main extends Component {
     // LOAD_DISHES
     axios.get(`${Settings.host}/dishes`).then(res => {
       const { dishes } = res.data
-      this.props.dispatch({ type: 'LOAD_DISHES', dishes })
+      store.dispatch({ type: 'LOAD_DISHES', dishes })
     })
   }
   render(){
@@ -30,4 +31,4 @@ class Main extends Component {
   }
 }
 
-export default connect(null)(Main)
+export default Main
