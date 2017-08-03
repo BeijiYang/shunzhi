@@ -6,18 +6,6 @@ import { connect } from 'react-redux'
 
 class Dishes extends Component {
 
-  state = {
-    dishes: [
-      {
-        _id: '59819d9cf2b95493d2ee54ec',
-        name: '黑森林',
-        poster: 'http://xxx.png',
-        price: '23',
-        desc: '巧克力诱惑'
-      }
-    ]
-  }
-
   render() {
     if(Object.keys(this.props.dishes).length !== 0) {
       console.log('Dishes', this.props.dishes)
@@ -28,7 +16,8 @@ class Dishes extends Component {
           _id: id,
           name: dishes[id].name,
           poster: dishes[id].poster,
-          desc: dishes[id].desc
+          desc: dishes[id].desc,
+          price: dishes[id].price
         }
       })
 

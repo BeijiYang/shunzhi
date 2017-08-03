@@ -19,9 +19,9 @@ const DishTableColumns = [
   title: '价格',
   dataIndex: 'price',
   key: 'price',
-  // render: (text) => {
-  //   return <span>{`${text}元`}</span>
-  // },
+  render: (text) => {
+    return <span>{`${text}元`}</span>
+  },
 }, {
   title: '操作',
   dataIndex: '_id',
