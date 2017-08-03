@@ -5,17 +5,24 @@ import OrderTableColumns from './OrderTableColumns'
 
 class Orders extends Component {
   state = {
-    shops: [],
+    shops: [
+      {
+        name: '黑森林',
+        username: 'happypeter'
+      },
+      {
+        name: '提拉米苏',
+        username: 'billie'
+      }
+    ],
     total: 4,
   }
-
-
 
   render() {
     return (
       <div className='page'>
         <div className='white-block'>
-          <div>共{this.state.total}家店铺</div>
+          <div>共{Object.keys(this.state.shops).length}条订单</div>
           <Table columns={OrderTableColumns}
             dataSource={this.state.shops}
             pagination={{
