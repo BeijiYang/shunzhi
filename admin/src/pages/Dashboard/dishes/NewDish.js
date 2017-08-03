@@ -20,16 +20,16 @@ class NewDish extends Component {
     )
 
     if(unFilled.length === 0) {
-      const username = formData.name
-      const password = formData.password
-      const settledFee = formData.settledFee
-      const settledExpiredDate = formData.rangePicker ? formData.rangePicker[1]._d : {}
+      const name = formData.name
+      const desc = formData.desc
+      const price = formData.price
+      const poster = formData.poster
 
-      const data = { username, password, settledFee }
+      const data = { name, poster, price, desc }
       console.log('....xxx', data)
-      axios.post(`${Settings.host}/auth/school`, data)
+      axios.post(`${Settings.host}/dish`, data)
         .then( res => {
-          message.info('账户添加成功');
+          message.info('添加菜品成功');
         })
         .catch( (error) => {
           let errMesg = error.response.data.error
@@ -61,7 +61,7 @@ class NewDish extends Component {
       <FormItem>
         {getFieldDecorator('name', config)(
         <Input prefix={<Icon type='user' style={{ fontSize: 14 }} />}
-        placeholder='账户名'
+        placeholder='名称'
         type='text'
         name='name' />
         )}
@@ -76,11 +76,19 @@ class NewDish extends Component {
         )}
       </FormItem>
       <FormItem>
-        {getFieldDecorator('settledFee', config)(
+        {getFieldDecorator('price', config)(
         <Input prefix={<Icon type="pay-circle-o" style={{ fontSize: 14 }} />}
         placeholder='价格'
         type='text'
         name='settledFee' />
+        )}
+      </FormItem>
+      <FormItem>
+        {getFieldDecorator('poster', config)(
+        <Input prefix={<Icon type="pay-circle-o" style={{ fontSize: 14 }} />}
+        placeholder='海报'
+        type='text'
+        name='poster' />
         )}
       </FormItem>
 

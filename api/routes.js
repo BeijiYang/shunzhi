@@ -13,7 +13,7 @@ module.exports = function (app) {
   app.get('/user/logout', User.logout)
   app.get('/users', User.all)
   app.get('/user/:userId', User.getById)
-  app.get('/dishes', Dish.all)
+
 
   // comment
   app.post('/comment', Comment.new)
@@ -22,4 +22,9 @@ module.exports = function (app) {
   // upload avatar
   app.post('/avatar', upload.single('avatar'), User.updateAvatar)
   app.post('/touxiang', upload.single('avatar'), User.updateTouxiang)
+
+  // dish
+  app.post('/dish', Dish.new)
+  app.get('/dishes', Dish.all)
+  
 }
