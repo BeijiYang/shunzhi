@@ -67,7 +67,7 @@ class NewDish extends Component {
         )}
       </FormItem>
       <FormItem>
-        {getFieldDecorator('password', config)(
+        {getFieldDecorator('desc', config)(
         <Input prefix={<Icon type='lock' style={{ fontSize: 14 }} />}
         placeholder='描述'
         type='text'
@@ -80,7 +80,7 @@ class NewDish extends Component {
         <Input prefix={<Icon type="pay-circle-o" style={{ fontSize: 14 }} />}
         placeholder='价格'
         type='text'
-        name='settledFee' />
+        name='price' />
         )}
       </FormItem>
       <FormItem>
