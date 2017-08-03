@@ -123,7 +123,7 @@ dish: `ObjectId` 当前 dish 的 id
 ### 更新用户个性签名
 
 ```
-PUT /comment
+PUT /user
 ```
 
 接收数据
