@@ -18,10 +18,8 @@ const Dashboard = ({match, history}) => (
       <div className='content'>
         <Switch>
           <Route exact path={`${match.url}/dishes`} component={Dishes} />
-          <Route path={`${match.url}/dishes/hot`} component={HotDishes} />
-
           <Route exact path={`${match.url}/orders`} component={Orders} />
-          <Route path={`${match.url}/orders/:orderId`} component={Order} />
+          <Route render={ () => <div>TODO</div> } />
         </Switch>
       </div>
     </div>

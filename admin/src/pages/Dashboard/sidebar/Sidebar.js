@@ -25,7 +25,7 @@ class Sidebar extends Component {
     return (
       <div className='sidebar' style={{backgroundColor: '#fff'}}>
         <div className='logo'>
-          共享教育
+          吮指后台
         </div>
         <div className='menus'>
         <Menu
@@ -36,16 +36,14 @@ class Sidebar extends Component {
           selectedKeys={[this.props.selectedIndex]}
           mode='inline'
         >
-          <SubMenu key='accounts' title={<span><Icon type='user' /><span>账号管理</span></span>}>
-            <Menu.Item key='/dashboard/accounts/new'>新增账号</Menu.Item>
-            <Menu.Item key='/dashboard/accounts/school'>学校账号</Menu.Item>
-            <Menu.Item key='/dashboard/accounts/shop'>商家账号</Menu.Item>
+          <SubMenu key='orders' title={<span><Icon type='file' /><span>订单管理</span></span>}>
+            <Menu.Item key='/dashboard/orders'>待发货</Menu.Item>
+            <Menu.Item key='/dashboard/orders/completed'>已完成</Menu.Item>
           </SubMenu>
 
-          <SubMenu key='school' title={<span><Icon type='file' /><span>学校管理</span></span>}>
-            <Menu.Item key='/dashboard'>学校列表</Menu.Item>
-            <Menu.Item key='/dashboard/schools/star'>明星学校</Menu.Item>
-            <Menu.Item key='/dashboard/schools/hot'>热门学校</Menu.Item>
+          <SubMenu key='dishes' title={<span><Icon type='file' /><span>菜品管理</span></span>}>
+            <Menu.Item key='/dashboard/dishes'>创建新菜品</Menu.Item>
+            <Menu.Item key='/dashboard/dishes/others'>其他操作</Menu.Item>
           </SubMenu>
 
         </Menu>
