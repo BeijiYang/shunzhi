@@ -3,10 +3,10 @@ const ObjectId = mongoose.Schema.Types.ObjectId;
 
 const DishSchema = new mongoose.Schema(
   {
-    name: { type: String },
-    poster: { type: String },
-    price: { type: String },
-    desc: { type: String },
+    name: { type: String, required: true },
+    poster: { type: String, required: true },
+    price: { type: String, required: true },
+    desc: { type: String, required: true },
   },
   {timestamps:true}
 )
