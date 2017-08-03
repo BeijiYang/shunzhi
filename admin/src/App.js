@@ -1,24 +1,19 @@
 import React, { Component } from 'react';
 import './App.css';
-import Home from './pages/Home/Home'
+import Main from './Main'
+import store  from './redux/store'
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route
+  BrowserRouter as Router
 } from 'react-router-dom'
+import { Provider } from 'react-redux'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <Router>
-          <Switch>
-            <Route exact path="/" component={Home} />
-          </Switch>
-        </Router>
-      </div>
-    );
-  }
-}
+
+const App = () => (
+  <Provider store={store}>
+    <Router>
+      <Main />
+    </Router>
+  </Provider>
+)
 
 export default App;
