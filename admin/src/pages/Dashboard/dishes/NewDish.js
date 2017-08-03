@@ -9,8 +9,7 @@ import axios from 'axios'
 const FormItem = Form.Item
 
 
-
-class NewAccount extends Component {
+class NewDish extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
 
@@ -96,6 +95,6 @@ class NewAccount extends Component {
   )}
 }
 
-NewAccount = Form.create({})(NewAccount)
+NewDish = Form.create({})(NewDish)
 
-export default NewAccount
+export default NewDish

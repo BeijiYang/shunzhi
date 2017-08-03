@@ -42,8 +42,8 @@ class Sidebar extends Component {
           </SubMenu>
 
           <SubMenu key='dishes' title={<span><Icon type='file' /><span>菜品管理</span></span>}>
-            <Menu.Item key='/dashboard/dishes'>创建新菜品</Menu.Item>
-            <Menu.Item key='/dashboard/dishes/others'>其他操作</Menu.Item>
+            <Menu.Item key='/dashboard/dishes'>所有菜品</Menu.Item>
+            <Menu.Item key='/dashboard/dishes/new'>新建菜品</Menu.Item>
           </SubMenu>
 
         </Menu>
