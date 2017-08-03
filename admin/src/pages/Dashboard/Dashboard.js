@@ -5,10 +5,8 @@ import './dashboard.css'
 
 
 import Dishes from './dishes/Dishes'
-import HotDishes from './dishes/HotDishes'
 
 import Orders from './orders/Orders'
-import Order from './orders/Order'
 
 const Dashboard = ({match, history}) => (
   <div className='dashboard'>

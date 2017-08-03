@@ -8,11 +8,13 @@ class Orders extends Component {
     shops: [
       {
         name: '黑森林',
-        username: 'happypeter'
+        username: 'happypeter',
+        _id: 'xxxxxx'
       },
       {
         name: '提拉米苏',
-        username: 'billie'
+        username: 'billie',
+        _id: 'x44xxxx'
       }
     ],
     total: 4,
