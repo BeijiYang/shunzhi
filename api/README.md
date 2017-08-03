@@ -202,3 +202,47 @@ ContentType: mutlipart
   message: '没有该用户'
 }
 ```
+
+
+### 提交菜品
+
+
+```
+POST /dish
+```
+
+接收参数
+
+````
+{
+  name: `String`,
+  desc: `String`,
+  poster: `String`,
+  price: `String`
+}
+```
+
+注意：上面四项均为必填项。
+
+成功返回
+
+```
+{
+  dish: {
+    _id: dish._id,
+    name: dish.name,
+    desc: dish.desc,
+    poster: dish.poster,
+    price: dish.price
+  },
+  msg: '保存成功'
+}
+```
+
+失败返回：
+
+```
+{
+  message: 保存失败
+}
+```
