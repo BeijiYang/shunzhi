@@ -3,7 +3,6 @@ import { Table } from 'antd'
 import DishTableColumns from './DishTableColumns'
 import { connect } from 'react-redux'
 
-
 class Dishes extends Component {
 
   render() {

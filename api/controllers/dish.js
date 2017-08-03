@@ -16,3 +16,22 @@ exports.all = function (req, res) {
     }
   })
 }
+
+
+exports.new = function (req, res) {
+  let dish = req.body;
+  console.log('dish', dish)
+  dish = new Dish(dish)
+  comment.save(function (err, dish) {
+    if (err) return res.status(403).json({msg: '保存失败，请重试',err})
+    res.json({
+      dish: {
+        _id: dish._id,
+        desc: dish.desc,
+        poster: dish.poster,
+        price: dish.price
+      },
+      msg: '保存成功'
+    })
+  })
+}

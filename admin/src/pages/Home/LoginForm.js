@@ -4,7 +4,6 @@ import { withRouter } from 'react-router-dom'
 import { Form, Icon, Input, Button } from 'antd'
 const FormItem = Form.Item
 
-
 class LoginForm extends Component {
   constructor(props) {
     super(props)

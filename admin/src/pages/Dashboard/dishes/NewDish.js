@@ -8,7 +8,6 @@ import axios from 'axios'
 
 const FormItem = Form.Item
 
-
 class NewDish extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
@@ -27,7 +26,7 @@ class NewDish extends Component {
       const settledExpiredDate = formData.rangePicker ? formData.rangePicker[1]._d : {}
 
       const data = { username, password, settledFee }
-
+      console.log('....xxx', data)
       axios.post(`${Settings.host}/auth/school`, data)
         .then( res => {
           message.info('账户添加成功');
@@ -40,7 +39,6 @@ class NewDish extends Component {
     }else {
       alert("请填入全部信息")
     }
-
   }
 
   hasErrors = (fieldsError) => {
@@ -71,16 +69,16 @@ class NewDish extends Component {
       <FormItem>
         {getFieldDecorator('password', config)(
         <Input prefix={<Icon type='lock' style={{ fontSize: 14 }} />}
-        placeholder='密码'
-        type='password'
-        name='password'
+        placeholder='描述'
+        type='text'
+        name='desc'
         />
         )}
       </FormItem>
       <FormItem>
         {getFieldDecorator('settledFee', config)(
         <Input prefix={<Icon type="pay-circle-o" style={{ fontSize: 14 }} />}
-        placeholder='入驻费'
+        placeholder='价格'
         type='text'
         name='settledFee' />
         )}
