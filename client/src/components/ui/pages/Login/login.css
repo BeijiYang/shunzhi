@@ -91,4 +91,5 @@
   border-radius: 2px;
   font-size: 14px;
   color: #F77062;
+  user-select: none;
 }
