@@ -92,4 +92,7 @@
   font-size: 14px;
   color: #F77062;
   user-select: none;
+  touch-action: manipulation;
+  position: relative;
+  /* FIXME: andriod 手机上，入户输入表单时候，按钮会自动变位置，可以照抄一下 ant-design 的登录表单代码，可以解决*/
 }
