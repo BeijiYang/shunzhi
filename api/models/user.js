@@ -8,7 +8,8 @@ var UserSchema = new mongoose.Schema(
     username: { type: String, maxlength: 18 },
     password: String,
     avatar: String,
-    slogan: String
+    slogan: String,
+    followings: [{ type: ObjectId, ref: 'User' }]
   },
   {timestamps:true}
 )

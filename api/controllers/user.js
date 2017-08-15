@@ -90,20 +90,36 @@ exports.getById  = function (req, res) {
 
 // 读取所有用户
 exports.all = function(req, res) {
-  User.find((err, users) => {
-    if (err) return res.status(500).json({msg: '查找失败',err});
-    if (users) {
-      let result = users.reduce(function(map, obj) {
-          map[obj._id] = { name: obj.name,
-            username: obj.username,
-            slogan: obj.slogan,
-            avatar: obj.avatar
-          }
-          return map;
-      }, {});
-      return res.json({msg: '读取成功', users: result})
-    }
-  })
+
+  User.find().populate('followings', 'username').exec().then(
+    users => {
+
+          let result = users.reduce(function(map, obj) {
+              map[obj._id] = { name: obj.name,
+                username: obj.username,
+                slogan: obj.slogan,
+                avatar: obj.avatar,
+                followings: obj.followings
+              }
+              return map;
+          }, {});
+        res.json({ users: result })
+      })
+
+  // User.find((err, users) => {
+  //   if (err) return res.status(500).json({msg: '查找失败',err});
+  //   if (users) {
+  //     let result = users.reduce(function(map, obj) {
+  //         map[obj._id] = { name: obj.name,
+  //           username: obj.username,
+  //           slogan: obj.slogan,
+  //           avatar: obj.avatar
+  //         }
+  //         return map;
+  //     }, {});
+  //     return res.json({msg: '读取成功', users: result})
+  //   }
+  // })
 }
 
 
