@@ -3,8 +3,18 @@ import TitleHeader from '../../shared/TitleHeader/TitleHeader'
 import { connect } from 'react-redux'
 import './user.css'
 import Settings from '../../../../settings'
+import axios from 'axios'
 
 class User extends Component {
+  addFollowing = () => {
+    let data = {
+      currentUserId: localStorage.getItem('userId'),
+      userId: this.props.match.params.userId
+    }
+    axios.post(`${Settings.host}/add-following`, data).then(
+      res => console.log('addFollowing', res.data)
+    )
+  }
   render(){
     const { userId } = this.props.match.params
     const { users } = this.props
@@ -35,7 +45,8 @@ class User extends Component {
                 {hisSlogan}
               </div>
             </div>
-            <div className="user-follow-btn">
+            <div onClick={this.addFollowing}
+              className="user-follow-btn">
               加为好友
             </div>
           </div>

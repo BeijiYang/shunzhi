@@ -87,6 +87,20 @@ exports.getById  = function (req, res) {
   })
 }
 
+exports.addFollowing = function (req, res) {
+  User.findOne({ _id: req.body.userId })
+  // .populate('followings', 'username')
+  .exec().then(
+    user => {
+      let followings = user.followings
+      if (!followings.includes(req.body.currentUserId)) {
+        followings.push(req.body.currentUserId)
+      }
+      res.json({ msg: "添加成功", followings })
+    }
+  )
+}
+
 
 // 读取所有用户
 exports.all = function(req, res) {
