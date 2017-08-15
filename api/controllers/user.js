@@ -1,4 +1,4 @@
-let User = require('../models/user.js');
+let User = require('../models/user.js')
 
 exports.signup = function (req, res) {
   let _user = req.body;
@@ -93,10 +93,19 @@ exports.addFollowing = function (req, res) {
   .exec().then(
     user => {
       let followings = user.followings
-      if (!followings.includes(req.body.currentUserId)) {
+      let { currentUserId } = req.body
+      let followingsCopy = followings.map(item => {
+        return item.toString()
+      })
+      let isHere = followingsCopy.includes(currentUserId)
+      if (!isHere) {
         followings.push(req.body.currentUserId)
+        user.save(() => {
+          res.json({ msg: "添加成功", followings })
+        })
+      } else {
+        res.json({ msg: '早就添加过了' })
       }
-      res.json({ msg: "添加成功", followings })
     }
   )
 }
@@ -105,7 +114,9 @@ exports.addFollowing = function (req, res) {
 // 读取所有用户
 exports.all = function(req, res) {
 
-  User.find().populate('followings', 'username').exec().then(
+  User.find()
+  // .populate('followings', 'username')
+  .exec().then(
     users => {
 
           let result = users.reduce(function(map, obj) {

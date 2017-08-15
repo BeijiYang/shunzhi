@@ -5,21 +5,37 @@ import './user.css'
 import Settings from '../../../../settings'
 import axios from 'axios'
 
-class User extends Component {
-  addFollowing = () => {
-    let data = {
-      currentUserId: localStorage.getItem('userId'),
-      userId: this.props.match.params.userId
+
+const FriendButton = ({ user, isFriend }) => {
+
+  const addFollowing = () => {
+      let data = {
+        userId: user._id,
+        currentUserId: localStorage.getItem('userId')
+      }
+      axios.post(`${Settings.host}/add-following`, data).then(
+        res => {
+          console.log('addFollowing', res.data)
+        }
+      )
     }
-    axios.post(`${Settings.host}/add-following`, data).then(
-      res => console.log('addFollowing', res.data)
-    )
+
+  return (<div onClick={addFollowing}
+    className="user-follow-btn">
+    {isFriend ? '已是好友' : '加为好友'}
+  </div>)
+}
+class User extends Component {
+
+  state = {
+    isFriend: false
   }
+
+
   render(){
     const { userId } = this.props.match.params
     const { users } = this.props
     if(Object.keys(users).length !== 0){
-      console.log('users-inif', users)
       const user = users[userId]
       const { username, slogan, avatar } = user
       const hisAvatar = avatar ? `${Settings.host}/uploads/avatars/${avatar}` : 'http://media.haoduoshipin.com/yummy/default-avatar.png'
@@ -45,10 +61,7 @@ class User extends Component {
                 {hisSlogan}
               </div>
             </div>
-            <div onClick={this.addFollowing}
-              className="user-follow-btn">
-              加为好友
-            </div>
+            <FriendButton user={users[userId]} isFriend={true} />
           </div>
         </div>
       )
