@@ -14,7 +14,7 @@ class LoginContainer extends Component {
     }
     axios.post(`${Settings.host}/user/login`, data).then(res => {
       this.props.dispatch({ type: types.UPDATE_USER, currentUser: res.data.user })
-      localStorage.setItem('userId', res.data.userId)
+      localStorage.setItem('userId', res.data.user.userId)
       this.props.history.push('/dashboard')
     }).catch(err => {
       if(err.response){

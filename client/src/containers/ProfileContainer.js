@@ -7,7 +7,7 @@ class ProfileContainer extends Component {
 
   render() {
     const { users, currentUser } = this.props
-    if(!localStorage.getItem('userId')) {
+    if(localStorage.getItem('userId') === 'undefined') {
       return(
         <LoginFirst />
       )

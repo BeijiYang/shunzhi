@@ -12,11 +12,9 @@ let Kid = (
   </Provider>
 )
 
-
 const userId = localStorage.getItem('userId')
-if( userId !== "undefined") {
+if (userId !== "undefined") {
   store.dispatch(loadCurrentUser(userId))
 }
-
 
 ReactDOM.render(Kid, document.getElementById('root'))
