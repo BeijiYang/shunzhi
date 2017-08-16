@@ -17,14 +17,14 @@ class UserList extends Component {
 
   render(){
     const { users } = this.props
-    const listStr = Object.keys(users).map(id => (
+    const listStr = users.map(user => (
       <li className="user-list-item"
-      key={id}>
-       <div style={{ 'backgroundImage': `url(${users[id].avatar ? `${Settings.host}/uploads/avatars/${users[id].avatar}` : Settings.defaultAvatar})`}}
+      key={user._id}>
+       <div style={{ 'backgroundImage': `url(${user.avatar ? `${Settings.host}/uploads/avatars/${user.avatar}` : Settings.defaultAvatar})`}}
          className="user-list-avatar">
        </div>
-       <Link to={`/user/${id}`} className="user-list-username">
-         {users[id].username}
+       <Link to={`/user/${user._id}`} className="user-list-username">
+         {user.username}
        </Link>
        <div className="user-list-switch">
          <label>

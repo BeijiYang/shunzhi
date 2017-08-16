@@ -27,8 +27,6 @@ class ProfileEditableContainer extends Component {
     )
   }
 
-
-
   render(){
     return(
       <ProfileEditable
