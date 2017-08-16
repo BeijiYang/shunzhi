@@ -109,10 +109,28 @@ exports.addFollowing = function (req, res) {
       if (!isHere) {
         followings.push(req.body.currentUserId)
         user.save(() => {
-          res.json({ msg: "添加成功", followings })
+          res.json({
+            msg: "添加成功",
+            user: {
+              username: user.username,
+              _id: user._id,
+              slogan: user.slogan,
+              avatar: user.avatar,
+              followings: user.followings
+            }
+          })
         })
       } else {
-        res.json({ msg: '早就添加过了' })
+        res.json({
+          msg: '早就添加过了',
+          user: {
+            username: user.username,
+            _id: user._id,
+            slogan: user.slogan,
+            avatar: user.avatar,
+            followings: user.followings
+          }
+         })
       }
     }
   )

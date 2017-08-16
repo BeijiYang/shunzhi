@@ -1,19 +1,20 @@
 import React, { Component } from 'react'
 import TitleHeader from '../../shared/TitleHeader/TitleHeader'
-import { connect } from 'react-redux'
 import './user.css'
 import Settings from '../../../settings'
-import FriendButton from './FriendButton'
-
 
 class User extends Component {
-
   state = {
     isFriend: false
   }
 
-  render(){
-    const  userId  = this.props.user._id
+  handleFriendClick = () => {
+    this.props.onAddFllowing(this.props.user._id)
+    this.setState({
+      isFriend: true
+    })
+  }
+  render () {
     const { user } = this.props
       const { username, slogan, avatar } = user
       const hisAvatar = avatar ? `${Settings.host}/uploads/avatars/${avatar}` : 'http://media.haoduoshipin.com/yummy/default-avatar.png'
@@ -39,7 +40,11 @@ class User extends Component {
                 {hisSlogan}
               </div>
             </div>
-            <FriendButton user={user} />
+            <div
+              onClick={this.handleFriendClick}
+              className="friend-button">
+                {this.state.isFriend ? '已是好友' : '加为好友'}
+            </div>
           </div>
         </div>
       )
