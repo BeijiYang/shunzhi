@@ -1,15 +1,14 @@
 import React, { Component } from 'react'
 import editIcon from './editIcon.svg'
 import axios from 'axios'
-import Settings from '../../../../settings'
-import { connect } from 'react-redux'
+import Settings from '../../../settings'
 
 class ProfileEditable extends Component {
 
   state = {
     edit: false,
     image: '',
-    slogan: this.props.user.slogan ? this.props.user.slogan : '还没有填写个性签名'
+    slogan: this.props.currentUser.slogan ? this.props.currentUser.slogan : '还没有填写个性签名'
   }
 
   edit = () => {
@@ -23,7 +22,7 @@ class ProfileEditable extends Component {
     e.preventDefault()
     let slogan = this.sloganInput.value
     let data = {
-      username: this.props.user.username,
+      username: this.props.currentUser.username,
       slogan
     }
     console.log(data)
@@ -76,8 +75,9 @@ class ProfileEditable extends Component {
   }
 
   render(){
-    const { user } = this.props
-    const  { avatar, username } = user
+    const { currentUser } = this.props
+    console.log('in ProfileEditable', currentUser)
+    const  { avatar, username } = currentUser
     const hisAvatar = avatar ? `${Settings.host}/uploads/avatars/${avatar}` : 'http://media.haoduoshipin.com/yummy/default-avatar.png'
     const hisUsername = username ? username : 'no name'
 
@@ -124,4 +124,4 @@ class ProfileEditable extends Component {
   }
 }
 
-export default connect(null)(ProfileEditable)
+export default ProfileEditable

@@ -3,7 +3,7 @@ import '../assets/css/App.css'
 import Home from '../components/pages/Home/Home'
 import DashBoard from '../components/pages/DashBoard/DashBoard'
 import SignupContainer from './SignupContainer'
-import Profile from '../components/pages/Profile/Profile'
+import ProfileContainer from './ProfileContainer'
 import LoginContainer from './LoginContainer'
 import axios from 'axios'
 import Settings from '../settings'
@@ -80,7 +80,7 @@ class App extends Component {
               <Route path="/signup" component={SignupContainer} />
               <Route path="/login" component={LoginContainer} />
               <Route path="/dashboard" component={DashBoard} />
-              <Route path="/profile" component={Profile} />
+              <Route path="/profile" component={ProfileContainer} />
               <Route path="/dishes" component={Dishes} />
               <Route path="/cart" component={Cart} />
               <Route path="/dish/:dishId" component={Dish} />
