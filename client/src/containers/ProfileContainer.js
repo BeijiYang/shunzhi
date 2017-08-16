@@ -2,21 +2,12 @@ import React , { Component } from 'react'
 import LoginFirst from '../components/shared/LoginFirst'
 import Profile from '../components/pages/Profile/Profile'
 import { connect } from 'react-redux'
-import { loadCurrentUser } from '../redux/actions'
 
 class ProfileContainer extends Component {
 
-  userId = localStorage.getItem('userId')
-
-  componentWillMount () {
-    if (this.userId) {
-      this.props.loadCurrentUser(this.userId)
-    }
-  }
-
   render() {
     const { users, currentUser } = this.props
-    if(!this.userId) {
+    if(!localStorage.getItem('userId')) {
       return(
         <LoginFirst />
       )
@@ -43,4 +34,4 @@ const mapStateToProps = (state) => ({
   currentUser: state.account.currentUser
 })
 
-export default connect(mapStateToProps, { loadCurrentUser })(ProfileContainer)
+export default connect(mapStateToProps)(ProfileContainer)
