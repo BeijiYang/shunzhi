@@ -1,3 +1,4 @@
+import * as types from '../ActionTypes'
 let user = {
   all: []
 }
@@ -6,9 +7,9 @@ export default function userReducer(state=user, action) {
   switch (action.type) {
     case 'LOAD_USERS':
       return { ...state, all: action.users }
-    case 'UPDATE_USER':
-      let userId =  action.userId
-      let nextState = { ...state, all: { ...state.all, [userId]: action.user }}
+    case types.UPDATE_USER:
+      // FIXME
+      let nextState = state
       return nextState
     default:
       return state

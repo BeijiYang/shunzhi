@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import editIcon from './editIcon.svg'
-import axios from 'axios'
 import Settings from '../../../settings'
 
 class ProfileEditable extends Component {
@@ -17,6 +16,19 @@ class ProfileEditable extends Component {
     })
   }
 
+  handleSloganSubmit = (e) => {
+    e.preventDefault()
+    let slogan = this.sloganInput.value
+    let data = {
+      username: this.props.currentUser.username,
+      slogan
+    }
+    this.props.onUpdateSlogan(data)
+    this.setState({
+      edit: false
+    })
+  }
+
   edit = () => {
     console.log('edit')
     this.setState({
@@ -26,14 +38,13 @@ class ProfileEditable extends Component {
 
   render(){
     const { currentUser } = this.props
-    console.log('in ProfileEditable', currentUser)
     const  { avatar, username } = currentUser
     const hisAvatar = avatar ? `${Settings.host}/uploads/avatars/${avatar}` : 'http://media.haoduoshipin.com/yummy/default-avatar.png'
     const hisUsername = username ? username : 'no name'
 
     let editForm = (
       <form className="profile-form"
-        onSubmit={this.updateUser}>
+        onSubmit={this.handleSloganSubmit}>
         <input className="profile-slogan-input"
           ref={value => this.sloganInput = value}
           type="text"  value={this.state.slogan}
@@ -45,15 +56,13 @@ class ProfileEditable extends Component {
 
     return(
       <div className="profile-editable">
-
-
         <label className="profile-upload-img"
           style={{
             'backgroundImage': `url(${this.state.image ? this.state.image : hisAvatar})`,
            }}
           >
           <input type='file' className='profile-image-input'
-            onChange={this.handleChange}
+            onChange={this.props.onUpdateAvatar}
             />
         </label>
 

@@ -34,9 +34,11 @@ exports.update = function (req, res) {
         if (err) return res.status(500).json({msg: '更新失败，请重试',err});
         res.json({
           user: {
+            _id: user._id,
             slogan: user.slogan,
             username: user.username,
-            avatar: user.avatar
+            avatar: user.avatar,
+            followings: user.followings
           },
           msg: '更新成功'
         })

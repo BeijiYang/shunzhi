@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import Settings from '../settings'
 import ProfileEditable from '../components/pages/Profile/ProfileEditable'
+import store from '../redux/store'
+import * as types from '../redux/ActionTypes'
 
 class ProfileEditableContainer extends Component {
 
@@ -11,24 +13,11 @@ class ProfileEditableContainer extends Component {
     slogan: this.props.currentUser.slogan ? this.props.currentUser.slogan : '还没有填写个性签名'
   }
 
-
-
-  updateUser = (e) => {
-    e.preventDefault()
-    let slogan = this.sloganInput.value
-    let data = {
-      username: this.props.currentUser.username,
-      slogan
-    }
-    console.log(data)
+  updateSlogan = (data) => {
     axios.put(`${Settings.host}/user`, data).then( res => {
       console.log('user, from server...', res.data)
-      this.props.dispatch({ type: 'UPDATE_USER', user: res.data.user, userId: this.props.userId  })
-      this.setState({
-        edit: false
-      })
+      store.dispatch({ type: types.UPDATE_USER, user: res.data.user })
     })
-
   }
 
   updateAvatar = (event) => {
@@ -69,6 +58,7 @@ class ProfileEditableContainer extends Component {
       <ProfileEditable
       currentUser={this.props.currentUser}
       onUpdateAvatar={this.updateAvatar}
+      onUpdateSlogan={this.updateSlogan}
       />
     )
   }
