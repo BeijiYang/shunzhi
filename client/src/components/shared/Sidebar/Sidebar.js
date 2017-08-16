@@ -1,18 +1,15 @@
 import React, { Component } from 'react'
 import { slide as Menu } from 'react-burger-menu'
 import './sidebar.css'
-import { connect } from 'react-redux'
-import store from '../../../redux/store'
 
 import {
-  Link,
-  withRouter
+  Link
 } from 'react-router-dom'
 
 class Sidebar extends Component {
 
   state = {
-    isOpen: false
+    isOpen: true
   }
 
   closeMenu = () =>{
@@ -21,20 +18,15 @@ class Sidebar extends Component {
     })
   }
 
-  logout = () => {
-    localStorage.removeItem('userId')
-    store.dispatch({ type: 'LOG_OUT' })
-    this.props.history.push('/')
-  }
-
   render () {
-    const { currentUser, isAuthenticated } = this.props.account
+    const { currentUser } = this.props
+    const isAuthenticated = Object.keys(currentUser).length !== 0
     let userInfo = (
       <div onClick={this.closeMenu} className="user-info-text">
         <Link to="/profile" className="bm-user-name">
-          {currentUser}
+          {currentUser.username}
         </Link>
-        <Link to="" onClick={this.logout}>退出</Link>
+        <Link to="" onClick={this.props.onLogout}>退出</Link>
       </div>
     )
 
@@ -63,7 +55,7 @@ class Sidebar extends Component {
               <button onClick={this.closeMenu} className ="bm-close-button" >关闭</button>
             </div>
       </Menu>
-    );
+    )
   }
 }
 
@@ -71,4 +63,4 @@ const mapStateToProps = (state) => ({
   account: state.account
 })
 
-export default connect(mapStateToProps)(withRouter(Sidebar))
+export default Sidebar

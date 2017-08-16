@@ -8,7 +8,7 @@ import LoginContainer from './LoginContainer'
 import axios from 'axios'
 import Settings from '../settings'
 import AlertBox from '../components/shared/AlertBox/AlertBox'
-import Sidebar from '../components/shared/Sidebar/Sidebar'
+import SidebarContainer from './SidebarContainer'
 import Dishes from '../components/pages/Dishes/Dishes'
 import Dish from '../components/pages/Dish/Dish'
 import Cart from '../components/pages/Cart/Cart'
@@ -59,7 +59,7 @@ class App extends Component {
           <div>
             <Route render={({ location }) => {
                 return location.pathname !== '/' ?
-                       <Sidebar /> : null
+                       <SidebarContainer /> : null
               }} />
             <Switch>
               <Route exact path="/" render={() => {
