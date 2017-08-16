@@ -24,7 +24,7 @@ class Profile extends Component {
         // users 的 ID 已经变化了
         console.log('userId', userId)
 
-        const user = users.find(item => item._id = userId)
+        // const user = users.find(item => item._id = userId)
         return(
           <div className="profile">
             <TitleHeader title="个人中心" />

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import '../assets/css/App.css'
 import Home from '../components/pages/Home/Home'
 import DashBoard from '../components/pages/DashBoard/DashBoard'
-import Signup from '../components/pages/Signup/Signup'
+import Signup from './SignupContainer'
 import Profile from '../components/pages/Profile/Profile'
 import Login from '../components/pages/Login/Login'
 import axios from 'axios'
@@ -27,14 +27,10 @@ import { connect } from 'react-redux'
 
 class App extends Component {
   componentDidMount() {
-
     // LOAD_USERS
     const self = this
     axios.get(`http://localhost:3008/users`).then(
       function (res) {
-        console.log('axios:3008', res.data.users)
-
-        // 这里的就已经不对了
         self.props.dispatch({ type: 'LOAD_USERS', users: res.data.users })
       }
     )
