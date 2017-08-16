@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './user-list.css'
-import Settings from '../../../../settings'
+import Settings from '../../../settings'
 import Toggle from 'react-toggle'
 import { Link } from 'react-router-dom'
 

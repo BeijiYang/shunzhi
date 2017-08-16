@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import Settings from '../../../../settings'
+import Settings from '../../../settings'
 import { connect } from 'react-redux'
 import './comment.css'
 import moment from 'moment'

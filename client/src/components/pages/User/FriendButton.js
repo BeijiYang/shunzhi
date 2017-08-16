@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Settings from '../../../../settings'
+import Settings from '../../../settings'
 import axios from 'axios'
 
 class FriendButton extends Component {

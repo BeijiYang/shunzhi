@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './dish-card.css'
-import CommentIcon from '../../icons/CommentIcon'
+import CommentIcon from '../../../assets/icons/CommentIcon'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import TitleHeader from '../../shared/TitleHeader/TitleHeader'
 import { connect } from 'react-redux'
 import './user.css'
-import Settings from '../../../../settings'
+import Settings from '../../../settings'
 
 import FriendButton from './FriendButton'
 

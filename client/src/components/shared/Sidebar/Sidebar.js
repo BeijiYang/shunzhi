@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { slide as Menu } from 'react-burger-menu'
 import './sidebar.css'
 import { connect } from 'react-redux'
-import store from '../../../../redux/store'
+import store from '../../../redux/store'
 
 import {
   Link,

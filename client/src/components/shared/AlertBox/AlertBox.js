@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './alert-box.css'
-import store from '../../../../redux/store'
+import store from '../../../redux/store'
 import { connect } from 'react-redux'
 
 class AlertBox extends Component {
