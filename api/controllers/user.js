@@ -158,7 +158,13 @@ exports.updateAvatar = function(req, res) {
       user.save(err => {
         if(err) return console.log(err)
         res.json({
-          user,
+          user: {
+            avatar: user.avatar,
+            followings: user.followings,
+            _id: user._id,
+            username: user.username,
+            slogan: user.slogan
+          },
           message: '用户头像更新成功'
         })
       })

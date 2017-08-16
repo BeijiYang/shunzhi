@@ -36,6 +36,33 @@ class ProfileEditable extends Component {
     })
   }
 
+  handleAvatarChange = (e) => {
+    const file = e.target.files[0]
+
+      // 注意：手机上拍照上传会失败，是因为 niginx 对上传文件的大小是有限制的，
+      // 最大就是 1M ，可以通过修改 /etc/nginx/site-enabled/xxx.conf 文件来解决
+    let formData = new FormData()
+    if (!file.type.match('image.*')) {
+      console.log('请上传图片');
+    } else {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        console.log('onload.....');
+        this.setState({
+          image: event.target.result,
+        });
+        // console.log('image staee', this.state.image)
+        formData.append('avatar', file)
+        formData.append('userId', this.props.currentUser._id )
+        console.log('formData..', formData)
+        this.props.onUpdateAvatar(formData)
+
+      }
+      console.log('reader.read....')
+      reader.readAsDataURL(file);
+    }
+  }
+
   render(){
     const { currentUser } = this.props
     const  { avatar, username } = currentUser
@@ -62,7 +89,7 @@ class ProfileEditable extends Component {
            }}
           >
           <input type='file' className='profile-image-input'
-            onChange={this.props.onUpdateAvatar}
+            onChange={this.handleAvatarChange}
             />
         </label>
 

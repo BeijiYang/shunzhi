@@ -8,7 +8,7 @@ import { loadCurrentUser } from './redux/actions'
 
 let Kid = (
   <Provider store={store}>
-      <App />
+    <App />
   </Provider>
 )
 
