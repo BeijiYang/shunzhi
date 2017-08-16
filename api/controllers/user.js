@@ -118,17 +118,7 @@ exports.all = function(req, res) {
   // .populate('followings', 'username')
   .exec().then(
     users => {
-
-          let result = users.reduce(function(map, obj) {
-              map[obj._id] = { name: obj.name,
-                username: obj.username,
-                slogan: obj.slogan,
-                avatar: obj.avatar,
-                followings: obj.followings
-              }
-              return map;
-          }, {});
-        res.json({ users: result })
+        res.json({ users })
       })
 
   // User.find((err, users) => {

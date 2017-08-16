@@ -3,28 +3,10 @@ import TitleHeader from '../../shared/TitleHeader/TitleHeader'
 import { connect } from 'react-redux'
 import './user.css'
 import Settings from '../../../../settings'
-import axios from 'axios'
+
+import FriendButton from './FriendButton'
 
 
-const FriendButton = ({ user, isFriend }) => {
-
-  const addFollowing = () => {
-      let data = {
-        userId: user._id,
-        currentUserId: localStorage.getItem('userId')
-      }
-      axios.post(`${Settings.host}/add-following`, data).then(
-        res => {
-          console.log('addFollowing', res.data)
-        }
-      )
-    }
-
-  return (<div onClick={addFollowing}
-    className="user-follow-btn">
-    {isFriend ? '已是好友' : '加为好友'}
-  </div>)
-}
 class User extends Component {
 
   state = {
@@ -61,7 +43,7 @@ class User extends Component {
                 {hisSlogan}
               </div>
             </div>
-            <FriendButton user={users[userId]} isFriend={true} />
+            <FriendButton user={users[userId]} />
           </div>
         </div>
       )

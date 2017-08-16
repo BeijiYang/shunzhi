@@ -22,6 +22,7 @@ class Login extends Component {
     axios.post(`${Settings.host}/user/login`, data).then(res => {
       console.log(res)
       if(res.data.username) {
+        console.log('Login.js', res.data)
         this.props.dispatch({ type: 'AUTH_USER', username: res.data.username })
         localStorage.setItem('userId', res.data.userId)
         this.props.history.push('/dashboard')

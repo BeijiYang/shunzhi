@@ -25,10 +25,20 @@ import {
 import { connect } from 'react-redux'
 
 
-
-
 class App extends Component {
   componentDidMount() {
+
+    // LOAD_USERS
+    const self = this
+    axios.get(`http://localhost:3008/users`).then(
+      function (res) {
+        console.log('axios:3008', res.data.users)
+
+        // 这里的就已经不对了
+        self.props.dispatch({ type: 'LOAD_USERS', users: res.data.users })
+      }
+    )
+
     // AUTH_USER
     let userId = localStorage.getItem('userId')
     if(userId) {
@@ -36,12 +46,6 @@ class App extends Component {
         this.props.dispatch({ type: 'AUTH_USER', username: res.data.user.username })
       })
     }
-
-    // LOAD_USERS
-    axios.get(`${Settings.host}/users`).then(res => {
-        this.props.dispatch({ type: 'LOAD_USERS', users: res.data.users })
-      }
-    )
 
     // LOAD_DISHES
     axios.get(`${Settings.host}/dishes`).then(res => {
