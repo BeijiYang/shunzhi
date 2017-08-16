@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import '../assets/css/App.css'
 import Home from '../components/pages/Home/Home'
 import DashBoard from '../components/pages/DashBoard/DashBoard'
-import Signup from './SignupContainer'
+import SignupContainer from './SignupContainer'
 import Profile from '../components/pages/Profile/Profile'
-import Login from '../components/pages/Login/Login'
+import LoginContainer from './LoginContainer'
 import axios from 'axios'
 import Settings from '../settings'
 import AlertBox from '../components/shared/AlertBox/AlertBox'
@@ -77,8 +77,8 @@ class App extends Component {
                     <Home />
                   )
                 }}/>
-              <Route path="/signup" component={Signup} />
-              <Route path="/login" component={Login} />
+              <Route path="/signup" component={SignupContainer} />
+              <Route path="/login" component={LoginContainer} />
               <Route path="/dashboard" component={DashBoard} />
               <Route path="/profile" component={Profile} />
               <Route path="/dishes" component={Dishes} />

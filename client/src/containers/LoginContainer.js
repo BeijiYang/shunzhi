@@ -1,31 +1,36 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import Settings from '../settings'
-import Signup from '../components/pages/Signup/Signup'
+import Login from '../components/pages/Login/Login'
 import { connect } from 'react-redux'
 
-class SignupContainer extends Component {
+class LoginContainer extends Component {
 
-  signup = (data) => {
-    axios.post(`${Settings.host}/user/signup`, data).then(res => {
+  login = (data) => {
+    if(data.username === ''){
+      this.props.dispatch({ type: 'SHOW_ALERT', message: '用户名不能为空' })
+      return
+    }
+    axios.post(`${Settings.host}/user/login`, data).then(res => {
       if(res.data.username) {
         this.props.dispatch({ type: 'AUTH_USER', username: res.data.username })
         localStorage.setItem('userId', res.data.userId)
         this.props.history.push('/dashboard')
       }
     }).catch(err => {
-      if(err.response) {
+      if(err.response){
         const { msg } = err.response.data
         this.props.dispatch({ type: 'SHOW_ALERT', message: msg })
       }
+      this.loginForm.reset()
     })
   }
 
   render() {
     return(
-      <Signup onFormSubmit={this.signup}/>
+      <Login onFormSubmit={this.login} />
     )
   }
 }
 
-export default connect(null)(SignupContainer)
+export default connect(null)(LoginContainer)
