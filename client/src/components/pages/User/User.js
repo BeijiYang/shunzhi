@@ -3,7 +3,6 @@ import TitleHeader from '../../shared/TitleHeader/TitleHeader'
 import { connect } from 'react-redux'
 import './user.css'
 import Settings from '../../../settings'
-
 import FriendButton from './FriendButton'
 
 
@@ -13,12 +12,9 @@ class User extends Component {
     isFriend: false
   }
 
-
   render(){
-    const { userId } = this.props.match.params
-    const { users } = this.props
-    if(Object.keys(users).length !== 0){
-      const user = users[userId]
+    const  userId  = this.props.user._id
+    const { user } = this.props
       const { username, slogan, avatar } = user
       const hisAvatar = avatar ? `${Settings.host}/uploads/avatars/${avatar}` : 'http://media.haoduoshipin.com/yummy/default-avatar.png'
       const hisUsername = username ? username : 'no name'
@@ -43,18 +39,14 @@ class User extends Component {
                 {hisSlogan}
               </div>
             </div>
-            <FriendButton user={users[userId]} />
+            <FriendButton user={user} />
           </div>
         </div>
       )
-    }else{
-      return null
-    }
+
   }
 }
 
-const mapStateToProps = (state) => ({
-  users: state.user.all
-})
 
-export default connect(mapStateToProps)(User)
+
+export default User

@@ -6,6 +6,7 @@ let user = {
 export default function userReducer(state=user, action) {
   switch (action.type) {
     case types.LOAD_USERS:
+      console.log('LOAD_USERS', action.users)
       return { ...state, all: action.users }
     case types.UPDATE_USER:
       let newAll = state.all.map(user => {

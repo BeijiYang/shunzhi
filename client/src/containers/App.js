@@ -13,7 +13,7 @@ import Dishes from '../components/pages/Dishes/Dishes'
 import Dish from '../components/pages/Dish/Dish'
 import Cart from '../components/pages/Cart/Cart'
 import CartButton from '../components/shared/CartButton/CartButton'
-import User from '../components/pages/User/User'
+import UserContainer from './UserContainer'
 
 import {
   BrowserRouter as Router,
@@ -76,7 +76,7 @@ class App extends Component {
               <Route path="/dishes" component={Dishes} />
               <Route path="/cart" component={Cart} />
               <Route path="/dish/:dishId" component={Dish} />
-              <Route path="/user/:userId" component={User} />
+              <Route path="/user/:id" component={UserContainer} />
             </Switch>
             <CartButton />
           </div>
