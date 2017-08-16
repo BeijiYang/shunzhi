@@ -12,7 +12,7 @@ export default function accountReducer(state=account, action) {
     case types.LOAD_CURRENT_USER:
       return { ...state, currentUser: action.currentUser }
     case types.UPDATE_USER:
-      return { ...state, currentUser: action.user }
+      return { ...state, currentUser: action.currentUser }
     case 'LOG_OUT':
       return { ...state, currentUser: '', isAuthenticated: false }
     case 'SHOW_ALERT':

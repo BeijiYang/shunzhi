@@ -58,8 +58,13 @@ exports.login = function (req, res) {
       if (err) return res.status(500).json({msg: '登陆失败，请重试',err});
       if (isMatch) {
         res.json({
-          userId: user._id,
-          username: user.username,
+          user: {
+            userId: user._id,
+            username: user.username,
+            slogan: user.slogan,
+            avatar: user.avatar,
+            followings: user.followings
+          },
           msg: '登陆成功'
         })
       }else {
