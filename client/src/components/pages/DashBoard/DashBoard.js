@@ -9,7 +9,6 @@ class Dashboard extends Component {
 
   render() {
     const { comments } = this.props
-    console.log('dashboard', comments)
     const cardList = Object.keys(comments).reverse().map(id => {
       return (
         <FeedItem key={id} comment={comments[id]} />
@@ -21,7 +20,6 @@ class Dashboard extends Component {
         暂无好友更新，可以直接去 <Link to="/dishes">购物区</Link> 转转。
       </div>
     )
-    console.log('dashboard', window.innerHeight)
     return(
       <div className="dashboard">
         <TitleHeader title="好友更新" />

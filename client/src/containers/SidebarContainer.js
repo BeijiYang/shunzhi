@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import Sidebar from '../components/shared/Sidebar/Sidebar'
 
 import {
-  Link,
   withRouter
 } from 'react-router-dom'
 

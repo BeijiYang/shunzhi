@@ -59,8 +59,4 @@ class Sidebar extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  account: state.account
-})
-
 export default Sidebar
