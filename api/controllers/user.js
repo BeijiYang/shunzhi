@@ -89,25 +89,26 @@ exports.getById  = function (req, res) {
         _id: user._id,
         username: user.username,
         avatar: user.avatar,
-        slogan: user.slogan
+        slogan: user.slogan,
+        followings: user.followings
       }})
     }
   })
 }
 
 exports.addFollowing = function (req, res) {
-  User.findOne({ _id: req.body.userId })
+  User.findOne({ _id: req.body.currentUserId })
   // .populate('followings', 'username')
   .exec().then(
     user => {
       let followings = user.followings
-      let { currentUserId } = req.body
+      let { userId } = req.body
       let followingsCopy = followings.map(item => {
         return item.toString()
       })
-      let isHere = followingsCopy.includes(currentUserId)
+      let isHere = followingsCopy.includes(userId)
       if (!isHere) {
-        followings.push(req.body.currentUserId)
+        followings.push(req.body.userId)
         user.save(() => {
           res.json({
             msg: "添加成功",

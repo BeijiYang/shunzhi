@@ -4,15 +4,9 @@ import './user.css'
 import Settings from '../../../settings'
 
 class User extends Component {
-  state = {
-    isFriend: false
-  }
 
   handleFriendClick = () => {
     this.props.onAddFllowing(this.props.user._id)
-    this.setState({
-      isFriend: true
-    })
   }
   render () {
     const { user } = this.props
@@ -43,7 +37,7 @@ class User extends Component {
             <div
               onClick={this.handleFriendClick}
               className="friend-button">
-                {this.state.isFriend ? '已是好友' : '加为好友'}
+                {this.props.isFriend ? '已是好友' : '加为好友'}
             </div>
           </div>
         </div>
