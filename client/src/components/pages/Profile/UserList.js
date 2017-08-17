@@ -11,8 +11,17 @@ class UserList extends Component {
     following: true
   }
 
-  toggleFollow = () => {
-    // TODO
+  toggleFollow = (id) => {
+    console.log('toggleFollow....', id)
+    if (this.isFriend(id)) {
+      // this.props.removeFollowing(id)
+    }else {
+      // this.props.addFollowing(id)
+    }
+  }
+
+  isFriend (id) {
+    return  this.props.currentUser.followings.includes(id)
   }
 
   render(){
@@ -24,19 +33,18 @@ class UserList extends Component {
          className="user-list-avatar">
        </div>
        <Link to={`/user/${user._id}`} className="user-list-username">
-         {user.username} { currentUser.followings.includes(user._id) ? '好友' : '非好友' }
+         {user.username} { this.isFriend(user._id) ? '好友' : '非好友' }
        </Link>
        <div className="user-list-switch">
          <label>
            <Toggle
-             defaultChecked={this.state.following}
+             defaultChecked={this.isFriend(user._id)}
              icons={false}
-             onChange={this.toggleFollow} />
+             onChange={() => this.toggleFollow(user._id)} />
          </label>
        </div>
     </li>
     ))
-    console.log(listStr)
     return(
       <div className="user-list">
         {listStr}
