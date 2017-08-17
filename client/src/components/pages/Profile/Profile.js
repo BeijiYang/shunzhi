@@ -14,7 +14,9 @@ class Profile extends Component {
         <ProfileEditableContainer currentUser={currentUser} />
         <div style={{ 'minHeight': `${window.innerHeight - 200}px`}}
           className="profile-details">
-          <UserList users={users} currentUser={currentUser}/>
+          <UserList users={users}
+            onToggleFollow={this.props.onToggleFollow}
+            currentUser={currentUser}/>
         </div>
       </div>
     )

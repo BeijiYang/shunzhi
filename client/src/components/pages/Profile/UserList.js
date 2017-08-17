@@ -3,6 +3,7 @@ import './user-list.css'
 import Settings from '../../../settings'
 import Toggle from 'react-toggle'
 import { Link } from 'react-router-dom'
+import { removeFriend } from '../../../redux/actions'
 
 
 class UserList extends Component {
@@ -11,14 +12,6 @@ class UserList extends Component {
     following: true
   }
 
-  toggleFollow = (id) => {
-    console.log('toggleFollow....', id)
-    if (this.isFriend(id)) {
-      // this.props.removeFollowing(id)
-    }else {
-      // this.props.addFollowing(id)
-    }
-  }
 
   isFriend (id) {
     return  this.props.currentUser.followings.includes(id)
@@ -40,7 +33,7 @@ class UserList extends Component {
            <Toggle
              defaultChecked={this.isFriend(user._id)}
              icons={false}
-             onChange={() => this.toggleFollow(user._id)} />
+             onChange={() => this.props.onToggleFollow(user._id)} />
          </label>
        </div>
     </li>
