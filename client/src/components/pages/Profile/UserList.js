@@ -10,7 +10,6 @@ class UserList extends Component {
     following: true
   }
 
-
   isFriend (id) {
     return  this.props.currentUser.followings.includes(id)
   }

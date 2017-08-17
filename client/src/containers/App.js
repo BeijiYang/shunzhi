@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import '../assets/css/App.css'
-import Home from '../components/pages/Home/Home'
+import HomeContainer from './HomeContainer'
 import DashBoard from '../components/pages/DashBoard/DashBoard'
 import SignupContainer from './SignupContainer'
 import ProfileContainer from './ProfileContainer'
@@ -57,7 +57,7 @@ class App extends Component {
                        <SidebarContainer /> : null
               }} />
             <Switch>
-              <Route exact path="/" component={Home} />
+              <Route exact path="/" component={HomeContainer} />
               <Route path="/signup" component={SignupContainer} />
               <Route path="/login" component={LoginContainer} />
               <Route path="/dashboard" component={DashBoard} />
