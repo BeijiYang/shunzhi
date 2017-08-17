@@ -59,7 +59,7 @@ exports.login = function (req, res) {
       if (isMatch) {
         res.json({
           user: {
-            userId: user._id,
+            _id: user._id,
             username: user.username,
             slogan: user.slogan,
             avatar: user.avatar,

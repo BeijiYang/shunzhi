@@ -10,8 +10,13 @@ export const loadCurrentUser = (userId) => dispatch => {
   )
 }
 
+
 export const showAlert = (msg) => dispatch => {
   dispatch({ type: types.SHOW_ALERT, msg })
+}
+
+export const updateUser = (currentUser) => dispatch => {
+  dispatch({ type: types.UPDATE_USER, currentUser })
 }
 
 export const followFriend = (userId) => dispatch => {

@@ -3,7 +3,7 @@ import axios from 'axios'
 import Settings from '../settings'
 import Login from '../components/pages/Login/Login'
 import { connect } from 'react-redux'
-import { setTitle, showAlert } from '../redux/actions'
+import { setTitle, showAlert, updateUser } from '../redux/actions'
 import * as types from '../redux/ActionTypes'
 
 class LoginContainer extends Component {
@@ -13,16 +13,15 @@ class LoginContainer extends Component {
 
   login = (data) => {
     if(data.username === ''){
-      this.props.dispatch({ type: 'SHOW_ALERT', message: '用户名不能为空' })
+      this.props.showAlert("用户名不能为空")
       return
     }
     axios.post(`${Settings.host}/user/login`, data).then(res => {
-      this.props.dispatch({ type: types.UPDATE_USER, currentUser: res.data.user })
+      this.props.updateUser(res.data.user)
       localStorage.setItem('userId', res.data.user.userId)
-      console.log('aaaa', res.data.user)
+      // then 之中的语句 throw Eror ，也会触发 catch
       this.props.history.push('/dashboard')
     }).catch(err => {
-      console.log('bbbbb')
       if(err.response){
         const { msg } = err.response.data
         this.props.showAlert(msg)
@@ -37,4 +36,4 @@ class LoginContainer extends Component {
   }
 }
 
-export default connect(null, { setTitle, showAlert })(LoginContainer)
+export default connect(null, { setTitle, showAlert, updateUser })(LoginContainer)
