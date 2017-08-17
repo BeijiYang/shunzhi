@@ -2,13 +2,16 @@ import React , { Component } from 'react'
 import LoginFirst from '../components/shared/LoginFirst'
 import Profile from '../components/pages/Profile/Profile'
 import { connect } from 'react-redux'
-import { removeFriend } from '../redux/actions'
+import { removeFriend, followFriend } from '../redux/actions'
 
 class ProfileContainer extends Component {
 
   onToggleFollow = (userId) => {
-    console.log('onToggleFollow----', userId)
-    this.props.removeFriend(userId)
+    if (this.props.currentUser.followings.includes(userId)) {
+      this.props.removeFriend(userId)
+    } else {
+      this.props.followFriend(userId)
+    }
   }
 
   render() {
@@ -41,4 +44,4 @@ const mapStateToProps = (state) => ({
   currentUser: state.account.currentUser
 })
 
-export default connect(mapStateToProps, { removeFriend })(ProfileContainer)
+export default connect(mapStateToProps, { removeFriend, followFriend })(ProfileContainer)
