@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import TitleHeader from '../../shared/TitleHeader/TitleHeader'
 import './dish.css'
 import ShoppingIcon from './ShoppingIcon'
 import Comment from './Comment'
 import PieChart from './PieChart'
 import AreaChart from './AreaChart'
+
 
 class Dish extends Component {
 
@@ -12,7 +12,6 @@ class Dish extends Component {
     const { dish, comments, isInCart } = this.props
     return (
       <div className="dish">
-        <TitleHeader title="草莓派" />
         <div className="dish-info">
           <div className="dish-img-wrap">
             <div style={{ 'backgroundImage' : `url(${dish.poster})`}}

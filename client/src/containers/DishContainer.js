@@ -4,8 +4,9 @@ import { connect } from 'react-redux'
 import { setTitle } from '../redux/actions'
 
 class DishContainer extends Component {
-  componentWillMount () {
-    this.props.setTitle('TODO: 菜品名称')
+
+  componentWillReceiveProps () {
+    this.props.setTitle('新品')
   }
 
   buy = (dish, isInCart) => {
