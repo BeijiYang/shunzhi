@@ -7,7 +7,6 @@ class DashBoardContainer extends Component {
 
   render() {
     const { comments, currentUser } = this.props
-    console.log('comments--xxx', comments)
 
     return(
       <Dashboard comments={comments} />

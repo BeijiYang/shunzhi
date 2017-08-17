@@ -8,7 +8,6 @@ class Dashboard extends Component {
 
   render() {
     const { comments } = this.props
-    console.log('aaaaaaaa', comments)
     let commentsCopy = comments.slice()
     const cardList = commentsCopy.reverse().map(comment => {
       return (
