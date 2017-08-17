@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import TitleHeader from '../../shared/TitleHeader/TitleHeader'
 import './login.css'
 import {
   Link
@@ -18,7 +17,6 @@ class Login extends Component {
   render() {
     return(
       <div className="login">
-        <TitleHeader title="login" />
         <div className="login-content">
         <div className="login-hero" >
           <h1 className="title">
