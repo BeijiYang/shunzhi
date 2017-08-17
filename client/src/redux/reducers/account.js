@@ -18,8 +18,8 @@ export default function accountReducer(state=account, action) {
       return { ...state, title: action.title }
     case 'LOG_OUT':
       return { ...state, currentUser: '', isAuthenticated: false }
-    case 'SHOW_ALERT':
-      return { ...state, showAlert: true, alertMessage: action.message }
+    case types.SHOW_ALERT:
+      return { ...state, showAlert: true, alertMessage: action.msg }
     case 'HIDE_ALERT':
       return { ...state, showAlert: false, alertMessage: '' }
     default:
