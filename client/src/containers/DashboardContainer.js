@@ -10,13 +10,18 @@ class DashBoardContainer extends Component {
 
   render() {
     const { comments, currentUser } = this.props
-    const friendComments = comments.filter(comment => {
-      return currentUser.followings.includes(comment.user._id)
-    })
-
-    return(
-      <Dashboard comments={friendComments} />
-    )
+    console.log('aaaa', currentUser)
+    if(Object.keys(currentUser).length !== 0) {
+      console.log('bbbbb', currentUser)
+      const friendComments = comments.filter(comment => {
+        return currentUser.followings.includes(comment.user._id)
+      })
+      return(
+        <Dashboard comments={friendComments} />
+      )
+    } else {
+      return null
+    }
   }
 }
 

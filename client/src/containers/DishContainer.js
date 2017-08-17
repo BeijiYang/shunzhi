@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
 import Dish from '../components/pages/Dish/Dish'
 import { connect } from 'react-redux'
+import { setTitle } from '../redux/actions'
 
 class DishContainer extends Component {
+  componentWillMount () {
+    this.props.setTitle('TODO: 菜品名称')
+  }
 
   buy = (dish, isInCart) => {
     if(isInCart) return
@@ -34,4 +38,4 @@ const mapStateToProps = (state) => ({
   cartDishes: state.cart.dishes,
 })
 
-export default connect(mapStateToProps)(DishContainer)
+export default connect(mapStateToProps, { setTitle })(DishContainer)

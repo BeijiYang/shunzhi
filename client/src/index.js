@@ -13,7 +13,7 @@ let Kid = (
 )
 
 const userId = localStorage.getItem('userId')
-if (userId) {
+if (userId && userId !== 'undefined') {
   store.dispatch(loadCurrentUser(userId))
 }
 

@@ -18,7 +18,8 @@ class LoginContainer extends Component {
     }
     axios.post(`${Settings.host}/user/login`, data).then(res => {
       this.props.updateUser(res.data.user)
-      localStorage.setItem('userId', res.data.user.userId)
+      localStorage.setItem('userId', res.data.user._id)
+
       // then 之中的语句 throw Eror ，也会触发 catch
       this.props.history.push('/dashboard')
     }).catch(err => {

@@ -4,8 +4,6 @@ import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import './dishes.css'
 import DishCard from './DishCard'
-import TitleHeader from '../../shared/TitleHeader/TitleHeader'
-import { connect } from 'react-redux'
 
 class Dishes extends Component {
   render(){
@@ -30,15 +28,11 @@ class Dishes extends Component {
     )
     return(
       <div className="dishes">
-        <TitleHeader title="猜你喜欢" />
         { Object.keys(this.props.dishes).length === 0 ? '' : slide }
       </div>
     )
   }
 }
 
-const mapStateToProps = (state) => ({
-  dishes: state.dish.all
-})
 
-export default connect(mapStateToProps)(Dishes)
+export default Dishes
