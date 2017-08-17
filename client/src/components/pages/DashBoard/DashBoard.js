@@ -1,7 +1,6 @@
 import React , { Component } from 'react'
 import './dashboard.css'
 import FeedItem from  './FeedItem'
-import { connect } from 'react-redux'
 import TitleHeader from '../../shared/TitleHeader/TitleHeader'
 import { Link } from 'react-router-dom'
 
@@ -9,9 +8,11 @@ class Dashboard extends Component {
 
   render() {
     const { comments } = this.props
-    const cardList = Object.keys(comments).reverse().map(id => {
+    console.log('aaaaaaaa', comments)
+    let commentsCopy = comments.slice()
+    const cardList = commentsCopy.reverse().map(comment => {
       return (
-        <FeedItem key={id} comment={comments[id]} />
+        <FeedItem key={comment._id} comment={comment} />
       )
     })
 
@@ -26,15 +27,11 @@ class Dashboard extends Component {
         <div className="feed-wrap"
              style={{ 'minHeight': `${window.innerHeight -80}px` }}
           >
-          {Object.keys(comments).length === 0 ? noUpdate : cardList}
+          {comments.length === 0 ? noUpdate : cardList}
         </div>
       </div>
     )
   }
 }
 
-const mapStateToProps = (state) => ({
-  comments: state.comment.all
-})
-
-export default connect(mapStateToProps)(Dashboard)
+export default Dashboard

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import '../assets/css/App.css'
 import HomeContainer from './HomeContainer'
-import DashBoard from '../components/pages/DashBoard/DashBoard'
+import DashboardContainer from './DashboardContainer'
 import SignupContainer from './SignupContainer'
 import ProfileContainer from './ProfileContainer'
 import LoginContainer from './LoginContainer'
@@ -60,7 +60,7 @@ class App extends Component {
               <Route exact path="/" component={HomeContainer} />
               <Route path="/signup" component={SignupContainer} />
               <Route path="/login" component={LoginContainer} />
-              <Route path="/dashboard" component={DashBoard} />
+              <Route path="/dashboard" component={DashboardContainer} />
               <Route path="/profile" component={ProfileContainer} />
               <Route path="/dishes" component={Dishes} />
               <Route path="/cart" component={Cart} />

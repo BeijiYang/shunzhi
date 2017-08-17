@@ -20,16 +20,16 @@ exports.new = function (req, res) {
 exports.all = function (req, res) {
   Comment.find().populate('user dish', 'username avatar slogan poster').exec().then(
     comments => {
-      let result = comments.reduce(function(map, obj) {
-          map[obj._id] = {
-            user: obj.user,
-            dish: obj.dish,
-            content: obj.content,
-            createdAt: obj.createdAt
-          }
-          return map;
-      }, {})
-      return res.json({msg: '读取所有评论成功', comments: result })
+      // let result = comments.reduce(function(map, obj) {
+      //     map[obj._id] = {
+      //       user: obj.user,
+      //       dish: obj.dish,
+      //       content: obj.content,
+      //       createdAt: obj.createdAt
+      //     }
+      //     return map;
+      // }, {})
+      return res.json({msg: '读取所有评论成功', comments })
     }
   )
 }

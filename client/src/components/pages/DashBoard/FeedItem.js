@@ -18,7 +18,6 @@ class FeedItem extends Component {
 
   render() {
     const { comment } = this.props
-    console.log('feed-item', comment)
     return(
       <div
         className={`feed-item ${this.state.expand ? 'expand' : ''}`}>
