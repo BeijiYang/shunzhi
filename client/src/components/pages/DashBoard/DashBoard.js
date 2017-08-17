@@ -1,7 +1,6 @@
 import React , { Component } from 'react'
 import './dashboard.css'
 import FeedItem from  './FeedItem'
-import TitleHeader from '../../shared/TitleHeader/TitleHeader'
 import { Link } from 'react-router-dom'
 
 class Dashboard extends Component {
@@ -22,7 +21,6 @@ class Dashboard extends Component {
     )
     return(
       <div className="dashboard">
-        <TitleHeader title="好友更新" />
         <div className="feed-wrap"
              style={{ 'minHeight': `${window.innerHeight -80}px` }}
           >
