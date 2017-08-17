@@ -26,7 +26,7 @@ class Dish extends Component {
             <div className="price-tag">
               {dish.price}<span className="unit">元</span>
             </div>
-            <div onClick={() => this.buy(dish, isInCart)}
+            <div onClick={() => this.props.onBuy(dish, isInCart)}
               className="shopping-icon-wrap">
               <ShoppingIcon color={isInCart ? '#F77062' : '#D0D0D0'}/>
             </div>

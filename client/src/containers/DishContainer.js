@@ -15,10 +15,12 @@ class DishContainer extends Component {
       let dish = this.props.dishes[dishId]
       let isInCart =  Object.keys(this.props.cartDishes).includes(dishId)
       let { comments } = this.props
-      console.log('comments-----====', comments)
       let isAuthenticated = localStorage.getItem('userId') !== 'undefined'
       return (
-        <Dish dish={dish} comments={comments} isInCart={isInCart} isAuthenticated={isAuthenticated}/>
+        <Dish dish={dish} comments={comments}
+          isInCart={isInCart} isAuthenticated={isAuthenticated}
+          onBuy={this.buy}
+          />
       )
     } else {
       return null
