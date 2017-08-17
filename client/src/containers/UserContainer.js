@@ -23,11 +23,7 @@ class UserContainer extends Component {
   render(){
     const { users, currentUser } = this.props
     const { id }    = this.props.match.params
-    console.log('111111', users)
-    console.log('22222', id)
-    console.log('333333', currentUser)
     let dataReady = users.length !== 0 && Object.keys(currentUser).length !== 0
-    console.log('444444', dataReady)
     if (dataReady) {
       let user = users.find(user => (
         user._id === id
@@ -43,7 +39,6 @@ class UserContainer extends Component {
 const mapStateToProps = (state) => ({
   users: state.user.all,
   currentUser: state.account.currentUser
-  // FIXME: should have a getter in reducers, ref: https://github.com/reactjs/redux/blob/master/examples/shopping-cart/src/reducers/products.js#L16
 })
 
 export default connect(mapStateToProps)(UserContainer)
