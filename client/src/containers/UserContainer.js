@@ -37,7 +37,7 @@ class UserContainer extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  users: state.user.all,
+  users: state.userById.all,
   currentUser: state.account.currentUser
 })
 
