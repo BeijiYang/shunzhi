@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import TitleHeader from '../../shared/TitleHeader/TitleHeader'
 import './signup.css'
 import {
   Link
@@ -7,7 +6,6 @@ import {
 
 
 class SignUp extends Component {
-
   handleSubmit = (e) => {
     e.preventDefault()
     let username = this.usernameInput.value
@@ -18,8 +16,8 @@ class SignUp extends Component {
 
   render() {
     return(
-      <div className="signup">
-        <TitleHeader title="signup" />
+      <div style={{ 'height': `${window.innerHeight - 80}px`}}
+        className="signup">
         <div className="signup-content">
         <div className="signup-hero" >
           <h1 className="title">

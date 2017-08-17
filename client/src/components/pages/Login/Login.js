@@ -16,7 +16,8 @@ class Login extends Component {
 
   render() {
     return(
-      <div className="login">
+      <div style={{ 'height': `${window.innerHeight - 80}px`}}
+        className="login">
         <div className="login-content">
         <div className="login-hero" >
           <h1 className="title">

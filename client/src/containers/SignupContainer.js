@@ -2,9 +2,13 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import Settings from '../settings'
 import Signup from '../components/pages/Signup/Signup'
+import * as types from '../redux/ActionTypes'
 import { connect } from 'react-redux'
 
 class SignupContainer extends Component {
+  componentWillMount () {
+    this.props.dispatch({ type: types.SET_TITLE, title: '注册' })
+  }
 
   signup = (data) => {
     axios.post(`${Settings.host}/user/signup`, data).then(res => {

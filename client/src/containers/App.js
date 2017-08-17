@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import '../assets/css/App.css'
 import HomeContainer from './HomeContainer'
-import DashboardContainer from './DashboardContainer'
-import SignupContainer from './SignupContainer'
+
 import ProfileContainer from './ProfileContainer'
 import axios from 'axios'
 import Settings from '../settings'

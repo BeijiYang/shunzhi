@@ -4,7 +4,8 @@ import * as types from '../ActionTypes'
 let account = {
   currentUser: {},
   showAlert: false,
-  alertMessage: ''
+  alertMessage: '',
+  title: ''
 }
 
 export default function accountReducer(state=account, action) {
@@ -13,6 +14,8 @@ export default function accountReducer(state=account, action) {
       return { ...state, currentUser: action.currentUser }
     case types.UPDATE_USER:
       return { ...state, currentUser: action.currentUser }
+    case types.SET_TITLE:
+      return { ...state, title: action.title }
     case 'LOG_OUT':
       return { ...state, currentUser: '', isAuthenticated: false }
     case 'SHOW_ALERT':

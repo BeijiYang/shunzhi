@@ -6,6 +6,9 @@ import { connect } from 'react-redux'
 import * as types from '../redux/ActionTypes'
 
 class LoginContainer extends Component {
+  componentWillMount () {
+    this.props.dispatch({ type: types.SET_TITLE, title: '登录' })
+  }
 
   login = (data) => {
     if(data.username === ''){
