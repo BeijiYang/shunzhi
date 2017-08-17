@@ -23,12 +23,9 @@ class UserContainer extends Component {
   render(){
     const { users, currentUser } = this.props
     const { id }    = this.props.match.params
-    let dataReady = users.length !== 0 && Object.keys(currentUser).length !== 0
+    let dataReady = Object.keys(users).length !== 0 && Object.keys(currentUser).length !== 0
     if (dataReady) {
-      let user = users.find(user => (
-        user._id === id
-      ))
-      return <User user={user} onAddFllowing={this.addFollowing}
+      return <User user={users[id]} onAddFllowing={this.addFollowing}
                    isFriend={currentUser.followings.includes(id)} />
     }else {
       return <div className="loading">LOADING... </div>
