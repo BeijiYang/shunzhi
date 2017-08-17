@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Settings from '../settings'
 import User from '../components/pages/User/User'
-import axios from 'axios'
-import * as types from '../redux/ActionTypes'
 import { followFriend } from '../redux/actions'
 
 
@@ -12,9 +9,6 @@ class UserContainer extends Component {
   addFollowing = (userId) => {
     this.props.followFriend(userId)
   }
-
-
-
 
   render(){
     const { users, currentUser } = this.props

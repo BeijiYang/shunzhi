@@ -14,30 +14,27 @@ import Dish from '../components/pages/Dish/Dish'
 import Cart from '../components/pages/Cart/Cart'
 import CartButton from '../components/shared/CartButton/CartButton'
 import UserContainer from './UserContainer'
+import store from '../redux/store'
 
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Redirect
+  Route
 } from 'react-router-dom'
-
-import { connect } from 'react-redux'
 
 
 class App extends Component {
   componentDidMount() {
     // LOAD_USERS
-    const self = this
     axios.get(`http://localhost:3008/users`).then(
       function (res) {
-        self.props.dispatch({ type: 'LOAD_USERS', users: res.data.users })
+        store.dispatch({ type: 'LOAD_USERS', users: res.data.users })
       }
     )
 
     // LOAD_DISHES
     axios.get(`${Settings.host}/dishes`).then(res => {
-        this.props.dispatch({ type: 'LOAD_DISHES', dishes: res.data.dishes })
+        store.dispatch({ type: 'LOAD_DISHES', dishes: res.data.dishes })
       }
     )
 
@@ -45,13 +42,11 @@ class App extends Component {
     axios.get(`${Settings.host}/comments`).then(
       res => {
         const { comments } = res.data
-        this.props.dispatch({ type: 'LOAD_COMMENTS', comments })
+        store.dispatch({ type: 'LOAD_COMMENTS', comments })
       }
     )
   }
   render() {
-    const { isAuthenticated } = this.props
-
     return (
       <div>
         <AlertBox />
@@ -62,13 +57,7 @@ class App extends Component {
                        <SidebarContainer /> : null
               }} />
             <Switch>
-              <Route exact path="/" render={() => {
-                  return isAuthenticated ? (
-                    <Redirect to="/dashboard" />
-                  ) : (
-                    <Home />
-                  )
-                }}/>
+              <Route exact path="/" component={Home} />
               <Route path="/signup" component={SignupContainer} />
               <Route path="/login" component={LoginContainer} />
               <Route path="/dashboard" component={DashBoard} />
@@ -86,8 +75,5 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  isAuthenticated: state.account.isAuthenticated
-})
 
-export default connect(mapStateToProps)(App)
+export default App

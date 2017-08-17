@@ -3,8 +3,6 @@ import './user-list.css'
 import Settings from '../../../settings'
 import Toggle from 'react-toggle'
 import { Link } from 'react-router-dom'
-import { removeFriend } from '../../../redux/actions'
-
 
 class UserList extends Component {
 
@@ -18,7 +16,7 @@ class UserList extends Component {
   }
 
   render(){
-    const { users, currentUser } = this.props
+    const { users } = this.props
     const listStr = users.map(user => (
       <li className="user-list-item"
       key={user._id}>
