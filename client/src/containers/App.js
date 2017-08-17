@@ -19,7 +19,8 @@ import store from '../redux/store'
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Redirect
 } from 'react-router-dom'
 
 
@@ -57,7 +58,13 @@ class App extends Component {
                        <SidebarContainer /> : null
               }} />
             <Switch>
-              <Route exact path="/" component={HomeContainer} />
+              <Route exact path="/" render={() => {
+                  if(localStorage.getItem('userId')) {
+                    return <Redirect to="/dashboard" />
+                  } else {
+                    return <HomeContainer />
+                  }
+                }} />
               <Route path="/signup" component={SignupContainer} />
               <Route path="/login" component={LoginContainer} />
               <Route path="/dashboard" component={DashboardContainer} />
