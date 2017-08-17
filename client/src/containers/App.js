@@ -10,7 +10,7 @@ import Settings from '../settings'
 import AlertBox from '../components/shared/AlertBox/AlertBox'
 import SidebarContainer from './SidebarContainer'
 import Dishes from '../components/pages/Dishes/Dishes'
-import Dish from '../components/pages/Dish/Dish'
+import DishContainer from './DishContainer'
 import Cart from '../components/pages/Cart/Cart'
 import CartButton from '../components/shared/CartButton/CartButton'
 import UserContainer from './UserContainer'
@@ -64,7 +64,7 @@ class App extends Component {
               <Route path="/profile" component={ProfileContainer} />
               <Route path="/dishes" component={Dishes} />
               <Route path="/cart" component={Cart} />
-              <Route path="/dish/:dishId" component={Dish} />
+              <Route path="/dish/:dishId" component={DishContainer} />
               <Route path="/user/:id" component={UserContainer} />
             </Switch>
             <CartButton />

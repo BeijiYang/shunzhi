@@ -11,8 +11,6 @@ import {
 } from 'react-router-dom'
 
 
-
-
 class Comment extends Component {
 
   newComment = (e) => {
@@ -90,7 +88,6 @@ class Comment extends Component {
 
 const mapStateToProps = (state) => ({
   comments: state.comment.all,
-  isAuthenticated: state.account.isAuthenticated
 })
 
 export default connect(mapStateToProps)(Comment)
