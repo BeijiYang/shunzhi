@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import '../assets/css/App.css'
 import HomeContainer from './HomeContainer'
-
-import ProfileContainer from './ProfileContainer'
 import axios from 'axios'
 import Settings from '../settings'
 import AlertBox from '../components/shared/AlertBox/AlertBox'

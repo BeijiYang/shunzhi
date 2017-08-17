@@ -3,11 +3,12 @@ import axios from 'axios'
 import Settings from '../settings'
 import Login from '../components/pages/Login/Login'
 import { connect } from 'react-redux'
+import { setTitle } from '../redux/actions'
 import * as types from '../redux/ActionTypes'
 
 class LoginContainer extends Component {
   componentWillMount () {
-    this.props.dispatch({ type: types.SET_TITLE, title: '登录' })
+    this.props.setTitle('登录')
   }
 
   login = (data) => {
@@ -34,4 +35,4 @@ class LoginContainer extends Component {
   }
 }
 
-export default connect(null)(LoginContainer)
+export default connect(null, { setTitle })(LoginContainer)

@@ -1,10 +1,10 @@
-// <Route path="/profile" component={ProfileContainer} />
 // <Route path="/dishes" component={Dishes} />
 // <Route path="/cart" component={Cart} />
 // <Route path="/dish/:dishId" component={DishContainer} />
 // <Route path="/user/:id" component={UserContainer} />
 import LoginContainer from './LoginContainer'
 import DashboardContainer from './DashboardContainer'
+import ProfileContainer from './ProfileContainer'
 import SignupContainer from './SignupContainer'
 import TitleHeader from '../components/shared/TitleHeader/TitleHeader'
 import React, { Component } from 'react'
@@ -21,9 +21,10 @@ class LayoutContainer extends Component {
       <div>
         <TitleHeader title={this.props.title} />
         <Switch>
-          <Route title="登录" path="/login" component={LoginContainer} />
-          <Route title="注册" path="/signup" component={SignupContainer} />
-          <Route title="更新" path="/dashboard" component={DashboardContainer} />
+          <Route path="/login" component={LoginContainer} />
+          <Route path="/signup" component={SignupContainer} />
+          <Route path="/dashboard" component={DashboardContainer} />
+          <Route path="/profile" component={ProfileContainer} />
         </Switch>
       </div>
     )
