@@ -14,7 +14,7 @@ class Profile extends Component {
         <ProfileEditableContainer currentUser={currentUser} />
         <div style={{ 'minHeight': `${window.innerHeight - 200}px`}}
           className="profile-details">
-          <UserList users={users}/>
+          <UserList users={users} currentUser={currentUser}/>
         </div>
       </div>
     )

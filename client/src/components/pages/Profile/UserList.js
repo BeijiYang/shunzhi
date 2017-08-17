@@ -16,7 +16,7 @@ class UserList extends Component {
   }
 
   render(){
-    const { users } = this.props
+    const { users, currentUser } = this.props
     const listStr = users.map(user => (
       <li className="user-list-item"
       key={user._id}>
@@ -24,7 +24,7 @@ class UserList extends Component {
          className="user-list-avatar">
        </div>
        <Link to={`/user/${user._id}`} className="user-list-username">
-         {user.username}
+         {user.username} { currentUser.followings.includes(user._id) ? '好友' : '非好友' }
        </Link>
        <div className="user-list-switch">
          <label>
