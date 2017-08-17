@@ -14,6 +14,7 @@ import DishContainer from './DishContainer'
 import Cart from '../components/pages/Cart/Cart'
 import CartButton from '../components/shared/CartButton/CartButton'
 import UserContainer from './UserContainer'
+import LayoutContainer from './LayoutContainer'
 import store from '../redux/store'
 
 import {
@@ -65,14 +66,7 @@ class App extends Component {
                     return <HomeContainer />
                   }
                 }} />
-              <Route path="/signup" component={SignupContainer} />
-              <Route path="/login" component={LoginContainer} />
-              <Route path="/dashboard" component={DashboardContainer} />
-              <Route path="/profile" component={ProfileContainer} />
-              <Route path="/dishes" component={Dishes} />
-              <Route path="/cart" component={Cart} />
-              <Route path="/dish/:dishId" component={DishContainer} />
-              <Route path="/user/:id" component={UserContainer} />
+              <Route component={LayoutContainer} />
             </Switch>
             <CartButton />
           </div>
