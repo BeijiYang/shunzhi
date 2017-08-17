@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Dish from '../components/pages/Dish/Dish'
 import { connect } from 'react-redux'
-import { setTitle } from '../redux/actions'
+import { setTitle, addToCart } from '../redux/actions'
 
 class DishContainer extends Component {
 
@@ -11,7 +11,7 @@ class DishContainer extends Component {
 
   buy = (dish, isInCart) => {
     if(isInCart) return
-    this.props.dispatch({ type: 'ADD_CART', dishId: this.props.match.params.dishId, dish: dish })
+    this.props.addToCart(dish)
   }
 
   render(){
@@ -20,7 +20,8 @@ class DishContainer extends Component {
       let dish = this.props.dishes[dishId]
       let isInCart =  Object.keys(this.props.cartDishes).includes(dishId)
       let { comments } = this.props
-      let isAuthenticated = localStorage.getItem('userId') !== 'undefined'
+      let userId = localStorage.getItem('userId')
+      let isAuthenticated =  userId !== 'null' && userId !== 'undefined'
       return (
         <Dish dish={dish} comments={comments}
           isInCart={isInCart} isAuthenticated={isAuthenticated}
@@ -39,4 +40,4 @@ const mapStateToProps = (state) => ({
   cartDishes: state.cart.dishes,
 })
 
-export default connect(mapStateToProps, { setTitle })(DishContainer)
+export default connect(mapStateToProps, { setTitle, addToCart })(DishContainer)

@@ -1,3 +1,6 @@
+import * as types from '../ActionTypes'
+
+
 let cart = {
   total: 0,
   // dishes: {'597be20c2bbfdbaa14bfa248': {
@@ -24,8 +27,9 @@ export default function cartReducer(state=cart, action) {
   let nextDishes
   let nextPrice
   switch (action.type) {
-    case 'ADD_CART':
-      nextDishes = {...state.dishes, [action.dishId]: {
+    case types.ADD_TO_CART:
+      console.log('ADD_TO_CART-------')
+      nextDishes = {...state.dishes, [action.dish._id]: {
           name: action.dish.name,
           poster: action.dish.poster,
           price: action.dish.price,

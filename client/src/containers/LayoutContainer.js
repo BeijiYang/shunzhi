@@ -1,10 +1,10 @@
-// <Route path="/cart" component={Cart} />
 // <Route path="/user/:id" component={UserContainer} />
 import DishesContainer from './DishesContainer'
 import DishContainer from './DishContainer'
 import LoginContainer from './LoginContainer'
 import DashboardContainer from './DashboardContainer'
 import ProfileContainer from './ProfileContainer'
+import CartContainer from './CartContainer'
 import SignupContainer from './SignupContainer'
 import TitleHeader from '../components/shared/TitleHeader/TitleHeader'
 import React, { Component } from 'react'
@@ -27,6 +27,7 @@ class LayoutContainer extends Component {
           <Route path="/profile" component={ProfileContainer} />
           <Route path="/dish/:dishId" component={DishContainer} />
           <Route path="/dishes" component={DishesContainer} />
+          <Route path="/cart" component={CartContainer} />
         </Switch>
       </div>
     )

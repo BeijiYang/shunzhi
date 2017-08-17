@@ -10,6 +10,9 @@ export const loadCurrentUser = (userId) => dispatch => {
   )
 }
 
+export const addToCart = (dish) => dispatch => {
+  dispatch({ type: types.ADD_TO_CART,  dish: dish })
+}
 
 export const showAlert = (msg) => dispatch => {
   dispatch({ type: types.SHOW_ALERT, msg })

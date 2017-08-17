@@ -6,7 +6,6 @@ class CartItem extends Component {
 
   state = {
     itemCount: 1
-
   }
 
   decrement = () => {
