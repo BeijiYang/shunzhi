@@ -14,6 +14,7 @@ module.exports = function (app) {
   app.get('/users', User.all)
   app.get('/user/:userId', User.getById)
   app.post('/add-following', User.addFollowing)
+  app.post('/remove-following', User.removeFollowing)
 
 
   // comment

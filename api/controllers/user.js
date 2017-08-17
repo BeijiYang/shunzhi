@@ -96,6 +96,34 @@ exports.getById  = function (req, res) {
   })
 }
 
+exports.removeFollowing = function(req, res) {
+  User.findOne({ _id: req.body.currentUserId })
+  .exec().then(
+    user => {
+      let followings = user.followings
+      let { userId } = req.body
+      console.log('followings', followings)
+      console.log('userId', userId)
+      let index = followings.indexOf(userId)
+      console.log('xxxx', index)
+      followings.splice(index, 1);
+      console.log('followings--0000', followings)
+      user.save(() => {
+        res.json({
+          user: {
+            username: user.username,
+            _id: user._id,
+            slogan: user.slogan,
+            avatar: user.avatar,
+            followings: user.followings
+          },
+          msg: '好友删除成功'
+        })
+      })
+    }
+  )
+}
+
 exports.addFollowing = function (req, res) {
   User.findOne({ _id: req.body.currentUserId })
   // .populate('followings', 'username')
