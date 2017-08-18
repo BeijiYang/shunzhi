@@ -48,12 +48,28 @@ class NewDish extends Component {
     return Object.keys(fieldsError).some(field => fieldsError[field]);
   }
 
+  getPosterName (file) {
+    console.log('getPosterName', file)
+  }
+
+  handleChange ({file, fileList, event}) {
+    console.log('handleChange111111', event)
+    console.log('22222222', file)
+    console.log('333333333', fileList)
+  }
+
+  handleSuccess (result) {
+    console.log('handleSuccess', result)
+  }
   render = () => {
     const props2 = {
       action: 'http://localhost:3008/dish/poster',
       name: 'poster',
       listType: 'picture',
       className: 'upload-list-inline',
+      // data: this.getPosterName,
+      // onChange: this.handleChange,
+      onSuccess: this.handleSuccess
     };
 
 
