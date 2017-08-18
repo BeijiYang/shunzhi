@@ -5,8 +5,7 @@ import axios from 'axios'
 import Settings from '../settings'
 import AlertBox from '../components/shared/AlertBox/AlertBox'
 import SidebarContainer from './SidebarContainer'
-import CartButton from '../components/shared/CartButton/CartButton'
-import UserContainer from './UserContainer'
+import CartButtonContainer from './CartButtonContainer'
 import LayoutContainer from './LayoutContainer'
 import store from '../redux/store'
 
@@ -55,7 +54,7 @@ class App extends Component {
                 }} />
               <Route component={LayoutContainer} />
             </Switch>
-            <CartButton />
+            <CartButtonContainer />
           </div>
         </Router>
       </div>

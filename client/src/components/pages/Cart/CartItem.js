@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import './cart-item.css'
 
 class CartItem extends Component {

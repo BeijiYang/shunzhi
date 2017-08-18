@@ -4,7 +4,6 @@ import Settings from '../settings'
 import Login from '../components/pages/Login/Login'
 import { connect } from 'react-redux'
 import { setTitle, showAlert, updateUser } from '../redux/actions'
-import * as types from '../redux/ActionTypes'
 
 class LoginContainer extends Component {
   componentWillMount () {
