@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import TitleHeader from '../../shared/TitleHeader/TitleHeader'
 import './user.css'
 import Settings from '../../../settings'
 
@@ -16,7 +15,6 @@ class User extends Component {
       const hisSlogan =  slogan ? slogan : '还没有填写个性签名'
       return(
         <div className="user">
-          <TitleHeader title={username} />
           <div style={{ 'height' : `${window.innerHeight - 160}px`}}
             className="user-info-wrap">
             <div className="user-avatar"

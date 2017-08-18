@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import User from '../components/pages/User/User'
-import { followFriend } from '../redux/actions'
+import { followFriend, setTitle } from '../redux/actions'
 
 
 class UserContainer extends Component {
+  componentWillMount () {
+    this.props.setTitle('用户')
+  }
 
   addFollowing = (userId) => {
     this.props.followFriend(userId)
@@ -28,4 +31,4 @@ const mapStateToProps = (state) => ({
   currentUser: state.account.currentUser
 })
 
-export default connect(mapStateToProps, { followFriend })(UserContainer)
+export default connect(mapStateToProps, { followFriend, setTitle })(UserContainer)
