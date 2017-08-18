@@ -15,9 +15,9 @@ class CartContainer extends Component {
   }
 
   render() {
-    const { dishes } = this.props
+    const { dishes, totalPrice } = this.props
     return(
-      <Cart dishes={dishes}/>
+      <Cart dishes={dishes} totalPrice={totalPrice} />
     )
   }
 }
