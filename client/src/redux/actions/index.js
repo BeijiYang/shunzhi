@@ -17,7 +17,6 @@ export const loadDishes = () => dispatch => {
   )
 }
 
-
 export const addToCart = (dishId) => dispatch => {
   dispatch({ type: types.ADD_TO_CART,  dishId })
 }
@@ -61,7 +60,6 @@ export const removeFriend = (userId) => dispatch => {
   }
   axios.post(`${Settings.host}/remove-following`, data).then(
     res => {
-
       dispatch({ type: types.UPDATE_USER, currentUser: res.data.user })
     }
   )

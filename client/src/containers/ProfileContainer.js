@@ -6,7 +6,7 @@ import { removeFriend, followFriend, setTitle } from '../redux/actions'
 
 class ProfileContainer extends Component {
   componentWillMount () {
-    this.props.setTitle('Profile')
+    this.props.setTitle('个人中心')
   }
 
   onToggleFollow = (userId) => {
