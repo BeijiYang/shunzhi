@@ -40,7 +40,7 @@ class CartItem extends Component {
             -
           </div>
           <div className="item-count">
-            {this.props.dishes[this.props.dishId].count}
+            {this.props.dish.count}
           </div>
           <div onClick={this.increment}
             className="plus">
@@ -52,10 +52,5 @@ class CartItem extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return ({
-    dishes: state.cart.dishes
-  })
-}
 
-export default connect(mapStateToProps)(CartItem)
+export default CartItem
