@@ -5,7 +5,10 @@ const DishTableColumns = [
 {
   title: '海报',
   dataIndex: 'poster',
-  key: 'poster'
+  key: 'poster',
+  render: (text) => {
+    return <img className="poster" src={`${text}`} />
+  },
 },{
   title: '菜品名称',
   dataIndex: 'name',

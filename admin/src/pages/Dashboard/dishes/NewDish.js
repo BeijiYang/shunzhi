@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
 import  Settings  from '../../../settings'
 
-import { Form, Input, Button, Icon,  message } from 'antd'
+import { Form, Input, Button, Icon,  message, Upload } from 'antd'
 import './new-dish.css'
 
 import axios from 'axios'
 
+
 const FormItem = Form.Item
+
+// https://ant.design/components/upload-cn/
 
 class NewDish extends Component {
   handleSubmit = (e) => {
@@ -46,6 +49,15 @@ class NewDish extends Component {
   }
 
   render = () => {
+    const props2 = {
+      action: 'http://localhost:3008/dish/poster',
+      name: 'poster',
+      listType: 'picture',
+      className: 'upload-list-inline',
+    };
+
+
+
     const { getFieldDecorator, getFieldsError } = this.props.form;
     const config = {
       rules: [{ type: 'string', required: true, message: '必填项目' }],
@@ -83,19 +95,17 @@ class NewDish extends Component {
         name='price' />
         )}
       </FormItem>
-      <FormItem>
-        {getFieldDecorator('poster', config)(
-        <Input prefix={<Icon type="pay-circle-o" style={{ fontSize: 14 }} />}
-        placeholder='海报'
-        type='text'
-        name='poster' />
-        )}
-      </FormItem>
 
       <FormItem>
         <Button type='primary' htmlType='submit' disabled={this.hasErrors(getFieldsError())} className='signup-form-button'>添加账户</Button>
       </FormItem>
     </Form>
+
+    <Upload {...props2} >
+      <Button>
+       <Icon type="upload" /> upload
+     </Button>
+   </Upload>
   </div>
 </div>
   )}

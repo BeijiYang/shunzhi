@@ -2,7 +2,9 @@ let User = require('./controllers/user');
 let Dish = require('./controllers/dish')
 let Comment = require('./controllers/comment')
 let multer = require('multer')
-var upload = multer({dest: './public/uploads/avatars'})
+let uploadAvatar = multer({ dest: './public/uploads/avatars' })
+let uploadPoster = multer({ dest: './public/uploads/posters' })
+
 
 
 module.exports = function (app) {
@@ -22,11 +24,11 @@ module.exports = function (app) {
   app.get('/comments', Comment.all)
 
   // upload avatar
-  app.post('/avatar', upload.single('avatar'), User.updateAvatar)
-  app.post('/touxiang', upload.single('avatar'), User.updateTouxiang)
+  app.post('/avatar', uploadAvatar.single('avatar'), User.updateAvatar)
 
   // dish
   app.post('/dish', Dish.new)
-  app.get('/dishes', Dish.all)
+  app.post('/dish/poster', uploadPoster.single('poster'), Dish.uploadPoster)
 
+  app.get('/dishes', Dish.all)
 }

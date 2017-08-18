@@ -223,16 +223,3 @@ exports.updateAvatar = function(req, res) {
   })
 
 }
-
-
-exports.updateTouxiang = function(req, res) {
-  let user = new User()
-  console.log('updateTouxiang', req.body)
-  if(req.file && req.file.filename) {
-    console.log('filename...', req.file.filename)
-  }
-  res.json({
-    filename: req.file.filename,
-    message: '上传成功'
-  })
-}
