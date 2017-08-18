@@ -23,7 +23,7 @@ class UserList extends Component {
          className="user-list-avatar">
        </div>
        <Link to={`/user/${user._id}`} className="user-list-username">
-         {user.username} { this.isFriend(user._id) ? '好友' : '非好友' }
+         {user.username} 
        </Link>
        <div className="user-list-switch">
          <label>
