@@ -37,7 +37,7 @@ class LayoutContainer extends Component {
           <Route path="/login" component={LoginContainer} />
           <Route path="/signup" component={SignupContainer} />
           <Route path="/dashboard" component={DashboardContainer} />
-          <Route path="/profile" component={ProfileContainer} />
+          <PrivateRoute path="/profile" component={ProfileContainer} />
           <Route path="/dish/:dishId" component={DishContainer} />
           <Route path="/dishes" component={DishesContainer} />
           <PrivateRoute path="/cart" component={CartContainer} />
