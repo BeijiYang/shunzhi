@@ -25,18 +25,26 @@ class CartContainer extends Component {
 
   render() {
     const { dishes, total } = this.props
-    return(
-      <Cart dishes={dishes} total={total}
-        onIncrement={this.increment}
-        onDecrement={this.decrement}
-        />
-    )
+    if (dishes) {
+      return(
+        <Cart dishes={dishes} total={total}
+          onIncrement={this.increment}
+          onDecrement={this.decrement}
+          />
+      )
+    } else {
+      return null
+    }
   }
 }
 
-const mapStateToProps = (state) => ({
-  dishes: getCartDishes(state),
-  // total: getTotal(state)
-  total: 250
-})
+const mapStateToProps = (state) => {
+  console.log('1111111', getCartDishes(state))
+  return ({
+    dishes: getCartDishes(state),
+    // total: getTotal(state)
+    total: 250
+  })
+}
+
 export default connect(mapStateToProps, { setTitle, incrCartItem, decrCartItem })(CartContainer)

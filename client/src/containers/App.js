@@ -27,7 +27,6 @@ class App extends Component {
       }
     )
 
-
     // LOAD_COMMENTS
     axios.get(`${Settings.host}/comments`).then(
       res => {
