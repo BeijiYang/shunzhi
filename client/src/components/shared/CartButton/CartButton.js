@@ -44,7 +44,7 @@ class CartButton extends Component {
       className="cart-button">
         <div style={styles.cartNo}
           className="cart-no">
-          {this.props.total}
+          {this.props.itemQuantity}
         </div>
         <img style={styles.img}
         src={cartIcon} alt="icon" />
@@ -54,7 +54,7 @@ class CartButton extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  total: state.cart.total
+  itemQuantity: state.cart.itemQuantity
 })
 
 export default connect(mapStateToProps)(CartButton)
