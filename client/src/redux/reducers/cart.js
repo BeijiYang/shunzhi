@@ -10,7 +10,7 @@ let cart = {
   //   count: 1
   // }},
   dishes: {},
-  itemQuantity: 0
+  cartCount: 0
 }
 
 const calPrice = (dishes) => {
@@ -38,7 +38,7 @@ export default function cartReducer(state=cart, action) {
       }
       nextPrice = calPrice(nextDishes)
 
-      return { ...state, itemQuantity: state.itemQuantity + 1, dishes: nextDishes, total: nextPrice }
+      return { ...state, cartCount: state.cartCount + 1, dishes: nextDishes, total: nextPrice }
     case 'INCR_CART_ITEM':
       nextDishes = { ...state.dishes,
                         [action.dishId] : { ...state.dishes[action.dishId],
