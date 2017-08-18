@@ -4,20 +4,8 @@ import './cart-item.css'
 
 class CartItem extends Component {
 
-  state = {
-    itemCount: 1
-  }
-
-  decrement = () => {
-    this.props.dispatch({ type: 'DECR_CART_ITEM', dishId: this.props.dishId })
-  }
-
-  increment = () => {
-    this.props.dispatch({ type: 'INCR_CART_ITEM', dishId: this.props.dishId })
-  }
-
   render(){
-    const { name, poster, price} = this.props.dish
+    const { name, poster, price, _id} = this.props.dish
     return(
       <div className="cart-item">
         <div className="cart-item-info">
@@ -35,14 +23,14 @@ class CartItem extends Component {
           </div>
         </div>
         <div className="cart-action">
-          <div onClick={this.decrement}
+          <div onClick={() => this.props.onDecrement(_id)}
             className="minus">
             -
           </div>
           <div className="item-count">
             {this.props.dish.count}
           </div>
-          <div onClick={this.increment}
+          <div onClick={() => this.props.onIncrement(_id)}
             className="plus">
             +
           </div>

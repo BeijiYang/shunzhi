@@ -29,10 +29,7 @@ export default function cartReducer(state=cart, action) {
   switch (action.type) {
     case types.ADD_TO_CART:
       nextDishes = {...state.dishes, [action.dish._id]: {
-          name: action.dish.name,
-          poster: action.dish.poster,
-          price: action.dish.price,
-          desc: action.dish.desc,
+          ...action.dish,
           count: 1
         }
       }

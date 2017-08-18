@@ -14,6 +14,14 @@ export const addToCart = (dish) => dispatch => {
   dispatch({ type: types.ADD_TO_CART,  dish: dish })
 }
 
+export const decrCartItem = (dishId) => dispatch => {
+  dispatch({ type: types.DECR_CART_ITEM, dishId })
+}
+
+export const incrCartItem = (dishId) => dispatch => {
+  dispatch({ type: types.INCR_CART_ITEM, dishId })
+}
+
 export const showAlert = (msg) => dispatch => {
   dispatch({ type: types.SHOW_ALERT, msg })
 }

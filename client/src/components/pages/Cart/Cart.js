@@ -8,7 +8,10 @@ class Cart extends Component {
     const { dishes, total } = this.props
     let itemList = Object.keys(dishes).map(id => {
       return (
-        <CartItem key={id} dish={dishes[id]}/>
+        <CartItem key={id} dish={dishes[id]}
+          onDecrement={this.props.onDecrement}
+          onIncrement={this.props.onIncrement}
+          />
       )
     })
     return(
