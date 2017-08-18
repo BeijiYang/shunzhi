@@ -1,60 +1,45 @@
 import * as types from '../ActionTypes'
+// ref: https://github.com/reactjs/redux/blob/master/examples/shopping-cart/src/reducers/cart.js
 
-
-let cart = {
-  total: 0,
-  // dishes: {'597be20c2bbfdbaa14bfa248': {
-  //   name: '',
-  //   poster: '',
-  //   price: '',
-  //   count: 1
-  // }},
-  dishes: {},
-  cartCount: 0
+let initialState = {
+  addedIds: [],
+  quantityById: {}
 }
 
-const calPrice = (dishes) => {
-  let total = 0;
-  Object.keys(dishes).map(item => {
-    console.log(dishes[item].price)
-    total = total + parseInt(dishes[item].price, 10) * parseInt(dishes[item].count, 10)
-    return null
-  })
-  return total
-}
-
-export default function cartReducer(state=cart, action) {
-  let nextDishes
-  let nextPrice
+const addedIds = (state = initialState.addedIds, action) => {
   switch (action.type) {
     case types.ADD_TO_CART:
-      nextDishes = {...state.dishes, [action.dish._id]: {
-          ...action.dish,
-          count: 1
-        }
+      if(state.indexOf(action.dishId) !== -1) {
+        return state
       }
-      nextPrice = calPrice(nextDishes)
-
-      return { ...state, cartCount: state.cartCount + 1, dishes: nextDishes, total: nextPrice }
-    case types.INCR_CART_ITEM:
-      nextDishes = { ...state.dishes,
-                        [action.dishId] : { ...state.dishes[action.dishId],
-                         count: state.dishes[action.dishId].count + 1
-                      }
-                   }
-      nextPrice = calPrice(nextDishes)
-      return { ...state, dishes: nextDishes, total: nextPrice }
-    case types.DECR_CART_ITEM:
-      nextDishes = { ...state.dishes,
-                        [action.dishId] : { ...state.dishes[action.dishId],
-                         count: state.dishes[action.dishId].count - 1
-                      }
-                   }
-      nextPrice = calPrice(nextDishes)
-      return { ...state, dishes: nextDishes, total: nextPrice }
-    case 'CLEAE_CART':
-      return { total: 0, dishes: {}, total: 0 }
+      return [ ...state, action.dishId]
     default:
       return state
+  }
+}
+
+const quantityById = (state = initialState.quantityById, action) => {
+  return state
+}
+
+
+export const getQuantity = (state, dishId) =>
+  state.quantityById[dishId] || 1
+
+export const getAddedIds = state => state.addedIds
+
+export default function cartReducer(state=initialState, action) {
+  switch (action.type) {
+    case types.INCR_CART_ITEM:
+      return state
+    case types.DECR_CART_ITEM:
+      return state
+    case types.CHECKOUT_REQUEST:
+      return  initialState
+    default:
+      return {
+        addedIds: addedIds(state.addedIds, action),
+        quantityById: quantityById(state.quantityById, action)
+      }
   }
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setTitle, incrCartItem, decrCartItem } from '../redux/actions'
+import { getCartDishes } from '../redux/reducers'
 import Cart from '../components/pages/Cart/Cart'
 
 class CartContainer extends Component {
@@ -10,7 +11,7 @@ class CartContainer extends Component {
 
   checkout = () => {
     this.props.dispatch({ type: 'SHOW_ALERT', message: "欢迎继续购物" })
-    this.props.dispatch({ type: 'CLEAE_CART'})
+    this.props.dispatch({ type: 'CHECKOUT_REQUEST'})
     this.props.history.push('/dashboard')
   }
 
@@ -34,7 +35,8 @@ class CartContainer extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  dishes: state.cart.dishes,
-  total: state.cart.total
+  dishes: getCartDishes(state),
+  // total: getTotal(state)
+  total: 250
 })
 export default connect(mapStateToProps, { setTitle, incrCartItem, decrCartItem })(CartContainer)

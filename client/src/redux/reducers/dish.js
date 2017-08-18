@@ -12,3 +12,6 @@ export default function dishReducer(state=dish, action) {
       return state
   }
 }
+
+export const getDish = (state, id) =>
+  state.all[id]
