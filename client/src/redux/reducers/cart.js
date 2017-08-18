@@ -2,12 +2,8 @@ import * as types from '../ActionTypes'
 // ref: https://github.com/reactjs/redux/blob/master/examples/shopping-cart/src/reducers/cart.js
 
 let initialState = {
-  addedIds: [
-    "5995081b1abab1872b25a7b6"
-  ],
-  quantityById: {
-    '5995081b1abab1872b25a7b6': 2
-  }
+  addedIds: [],
+  quantityById: {}
 }
 
 const addedIds = (state = initialState.addedIds, action) => {
