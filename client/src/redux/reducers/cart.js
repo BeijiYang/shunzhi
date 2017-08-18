@@ -21,13 +21,18 @@ const addedIds = (state = initialState.addedIds, action) => {
 const quantityById = (state = initialState.quantityById, action) => {
   const { dishId } = action
   switch (action.type) {
+    case types.ADD_TO_CART:
+      return { ...state,
+        [dishId]: 1
+      }
     case types.INCR_CART_ITEM:
       return { ...state,
-        [dishId]: (state[dishId] || 1) + 1
+        [dishId]: state[dishId] + 1
       }
     case types.DECR_CART_ITEM:
+      if (state[dishId] === 0) return state
       return { ...state,
-        [dishId]: (state[dishId] || 1) - 1
+        [dishId]: state[dishId] - 1
       }
     default:
       return state
@@ -36,7 +41,7 @@ const quantityById = (state = initialState.quantityById, action) => {
 
 
 export const getQuantity = (state, dishId) =>
-  state.quantityById[dishId] || 1
+  state.quantityById[dishId]
 
 export const getAddedIds = state => {
   return state.addedIds
