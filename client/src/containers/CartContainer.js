@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setTitle, incrCartItem, decrCartItem } from '../redux/actions'
-import { getCartDishes } from '../redux/reducers'
+import { getCartDishes, getTotal } from '../redux/reducers'
 import Cart from '../components/pages/Cart/Cart'
 
 class CartContainer extends Component {
@@ -39,11 +39,9 @@ class CartContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log('1111111', getCartDishes(state))
   return ({
     dishes: getCartDishes(state),
-    // total: getTotal(state)
-    total: 250
+    total: getTotal(state)
   })
 }
 

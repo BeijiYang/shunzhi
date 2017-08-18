@@ -43,7 +43,6 @@ export const getQuantity = (state, dishId) =>
   state.quantityById[dishId] || 1
 
 export const getAddedIds = state => {
-  console.log('getAddedIds', state)
   return state.addedIds
 }
 
