@@ -54,7 +54,7 @@ class CartButton extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  cartCount: state.cart.cartCount
+  cartCount: state.cart.addedIds.length
 })
 
 export default connect(mapStateToProps)(CartButton)
