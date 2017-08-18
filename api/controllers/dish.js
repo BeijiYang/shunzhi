@@ -24,7 +24,6 @@ exports.new = function (req, res) {
   let dish = req.body;
   console.log('dish', dish)
   dish = new Dish(dish)
-  dish.poster = req.file.filename
   dish.save(function (err, dish) {
     if (err) return res.status(403).json({msg: '保存失败，请重试',err})
     res.json({

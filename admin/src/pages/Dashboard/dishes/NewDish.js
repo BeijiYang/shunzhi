@@ -12,6 +12,10 @@ const FormItem = Form.Item
 // https://ant.design/components/upload-cn/
 
 class NewDish extends Component {
+  state = {
+    poster: ''
+  }
+
   handleSubmit = (e) => {
     e.preventDefault()
 
@@ -26,7 +30,7 @@ class NewDish extends Component {
       const name = formData.name
       const desc = formData.desc
       const price = formData.price
-      const poster = formData.poster
+      const poster = this.state.poster
 
       const data = { name, poster, price, desc }
       console.log('....xxx', data)
@@ -48,30 +52,21 @@ class NewDish extends Component {
     return Object.keys(fieldsError).some(field => fieldsError[field]);
   }
 
-  getPosterName (file) {
-    console.log('getPosterName', file)
-  }
-
-  handleChange ({file, fileList, event}) {
-    console.log('handleChange111111', event)
-    console.log('22222222', file)
-    console.log('333333333', fileList)
-  }
-
-  handleSuccess (result) {
+  handleSuccess = (result) => {
     console.log('handleSuccess', result)
+    this.setState({
+      poster: result.filename
+    })
   }
+
   render = () => {
     const props2 = {
       action: 'http://localhost:3008/dish/poster',
       name: 'poster',
       listType: 'picture',
       className: 'upload-list-inline',
-      // data: this.getPosterName,
-      // onChange: this.handleChange,
       onSuccess: this.handleSuccess
-    };
-
+    }
 
 
     const { getFieldDecorator, getFieldsError } = this.props.form;
@@ -86,6 +81,13 @@ class NewDish extends Component {
     <div className='single page'>
     <div className='white-block details'>
     <Form onSubmit={this.handleSubmit} className='signup-form'>
+      <FormItem>
+        <Upload {...props2} >
+          <Button>
+           <Icon type="upload" /> 上传海报
+         </Button>
+       </Upload>
+     </FormItem>
       <FormItem>
         {getFieldDecorator('name', config)(
         <Input prefix={<Icon type='user' style={{ fontSize: 14 }} />}
@@ -113,15 +115,11 @@ class NewDish extends Component {
       </FormItem>
 
       <FormItem>
-        <Button type='primary' htmlType='submit' disabled={this.hasErrors(getFieldsError())} className='signup-form-button'>添加账户</Button>
+        <Button type='primary' htmlType='submit' disabled={this.hasErrors(getFieldsError())} className='signup-form-button'>添加甜点</Button>
       </FormItem>
     </Form>
 
-    <Upload {...props2} >
-      <Button>
-       <Icon type="upload" /> upload
-     </Button>
-   </Upload>
+
   </div>
 </div>
   )}

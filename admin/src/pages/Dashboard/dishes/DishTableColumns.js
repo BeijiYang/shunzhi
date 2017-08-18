@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Settings from '../../../settings'
 
 const DishTableColumns = [
 {
@@ -7,7 +8,7 @@ const DishTableColumns = [
   dataIndex: 'poster',
   key: 'poster',
   render: (text) => {
-    return <img className="poster" src={`${text}`} />
+    return <img className="poster" src={Settings.host + '/uploads/posters/' + text} />
   },
 },{
   title: '菜品名称',
