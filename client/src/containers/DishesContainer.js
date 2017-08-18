@@ -5,7 +5,7 @@ import { setTitle } from '../redux/actions'
 
 class DishesContainer extends Component {
   componentWillMount () {
-    this.props.setTitle('菜品分类')
+    this.props.setTitle('猜你喜欢')
   }
 
   render(){
