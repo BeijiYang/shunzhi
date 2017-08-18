@@ -28,7 +28,7 @@ class CartItem extends Component {
             -
           </div>
           <div className="item-count">
-            {this.props.dish.count}
+            {this.props.dish.quantity}
           </div>
           <div onClick={() => this.props.onIncrement(_id)}
             className="plus">
