@@ -6,7 +6,7 @@ import cart, * as fromCart from './cart'
 import dish, * as fromDish from './dish'
 import comment from './comment'
 
-const getDish = (state, id) => fromDish.getDish(state.products, id)
+const getDish = (state, id) => fromDish.getDish(state.dish, id)
 const getQuantity = (state, id) => fromCart.getQuantity(state.cart, id)
 const getAddedIds = state => fromCart.getAddedIds(state.cart)
 
@@ -21,10 +21,17 @@ const rootReducer = combineReducers({
 })
 
 
-export const getCartDishes = state =>
-  getAddedIds(state).map(id => ({
-    ...getDish(state, id),
-    quantity: getQuantity(state, id)
-  }))
+export const getCartDishes = state => {
+  console.log('getCartDishes----',  state)
+  getAddedIds(state).map(id => {
+    console.log('33333---', state, id)
+    console.log('44444====', getDish(state, id))
+    return {
+      ...getDish(state, id),
+      quantity: getQuantity(state, id)
+    }
+  })
+}
+
 
 export default rootReducer

@@ -27,11 +27,6 @@ class App extends Component {
       }
     )
 
-    // LOAD_DISHES
-    axios.get(`${Settings.host}/dishes`).then(res => {
-        store.dispatch({ type: 'LOAD_DISHES', dishes: res.data.dishes })
-      }
-    )
 
     // LOAD_COMMENTS
     axios.get(`${Settings.host}/comments`).then(

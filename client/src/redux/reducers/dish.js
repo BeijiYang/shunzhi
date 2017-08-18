@@ -13,5 +13,7 @@ export default function dishReducer(state=dish, action) {
   }
 }
 
-export const getDish = (state, id) =>
-  state.all[id]
+export const getDish = (state, id) => {
+  console.log('getDish-------+++', state, id)
+  return  state.all[id]
+}

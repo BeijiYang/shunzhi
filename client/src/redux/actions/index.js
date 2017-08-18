@@ -10,6 +10,15 @@ export const loadCurrentUser = (userId) => dispatch => {
   )
 }
 
+export const loadDishes = () => dispatch => {
+  axios.get(`${Settings.host}/dishes`).then(res => {
+      console.log('xxxxxxxx', res.data.dishes)
+      dispatch({ type: types.LOAD_DISHES, dishes: res.data.dishes })
+    }
+  )
+}
+
+
 export const addToCart = (dishId) => dispatch => {
   dispatch({ type: types.ADD_TO_CART,  dishId })
 }
