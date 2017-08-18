@@ -19,6 +19,9 @@ class ProfileContainer extends Component {
 
   render() {
     const { users, currentUser } = this.props
+    const usersWithoutMe = users.filter(item => {
+      return item._id !== currentUser._id
+    })
     if(localStorage.getItem('userId') === 'undefined') {
       return(
         <LoginFirst />
@@ -29,7 +32,7 @@ class ProfileContainer extends Component {
     if (dataReady) {
       console.log('ProfileContainer', currentUser)
       return(
-        <Profile currentUser={currentUser} users={users} onToggleFollow={this.onToggleFollow}/>
+        <Profile currentUser={currentUser} users={usersWithoutMe} onToggleFollow={this.onToggleFollow}/>
 
       )
     }else {
