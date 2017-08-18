@@ -9,6 +9,9 @@ import {
 } from '../redux/actions'
 import { getCartDishes, getTotal } from '../redux/reducers'
 import Cart from '../components/pages/Cart/Cart'
+import {
+  withRouter
+} from 'react-router-dom'
 
 class CartContainer extends Component {
   componentWillMount () {
@@ -56,4 +59,4 @@ export default connect(mapStateToProps,
       { setTitle, incrCartItem,
         decrCartItem, showAlert,
         checkout
-       })(CartContainer)
+      })(withRouter(CartContainer))
