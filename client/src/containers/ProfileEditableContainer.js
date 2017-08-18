@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import axios from 'axios'
-import Settings from '../settings'
 import ProfileEditable from '../components/pages/Profile/ProfileEditable'
 import { showAlert, updateSlogan, updateAvatar } from '../redux/actions'
 import { connect } from 'react-redux'

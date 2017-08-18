@@ -43,14 +43,14 @@ export const updateUser = (currentUser) => dispatch => {
 
 export const updateSlogan = (data) => dispatch => {
   axios.put(`${Settings.host}/user`, data).then( res => {
-    dispatch({ type: types.UPDATE_USER, currentUser: res.data.user })
+    updateUser(res.data.user)
   })
 }
 
 export const updateAvatar = (formData) => dispatch => {
   axios.post(`${Settings.host}/avatar`, formData ).then(
     res => {
-      dispatch({ type: types.UPDATE_USER, currentUser: res.data.user })
+      updateUser(res.data.user)
     }
   )
 }
