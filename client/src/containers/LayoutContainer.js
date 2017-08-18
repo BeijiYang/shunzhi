@@ -11,9 +11,19 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {
   Switch,
-  Route
+  Route,
+  Redirect
 } from 'react-router-dom'
 
+const PrivateRoute = ({component: Component, ...rest }) => (
+  <Route { ...rest } render={() => {
+      if (localStorage.getItem('userId')) {
+        return <Component />
+      } else {
+        return <Redirect to="/login" />
+      }
+    }} />
+)
 
 class LayoutContainer extends Component {
   render(){
@@ -27,7 +37,7 @@ class LayoutContainer extends Component {
           <Route path="/profile" component={ProfileContainer} />
           <Route path="/dish/:dishId" component={DishContainer} />
           <Route path="/dishes" component={DishesContainer} />
-          <Route path="/cart" component={CartContainer} />
+          <PrivateRoute path="/cart" component={CartContainer} />
           <Route path="/user/:id" component={UserContainer} />
         </Switch>
       </div>
