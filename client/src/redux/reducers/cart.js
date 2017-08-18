@@ -5,7 +5,9 @@ let initialState = {
   addedIds: [
     "5995081b1abab1872b25a7b6"
   ],
-  quantityById: {}
+  quantityById: {
+    '5995081b1abab1872b25a7b6': 2
+  }
 }
 
 const addedIds = (state = initialState.addedIds, action) => {
@@ -21,7 +23,15 @@ const addedIds = (state = initialState.addedIds, action) => {
 }
 
 const quantityById = (state = initialState.quantityById, action) => {
-  return state
+  switch (action.type) {
+    case types.ADD_TO_CART:
+      const { productId } = action
+      return { ...state,
+        [productId]: (state[productId] || 0) + 1
+      }
+    default:
+      return state
+  }
 }
 
 

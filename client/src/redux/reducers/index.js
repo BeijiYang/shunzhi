@@ -22,17 +22,12 @@ const rootReducer = combineReducers({
 
 
 export const getCartDishes = state => {
-  console.log('getCartDishes----',  state)
   let cartDishes = getAddedIds(state).map(id => {
-    console.log('33333---', state, id)
-    console.log('44444====', getDish(state, id))
     return {
       ...getDish(state, id),
-      // quantity: getQuantity(state, id)
-      quantity: 1
+      quantity: getQuantity(state, id)
     }
   })
-  console.log('xx555555555', cartDishes)
   return cartDishes
 }
 
