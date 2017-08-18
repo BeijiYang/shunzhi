@@ -16,11 +16,14 @@ import {
 } from 'react-router-dom'
 
 const PrivateRoute = ({component: Component, ...rest }) => (
-  <Route { ...rest } render={() => {
+  <Route { ...rest } render={(props) => {
       if (localStorage.getItem('userId')) {
         return <Component />
       } else {
-        return <Redirect to="/login" />
+        return <Redirect to={{
+            pathname: '/login',
+            state: { from: props.location }
+          }} />
       }
     }} />
 )

@@ -6,8 +6,18 @@ import { connect } from 'react-redux'
 import { setTitle, showAlert, updateUser } from '../redux/actions'
 
 class LoginContainer extends Component {
+  state = {
+    referrer: ''
+  }
+
   componentWillMount () {
     this.props.setTitle('登录')
+    if (this.props.location.state) {
+      const { from } = this.props.location.state
+      this.setState({
+        referrer: from.pathname
+      })
+    }
   }
 
   login = (data) => {
@@ -18,9 +28,8 @@ class LoginContainer extends Component {
     axios.post(`${Settings.host}/user/login`, data).then(res => {
       this.props.updateUser(res.data.user)
       localStorage.setItem('userId', res.data.user._id)
-
-      // then 之中的语句 throw Eror ，也会触发 catch
-      this.props.history.push('/dashboard')
+      let redirectTo = this.state.referrer || '/dashboard'
+      this.props.history.push(redirectTo)
     }).catch(err => {
       if(err.response){
         const { msg } = err.response.data
