@@ -39,7 +39,7 @@ export default function cartReducer(state=cart, action) {
       nextPrice = calPrice(nextDishes)
 
       return { ...state, cartCount: state.cartCount + 1, dishes: nextDishes, total: nextPrice }
-    case 'INCR_CART_ITEM':
+    case types.INCR_CART_ITEM:
       nextDishes = { ...state.dishes,
                         [action.dishId] : { ...state.dishes[action.dishId],
                          count: state.dishes[action.dishId].count + 1
@@ -47,7 +47,7 @@ export default function cartReducer(state=cart, action) {
                    }
       nextPrice = calPrice(nextDishes)
       return { ...state, dishes: nextDishes, total: nextPrice }
-    case 'DECR_CART_ITEM':
+    case types.DECR_CART_ITEM:
       nextDishes = { ...state.dishes,
                         [action.dishId] : { ...state.dishes[action.dishId],
                          count: state.dishes[action.dishId].count - 1
