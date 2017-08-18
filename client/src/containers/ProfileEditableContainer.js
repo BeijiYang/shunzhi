@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import Settings from '../settings'
 import ProfileEditable from '../components/pages/Profile/ProfileEditable'
-import store from '../redux/store'
-import * as types from '../redux/ActionTypes'
+import { showAlert, updateSlogan, updateAvatar } from '../redux/actions'
+import { connect } from 'react-redux'
 
 class ProfileEditableContainer extends Component {
 
@@ -14,17 +14,15 @@ class ProfileEditableContainer extends Component {
   }
 
   updateSlogan = (data) => {
-    axios.put(`${Settings.host}/user`, data).then( res => {
-      store.dispatch({ type: types.UPDATE_USER, currentUser: res.data.user })
-    })
+    this.props.updateSlogan(data)
   }
 
-  updateAvatar = (formData) => {
-    axios.post(`${Settings.host}/avatar`, formData ).then(
-      res => {
-        store.dispatch({ type: types.UPDATE_USER, currentUser: res.data.user })
-      }
-    )
+  updateAvatar = ({ formData, err }) => {
+    if (err) {
+      return this.props.showAlert(err)
+    } else {
+      this.props.updateAvatar(formData)
+    }
   }
 
   render(){
@@ -38,4 +36,4 @@ class ProfileEditableContainer extends Component {
   }
 }
 
-export default ProfileEditableContainer
+export default connect(null, { showAlert, updateSlogan, updateAvatar })(ProfileEditableContainer)

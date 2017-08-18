@@ -41,12 +41,14 @@ class ProfileEditable extends Component {
     // 注意：手机上拍照上传会失败，是因为 niginx 对上传文件的大小是有限制的，
     // 最大就是 1M ，可以通过修改 /etc/nginx/site-enabled/xxx.conf 文件来解决
     let formData = new FormData()
+    let err
     if (!file.type.match('image.*')) {
-      console.log('请上传图片');
+      err = '请上传图片'
+      this.props.onUpdateAvatar({ err })
     } else if (parseInt(file.size/1024, 10) > 1024) {
-      console.log('请不要上传大于 1M 的图片，当前图片 %sK', parseInt(file.size/1024))
+      err = `请不要上传大于 1M 的图片，当前图片 ${parseInt(file.size/1024)}K`
+      this.props.onUpdateAvatar({ err })
     } else {
-      console.log('filesize', `${parseInt(file.size/1024, 10)}k`)
       const reader = new FileReader()
       reader.onload = (event) => {
         this.setState({
@@ -54,11 +56,8 @@ class ProfileEditable extends Component {
         });
         formData.append('avatar', file)
         formData.append('userId', this.props.currentUser._id )
-        console.log('formData..', formData)
-        this.props.onUpdateAvatar(formData)
-
+        this.props.onUpdateAvatar({ formData })
       }
-      console.log('reader.read....')
       reader.readAsDataURL(file);
     }
   }

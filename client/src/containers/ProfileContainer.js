@@ -30,7 +30,6 @@ class ProfileContainer extends Component {
     let dataReady = Object.keys(currentUser).length !== 0 &&
                     Object.keys(users).length !== 0
     if (dataReady) {
-      console.log('ProfileContainer', currentUser)
       return(
         <Profile currentUser={currentUser} users={usersWithoutMe} onToggleFollow={this.onToggleFollow}/>
 
