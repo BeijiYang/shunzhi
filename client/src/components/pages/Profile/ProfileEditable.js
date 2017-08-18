@@ -30,7 +30,6 @@ class ProfileEditable extends Component {
   }
 
   edit = () => {
-    console.log('edit')
     this.setState({
       edit: true
     })
@@ -48,13 +47,11 @@ class ProfileEditable extends Component {
       console.log('请不要上传大于 1M 的图片，当前图片 %sK', parseInt(file.size/1024))
     } else {
       console.log('filesize', `${parseInt(file.size/1024, 10)}k`)
-      const reader = new FileReader();
+      const reader = new FileReader()
       reader.onload = (event) => {
-        console.log('onload.....');
         this.setState({
           image: event.target.result,
         });
-        // console.log('image staee', this.state.image)
         formData.append('avatar', file)
         formData.append('userId', this.props.currentUser._id )
         console.log('formData..', formData)
@@ -70,7 +67,7 @@ class ProfileEditable extends Component {
     const { currentUser } = this.props
     const  { avatar, username } = currentUser
     const hisAvatar = avatar ? `${Settings.host}/uploads/avatars/${avatar}` : 'http://media.haoduoshipin.com/yummy/default-avatar.png'
-    const hisUsername = username ? username : 'no name'
+    const hisUsername = username || 'no name'
 
     let editForm = (
       <form className="profile-form"
