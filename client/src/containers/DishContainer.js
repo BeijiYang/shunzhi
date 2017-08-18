@@ -5,12 +5,11 @@ import { setTitle, addToCart } from '../redux/actions'
 
 class DishContainer extends Component {
 
-  componentWillReceiveProps () {
+  componentWillMount () {
     this.props.setTitle('新品')
   }
 
-  buy = (dishId, isInCart) => {
-    if(isInCart) return
+  buy = (dishId) => {
     this.props.addToCart(dishId)
   }
 
@@ -18,9 +17,7 @@ class DishContainer extends Component {
     if(Object.keys(this.props.dishes).length !== 0){
       let { dishId } = this.props.match.params
       let dish = this.props.dishes[dishId]
-      console.log('dish======', dish)
-      // let isInCart =  Object.keys(this.props.cartDishes).includes(dishId)
-      let isInCart = false
+      let isInCart =  this.props.cart.addedIds.includes(dishId)
       let { comments } = this.props
       let userId = localStorage.getItem('userId')
       let isAuthenticated =  userId !== 'null' && userId !== 'undefined'
@@ -39,6 +36,7 @@ class DishContainer extends Component {
 const mapStateToProps = (state) => ({
   dishes: state.dish.all,
   comments: state.comment.all,
+  cart: state.cart
 })
 
 export default connect(mapStateToProps, { setTitle, addToCart })(DishContainer)
