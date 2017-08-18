@@ -34,6 +34,10 @@ export const showAlert = (msg) => dispatch => {
   dispatch({ type: types.SHOW_ALERT, msg })
 }
 
+export const checkout = () => dispatch => {
+  dispatch({ type: types.CHECKOUT_REQUEST })
+}
+
 export const updateUser = (currentUser) => dispatch => {
   dispatch({ type: types.UPDATE_USER, currentUser })
 }

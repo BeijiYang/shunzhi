@@ -26,7 +26,7 @@ class Cart extends Component {
           <div className="cart-item-list">
             {itemList}
           </div>
-          <div onClick={this.checkout}
+          <div onClick={this.props.onCheckout}
             className="cart-checkout-button">
             结算
           </div>
