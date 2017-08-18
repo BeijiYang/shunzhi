@@ -5,7 +5,7 @@ import './cart.css'
 class Cart extends Component {
 
   render() {
-    const { dishes, totalPrice } = this.props
+    const { dishes, total } = this.props
     let itemList = Object.keys(dishes).map(id => {
       return (
         <CartItem key={id} dish={dishes[id]}/>
@@ -15,7 +15,7 @@ class Cart extends Component {
       <div className="cart">
         <div className="cart-hero">
           <h1 className="total-price">
-            {totalPrice} 元
+            {total} 元
           </h1>
         </div>
         <div className="cart-list-wrap">

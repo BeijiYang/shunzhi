@@ -15,15 +15,15 @@ class CartContainer extends Component {
   }
 
   render() {
-    const { dishes, totalPrice } = this.props
+    const { dishes, total } = this.props
     return(
-      <Cart dishes={dishes} totalPrice={totalPrice} />
+      <Cart dishes={dishes} total={total} />
     )
   }
 }
 
 const mapStateToProps = (state) => ({
   dishes: state.cart.dishes,
-  totalPrice: state.cart.totalPrice
+  total: state.cart.total
 })
 export default connect(mapStateToProps, { setTitle })(CartContainer)

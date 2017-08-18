@@ -10,17 +10,17 @@ let cart = {
   //   count: 1
   // }},
   dishes: {},
-  totalPrice: 0
+  total: 0
 }
 
 const calPrice = (dishes) => {
-  let totalPrice = 0;
+  let total = 0;
   Object.keys(dishes).map(item => {
     console.log(dishes[item].price)
-    totalPrice = totalPrice + parseInt(dishes[item].price, 10) * parseInt(dishes[item].count, 10)
+    total = total + parseInt(dishes[item].price, 10) * parseInt(dishes[item].count, 10)
     return null
   })
-  return totalPrice
+  return total
 }
 
 export default function cartReducer(state=cart, action) {
@@ -39,7 +39,7 @@ export default function cartReducer(state=cart, action) {
       }
       nextPrice = calPrice(nextDishes)
 
-      return { ...state, total: state.total + 1, dishes: nextDishes, totalPrice: nextPrice }
+      return { ...state, total: state.total + 1, dishes: nextDishes, total: nextPrice }
     case 'INCR_CART_ITEM':
       nextDishes = { ...state.dishes,
                         [action.dishId] : { ...state.dishes[action.dishId],
@@ -47,7 +47,7 @@ export default function cartReducer(state=cart, action) {
                       }
                    }
       nextPrice = calPrice(nextDishes)
-      return { ...state, dishes: nextDishes, totalPrice: nextPrice }
+      return { ...state, dishes: nextDishes, total: nextPrice }
     case 'DECR_CART_ITEM':
       nextDishes = { ...state.dishes,
                         [action.dishId] : { ...state.dishes[action.dishId],
@@ -55,9 +55,9 @@ export default function cartReducer(state=cart, action) {
                       }
                    }
       nextPrice = calPrice(nextDishes)
-      return { ...state, dishes: nextDishes, totalPrice: nextPrice }
+      return { ...state, dishes: nextDishes, total: nextPrice }
     case 'CLEAE_CART':
-      return { total: 0, dishes: {}, totalPrice: 0 }
+      return { total: 0, dishes: {}, total: 0 }
     default:
       return state
   }
