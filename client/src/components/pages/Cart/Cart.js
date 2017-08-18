@@ -15,7 +15,8 @@ class Cart extends Component {
       )
     })
     return(
-      <div className="cart">
+      <div style={{ 'height': `${window.innerHeight -80}px` }}
+        className="cart">
         <div className="cart-hero">
           <h1 className="total-price">
             {total} 元
