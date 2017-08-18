@@ -23,11 +23,15 @@ const addedIds = (state = initialState.addedIds, action) => {
 }
 
 const quantityById = (state = initialState.quantityById, action) => {
+  const { dishId } = action
   switch (action.type) {
-    case types.ADD_TO_CART:
-      const { productId } = action
+    case types.INCR_CART_ITEM:
       return { ...state,
-        [productId]: (state[productId] || 0) + 1
+        [dishId]: (state[dishId] || 1) + 1
+      }
+    case types.DECR_CART_ITEM:
+      return { ...state,
+        [dishId]: (state[dishId] || 1) - 1
       }
     default:
       return state
@@ -45,10 +49,6 @@ export const getAddedIds = state => {
 
 export default function cartReducer(state=initialState, action) {
   switch (action.type) {
-    case types.INCR_CART_ITEM:
-      return state
-    case types.DECR_CART_ITEM:
-      return state
     case types.CHECKOUT_REQUEST:
       return  initialState
     default:
