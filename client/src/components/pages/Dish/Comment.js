@@ -4,6 +4,7 @@ import Settings from '../../../settings'
 import { connect } from 'react-redux'
 import './comment.css'
 import moment from 'moment'
+import * as types from '../../../redux/ActionTypes'
 import 'moment/locale/zh-cn'
 // https://github.com/facebookincubator/create-react-app/pull/2187/commits/97226a0670063b579215e7b44987f3957842c5df
 import {
@@ -26,7 +27,7 @@ class Comment extends Component {
       axios.get(`${Settings.host}/comments`).then(
         res => {
           const { comments } = res.data
-          this.props.dispatch({ type: 'LOAD_COMMENTS', comments })
+          this.props.dispatch({ type: types.RECEIVE_COMMENTS, comments })
         }
       )
       this.commentInput.value = ''

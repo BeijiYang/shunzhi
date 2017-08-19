@@ -8,6 +8,7 @@ import SidebarContainer from './SidebarContainer'
 import CartButtonContainer from './CartButtonContainer'
 import LayoutContainer from './LayoutContainer'
 import store from '../redux/store'
+import * as types from '../redux/ActionTypes'
 
 import {
   BrowserRouter as Router,
@@ -26,11 +27,10 @@ class App extends Component {
       }
     )
 
-    // LOAD_COMMENTS
     axios.get(`${Settings.host}/comments`).then(
       res => {
         const { comments } = res.data
-        store.dispatch({ type: 'LOAD_COMMENTS', comments })
+        store.dispatch({ type: types.RECEIVE_COMMENTS , comments })
       }
     )
   }
