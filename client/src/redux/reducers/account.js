@@ -13,7 +13,6 @@ export default function accountReducer(state=account, action) {
     case types.LOAD_CURRENT_USER:
       return { ...state, currentUser: action.currentUser }
     case types.UPDATE_USER:
-      console.log('yyyyyyyy')
       return { ...state, currentUser: action.currentUser }
     case types.SET_TITLE:
       return { ...state, title: action.title }

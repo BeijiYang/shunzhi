@@ -20,7 +20,6 @@ class MyPieChart extends Component {
   }
 
   clickCell = (entry, index) => {
-    console.log('clickCell', entry)
     let newItems = this.state.items.slice();
     newItems.push({
       name: entry.name,
@@ -46,7 +45,6 @@ class MyPieChart extends Component {
     ));
 
     let width = window.innerWidth - 40
-    console.log('render', width)
 
     return (
       <div>

@@ -10,7 +10,6 @@ const getDish = (state, id) => fromDish.getDish(state.dishes, id)
 const getQuantity = (state, id) => fromCart.getQuantity(state.cart, id)
 const getAddedIds = state => fromCart.getAddedIds(state.cart)
 
-
 const rootReducer = combineReducers({
   account,
   cart,
@@ -30,8 +29,6 @@ export const getTotal = state => {
     .toFixed(2)
   return total
 }
-
-
 
 
 export const getCartDishes = state => {

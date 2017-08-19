@@ -10,7 +10,6 @@ class DashBoardContainer extends Component {
 
   render() {
     const { comments, currentUser } = this.props
-    console.log('aaaa', currentUser)
     if(Object.keys(currentUser).length !== 0) {
       console.log('bbbbb', currentUser)
       const friendComments = comments.filter(comment => {

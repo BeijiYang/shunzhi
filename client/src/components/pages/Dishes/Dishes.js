@@ -15,7 +15,6 @@ class Dishes extends Component {
       slidesToScroll: 1,
       arrows: false
     }
-    console.log('dishes', this.props.dishes)
     const { dishes } = this.props
     let slideStr = Object.keys(dishes).map(id => (
       <div key={id} className="dish-card-wrap"><DishCard dish={dishes[id]} dishId={id} /></div>
