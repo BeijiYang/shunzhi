@@ -3,8 +3,11 @@ import { Menu, Icon } from 'antd'
 import './sidebar.css'
 const SubMenu = Menu.SubMenu
 
-const Sidebar = ({ onClickItem, selectedIndex, onLogout }) => (
-  <div className='sidebar' style={{backgroundColor: '#fff'}}>
+
+const Sidebar = ({ onClickItem, selectedIndex, onLogout }) => {
+
+  return(
+    <div className='sidebar' style={{backgroundColor: '#fff'}}>
     <div className='logo'>
       吮指后台
     </div>
@@ -12,7 +15,7 @@ const Sidebar = ({ onClickItem, selectedIndex, onLogout }) => (
     <Menu
       style={{borderRight: 'none'}}
       theme="light"
-      onClick={() => onClickItem()}
+      onClick={(e) => onClickItem(e)}
       defaultOpenKeys={['school', 'course', 'shop', 'goods']}
       selectedKeys={[selectedIndex]}
       mode='inline'
@@ -33,6 +36,8 @@ const Sidebar = ({ onClickItem, selectedIndex, onLogout }) => (
       <div className='email'>{ `admin@admin.com` }</div>
     </div>
   </div>
-)
+  )
+}
+
 
 export default Sidebar

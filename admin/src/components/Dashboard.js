@@ -1,5 +1,5 @@
 import React from 'react'
-import Sidebar from './Sidebar'
+import SidebarContainer from '../containers/SidebarContainer'
 import { Route, Switch } from 'react-router-dom'
 import NewDishContainer from '../containers/NewDishContainer'
 import DishesContainer from '../containers/DishesContainer'
@@ -37,7 +37,7 @@ const MainContent = styled.div`
 
 const Dashboard = ({match, history}) => (
   <DashboardWrap>
-    <Sidebar selectedIndex={history.location.pathname}/>
+    <SidebarContainer />
     <DashboardMain>
       <TopHeader></TopHeader>
       <MainContent>
