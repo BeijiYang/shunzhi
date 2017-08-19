@@ -16,7 +16,7 @@ class DishesContainer extends Component {
         }
       ))
       return (
-        <Dishes dishes={dishArr}/>
+        <Dishes dishes={dishArr.slice().reverse()}/>
       )
     }else{
       return <div>Loading</div>
