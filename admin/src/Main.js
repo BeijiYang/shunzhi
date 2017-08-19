@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import HomeContainer from './containers/HomeContainer'
 import DashboardContainer from './containers/DashboardContainer'
-import { connect } from 'react-redux'
-import store from './redux/store'
 
 import {
   Switch,
