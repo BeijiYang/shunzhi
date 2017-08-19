@@ -8,8 +8,9 @@ import { connect } from 'react-redux'
 
 
 class NewDishContainer extends Component {
-  submitDish = (data, message) => {
-    this.props.submitDish(data, message)
+  handleSubmitDish = (data, message) => {
+    let { history } = this.props
+    this.props.submitDish(data, message, history)
   }
 
   uploadAction = {
@@ -20,7 +21,7 @@ class NewDishContainer extends Component {
 
   render = () => {
     return (
-      <NewDish onSubmitDish={this.submitDish}
+      <NewDish onSubmitDish={this.handleSubmitDish}
         uploadAction={this.uploadAction}
       />
   )}

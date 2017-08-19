@@ -21,6 +21,8 @@ class Sidebar extends Component {
   render () {
     const { currentUser } = this.props
     const isAuthenticated = Object.keys(currentUser).length !== 0
+    // FIXME: isAuthenticated 一定要是放在 store 中的一个 flag
+    // 另外：Dan 的 isFetching 也是相关的
     let userInfo = (
       <div onClick={this.closeMenu} className="user-info-text">
         <Link to="/profile" className="bm-user-name">

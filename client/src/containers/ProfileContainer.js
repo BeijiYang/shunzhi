@@ -29,6 +29,7 @@ class ProfileContainer extends Component {
     }
     let dataReady = Object.keys(currentUser).length !== 0 &&
                     Object.keys(users).length !== 0
+    // Dan 的做法是在 store 中专门设置一个状态位叫做 isFetching: https://egghead.io/lessons/javascript-redux-displaying-loading-indicators
     if (dataReady) {
       return(
         <Profile currentUser={currentUser} users={usersWithoutMe} onToggleFollow={this.onToggleFollow}/>

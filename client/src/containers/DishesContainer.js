@@ -11,7 +11,6 @@ class DishesContainer extends Component {
   render(){
     console.log('dishes', this.props.dishes)
     const { dishes } = this.props
-    console.log('xxxxxx', dishes)
     return(
       <Dishes dishes={dishes} />
     )

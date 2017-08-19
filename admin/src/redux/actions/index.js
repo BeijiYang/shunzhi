@@ -9,11 +9,12 @@ export const getAllDishes = () => dispatch => {
   })
 }
 
-export const submitDish = (data, message) => dispatch => {
+export const submitDish = (data, message, history) => dispatch => {
   axios.post(`${Settings.host}/dish`, data)
     .then( res => {
       message.info('添加菜品成功');
       dispatch({ type: types.ADD_DISH, dish: res.data.dish })
+      history.push('/dashboard/dishes')
     })
     .catch( (error) => {
       let errMesg = error.response.data.error
