@@ -19,5 +19,5 @@ const byId = (state = {}, action) => {
 export default byId
 
 export const getDish = (state, id) => {
-  return  state.all[id]
+  return  state[id]
 }

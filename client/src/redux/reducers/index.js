@@ -6,7 +6,7 @@ import cart, * as fromCart from './cart'
 import dishes, * as fromDish from './dishes'
 import comment from './comments'
 
-const getDish = (state, id) => fromDish.getDish(state.dish, id)
+const getDish = (state, id) => fromDish.getDish(state.dishes, id)
 const getQuantity = (state, id) => fromCart.getQuantity(state.cart, id)
 const getAddedIds = state => fromCart.getAddedIds(state.cart)
 
