@@ -3,9 +3,10 @@ import Settings from '../../settings.js'
 import axios from 'axios'
 
 export const getAllDishes = () => dispatch => {
+  dispatch({ type: types.REQUEST_DISHES })
   axios.get(`${Settings.host}/dishes`).then(res => {
     const { dishes } = res.data
-    dispatch({ type: types.LOAD_DISHES, dishes })
+    dispatch({ type: types.RECEIVE_DISHES , dishes })
   })
 }
 

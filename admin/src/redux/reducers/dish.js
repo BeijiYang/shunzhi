@@ -1,6 +1,6 @@
 const dishReducer = (state={ all: {} }, action) => {
   switch (action.type) {
-    case 'LOAD_DISHES':
+    case 'RECEIVE_DISHES':
       return { ...state, all: action.dishes }
     case 'ADD_DISH':
       return { ...state, all: Object.assign(state.all, { [action.dish._id]: action.dish}) }
