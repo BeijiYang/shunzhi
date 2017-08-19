@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './cart-item.css'
+import Settings from '../../../settings'
 
 class CartItem extends Component {
 
@@ -9,7 +10,7 @@ class CartItem extends Component {
       <div className="cart-item">
         <div className="cart-item-info">
           <div className="cart-item-poster"
-               style={{ 'backgroundImage': `url(${poster})`}}
+               style={{ 'backgroundImage': `url(${Settings.host}/uploads/posters/${poster})`}}
             >
           </div>
           <div className="name-price-wrap">
