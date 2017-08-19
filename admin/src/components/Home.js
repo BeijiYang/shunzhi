@@ -16,17 +16,12 @@ const Content = styled.div`
   border: 1px solid #ddd;
 `
 
-
-class Home extends Component {
-  render() {
-    return (
-       <HomeWrap>
-         <Content>
-           <LoginForm />
-         </Content>
-       </HomeWrap>
-    )
-  }
-}
+const Home = ({ onLogin }) => (
+  <HomeWrap>
+   <Content>
+     <LoginForm onLogin={onLogin}/>
+   </Content>
+  </HomeWrap>
+)
 
 export default Home

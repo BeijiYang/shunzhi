@@ -1,28 +1,23 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
 import styled from 'styled-components'
 import { Form, Icon, Input, Button } from 'antd'
 const FormItem = Form.Item
-
 
 const StyledButton = styled(Button)`
   width: 100%;
 `
 
 class LoginForm extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      email: '',
-      password: ''
-    }
+  state = {
+    email: '',
+    password: ''
   }
 
   handleSubmit = (e) => {
     e.preventDefault()
-    // const email = this.state.email
-    // const password = this.state.password
-    this.props.history.push('/dashboard')
+    const email = this.state.email
+    const password = this.state.password
+    this.props.onLogin({ email, password})
   }
 
   handleEmailChange = (e) => {
@@ -51,4 +46,4 @@ class LoginForm extends Component {
   }
 }
 
-export default withRouter(LoginForm)
+export default LoginForm
