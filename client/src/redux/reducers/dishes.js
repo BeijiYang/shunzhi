@@ -19,5 +19,6 @@ const byId = (state = {}, action) => {
 export default byId
 
 export const getDish = (state, id) => {
+  console.log('xxxxgetdish', state[id].price)
   return  state[id]
 }

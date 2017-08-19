@@ -27,6 +27,7 @@ export const getTotal = state => {
       0
     )
     .toFixed(2)
+    console.log('xxxx- getTotal', total)
   return total
 }
 
