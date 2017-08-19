@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import CommentIcon from '../../../assets/icons/CommentIcon'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
-import Settings from '../../../settings'
+import Settings, { posterUrl } from '../../../settings'
 
 
 class FeedItem extends Component {
@@ -45,7 +45,7 @@ class FeedItem extends Component {
                 <CommentIcon color={this.state.expand ? '#FE5196' : '#D0D0D0'}/>
               </div>
             </div>
-            <Link  style={{ 'backgroundImage': `url(${Settings.host}/uploads/posters/${comment.dish.poster})`}}
+            <Link  style={{ 'backgroundImage': `url(${posterUrl(comment.dish.poster)})`}}
               to={`/dish/${comment.dish._id}`} className='feed-dish'>
             </Link>
           </div>

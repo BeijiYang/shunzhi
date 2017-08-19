@@ -4,6 +4,7 @@ import ShoppingIcon from './ShoppingIcon'
 import Comment from './Comment'
 import PieChart from './PieChart'
 import AreaChart from './AreaChart'
+import Settings, { posterUrl } from '../../../settings'
 
 
 class Dish extends Component {
@@ -14,7 +15,7 @@ class Dish extends Component {
       <div className="dish">
         <div className="dish-info">
           <div className="dish-img-wrap">
-            <div style={{ 'backgroundImage' : `url(${dish.poster})`}}
+            <div style={{ 'backgroundImage' : `url(${posterUrl(dish.poster)}`}}
               className="img">
             </div>
           </div>
