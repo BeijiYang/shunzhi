@@ -28,6 +28,7 @@ export const deleteDish = (id, message) => dispatch => {
   .then(
     res => {
       message.info('删除甜点成功')
+      dispatch({ type: types.REMOVE_DISH, id })
     }
   )
 }

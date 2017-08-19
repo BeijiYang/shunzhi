@@ -7,7 +7,6 @@ import { deleteDish } from '../redux/actions'
 class DishesContainer extends Component {
 
   handleDelete = (id, message) => {
-    console.log(id)
     this.props.deleteDish(id, message)
   }
 
