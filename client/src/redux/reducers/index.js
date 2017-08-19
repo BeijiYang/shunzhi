@@ -20,16 +20,15 @@ const rootReducer = combineReducers({
   userById
 })
 
-export const getTotal = state => {
-  let total = getAddedIds(state)
+
+export const getTotal = state =>
+  getAddedIds(state)
     .reduce((total, id) =>
       total + getDish(state, id).price * getQuantity(state, id),
       0
     )
     .toFixed(2)
-    console.log('xxxx- getTotal', total)
-  return total
-}
+
 
 
 export const getCartDishes = state => {

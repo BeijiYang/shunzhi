@@ -42,7 +42,7 @@ const quantityById = (state = initialState.quantityById, action) => {
 
 export const getQuantity = (state, dishId) => {
   console.log('xxxxx--getQuantity', state.quantityById[dishId])
-  state.quantityById[dishId]
+  return state.quantityById[dishId]
 }
 
 export const getAddedIds = state => {
