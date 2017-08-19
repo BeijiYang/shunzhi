@@ -1,8 +1,13 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
-
+import styled from 'styled-components'
 import { Form, Icon, Input, Button } from 'antd'
 const FormItem = Form.Item
+
+
+const StyledButton = styled(Button)`
+  width: 100%;
+`
 
 class LoginForm extends Component {
   constructor(props) {
@@ -39,7 +44,7 @@ class LoginForm extends Component {
           placeholder="Password" value={this.state.password} />
         </FormItem>
         <FormItem>
-          <Button type="primary" htmlType="submit" className="login-form-button">登录</Button>
+          <StyledButton type="primary" htmlType="submit" >登录</StyledButton>
         </FormItem>
       </Form>
     );
