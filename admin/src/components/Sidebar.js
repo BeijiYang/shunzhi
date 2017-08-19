@@ -66,7 +66,7 @@ const Sidebar = ({ onClickItem, selectedIndex, onLogout }) => (
         style={{borderRight: 'none'}}
         theme="light"
         onClick={(e) => onClickItem(e)}
-        defaultOpenKeys={['school', 'course', 'shop', 'goods']}
+        defaultOpenKeys={['dishes', 'orders']}
         selectedKeys={[selectedIndex]}
         mode='inline'
       >
