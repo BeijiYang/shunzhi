@@ -24,7 +24,7 @@ class DishCard extends Component {
             <div className="dish-card-icon-inner">
               <CommentIcon color="#D0D0D0" />
               <span className="dish-comment-no">
-                {/*this.props.comments).filter(id => this.props.comments[id].dish._id === this.props.dishId).length */}
+                {this.props.comments.filter(item => item.dish._id === this.props.dishId).length}
               </span>
             </div>
           </div>
@@ -40,7 +40,7 @@ class DishCard extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  comments: state.comments
+  comments: state.comment.all
 })
 
 export default connect(mapStateToProps)(DishCard)
