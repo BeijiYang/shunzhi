@@ -7,7 +7,8 @@ const dishReducer = (state={ all: {} }, action) => {
     case types.ADD_DISH:
       return { ...state, all: [...state.all,  action.dish] }
     case types.REMOVE_DISH:
-      return state
+      const newAll = state.all.filter(dish => dish._id !== action.id)
+      return { ...state, all: newAll }
     default:
       return state
   }
