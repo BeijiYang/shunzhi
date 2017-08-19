@@ -1,9 +1,9 @@
 import React from 'react'
-import Sidebar from './sidebar/Sidebar'
+import Sidebar from './Sidebar'
 import { Route, Switch } from 'react-router-dom'
-import NewDish from './dishes/NewDish'
-import Dishes from './dishes/Dishes'
-import Orders from './orders/Orders'
+import NewDishContainer from '../containers/NewDishContainer'
+import Dishes from './Dishes'
+import Orders from './Orders'
 import styled from 'styled-components'
 
 const TopHeader = styled.div`
@@ -42,10 +42,9 @@ const Dashboard = ({match, history}) => (
       <TopHeader></TopHeader>
       <MainContent>
         <Switch>
-          <Route exact path={`${match.url}/`} component={Dishes} />
+          <Route exact path={`${match.url}/dishes/new`} component={NewDishContainer} />
           <Route exact path={`${match.url}/dishes`} component={Dishes} />
           <Route exact path={`${match.url}/orders`} component={Orders} />
-          <Route exact path={`${match.url}/dishes/new`} component={NewDish} />
           <Route render={ () => <div>对不起，404 了</div> } />
         </Switch>
       </MainContent>

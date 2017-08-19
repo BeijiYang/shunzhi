@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import  Settings  from '../../../settings'
+import  Settings  from '../settings'
 import { Form, Input, Button, Icon,  message, Upload } from 'antd'
 import styled from 'styled-components'
 import axios from 'axios'

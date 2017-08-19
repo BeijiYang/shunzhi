@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import HomeContainer from './containers/HomeContainer'
-import Dashboard from './pages/Dashboard/Dashboard'
+import DashboardContainer from './containers/DashboardContainer'
 import { connect } from 'react-redux'
 import store from './redux/store'
 
@@ -15,7 +15,7 @@ class Main extends Component {
     return(
       <Switch>
         <Route exact path="/" component={HomeContainer} />
-        <Route path="/dashboard" component={Dashboard} />
+        <Route path="/dashboard" component={DashboardContainer} />
       </Switch>
     )
   }

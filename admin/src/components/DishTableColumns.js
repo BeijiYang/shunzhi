@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Settings from '../../../settings'
+import Settings from '../settings'
 import styled from 'styled-components'
 
 
