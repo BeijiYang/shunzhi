@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import  Settings  from '../../../settings'
-
 import { Form, Input, Button, Icon,  message, Upload } from 'antd'
-import './new-dish.css'
-
+import styled from 'styled-components'
 import axios from 'axios'
 
+const Page = styled.div`
+  max-width: 1000px;
+`
 
 const FormItem = Form.Item
 
@@ -78,50 +79,46 @@ class NewDish extends Component {
     };
 
     return (
-    <div className='single page'>
-    <div className='white-block details'>
-    <Form onSubmit={this.handleSubmit} className='signup-form'>
-      <FormItem>
-        <Upload {...props2} >
-          <Button>
-           <Icon type="upload" /> 上传海报
-         </Button>
-       </Upload>
-     </FormItem>
-      <FormItem>
-        {getFieldDecorator('name', config)(
-        <Input prefix={<Icon type='user' style={{ fontSize: 14 }} />}
-        placeholder='名称'
-        type='text'
-        name='name' />
-        )}
-      </FormItem>
-      <FormItem>
-        {getFieldDecorator('desc', config)(
-        <Input prefix={<Icon type='lock' style={{ fontSize: 14 }} />}
-        placeholder='描述'
-        type='text'
-        name='desc'
-        />
-        )}
-      </FormItem>
-      <FormItem>
-        {getFieldDecorator('price', config)(
-        <Input prefix={<Icon type="pay-circle-o" style={{ fontSize: 14 }} />}
-        placeholder='价格'
-        type='text'
-        name='price' />
-        )}
-      </FormItem>
+    <Page>
+      <Form onSubmit={this.handleSubmit} className='signup-form'>
+          <FormItem>
+            <Upload {...props2} >
+              <Button>
+               <Icon type="upload" /> 上传海报
+             </Button>
+           </Upload>
+         </FormItem>
+          <FormItem>
+            {getFieldDecorator('name', config)(
+            <Input prefix={<Icon type='user' style={{ fontSize: 14 }} />}
+            placeholder='名称'
+            type='text'
+            name='name' />
+            )}
+          </FormItem>
+          <FormItem>
+            {getFieldDecorator('desc', config)(
+            <Input prefix={<Icon type='lock' style={{ fontSize: 14 }} />}
+            placeholder='描述'
+            type='text'
+            name='desc'
+            />
+            )}
+          </FormItem>
+          <FormItem>
+            {getFieldDecorator('price', config)(
+            <Input prefix={<Icon type="pay-circle-o" style={{ fontSize: 14 }} />}
+            placeholder='价格'
+            type='text'
+            name='price' />
+            )}
+          </FormItem>
 
-      <FormItem>
-        <Button type='primary' htmlType='submit' disabled={this.hasErrors(getFieldsError())} className='signup-form-button'>添加甜点</Button>
-      </FormItem>
-    </Form>
-
-
-  </div>
-</div>
+          <FormItem>
+            <Button type='primary' htmlType='submit' disabled={this.hasErrors(getFieldsError())} className='signup-form-button'>添加甜点</Button>
+          </FormItem>
+        </Form>
+    </Page>
   )}
 }
 

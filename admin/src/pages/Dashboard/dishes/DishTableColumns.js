@@ -1,6 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Settings from '../../../settings'
+import styled from 'styled-components'
+
+
+const Poster = styled.img`
+	display: block;
+	width: 100px;
+`
 
 const DishTableColumns = [
   {
@@ -8,7 +15,7 @@ const DishTableColumns = [
     dataIndex: 'poster',
     key: 'poster',
     render: (text) => {
-      return <img className="poster" src={Settings.host + '/uploads/posters/' + text} />
+      return <Poster src={Settings.host + '/uploads/posters/' + text} />
     },
   },
   {

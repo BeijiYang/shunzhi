@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Table } from 'antd'
 import DishTableColumns from './DishTableColumns'
 import { connect } from 'react-redux'
-import './dish.css'
 
 class Dishes extends Component {
 
