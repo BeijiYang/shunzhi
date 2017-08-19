@@ -5,7 +5,7 @@ const dishReducer = (state={ all: {} }, action) => {
     case types.RECEIVE_DISHES:
       return { ...state, all: action.dishes }
     case types.ADD_DISH:
-      return { ...state, all: Object.assign(state.all, { [action.dish._id]: action.dish}) }
+      return { ...state, all: [...state.all,  action.dish] }
     case types.REMOVE_DISH:
       return state
     default:

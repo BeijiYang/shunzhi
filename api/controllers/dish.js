@@ -31,13 +31,7 @@ exports.new = function (req, res) {
   dish.save(function (err, dish) {
     if (err) return res.status(403).json({msg: '保存失败，请重试',err})
     res.json({
-      dish: {
-        _id: dish._id,
-        name: dish.name,
-        desc: dish.desc,
-        poster: dish.poster,
-        price: dish.price
-      },
+      dish,
       msg: '保存成功'
     })
   })

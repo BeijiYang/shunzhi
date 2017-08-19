@@ -14,16 +14,8 @@ class DishesContainer extends Component {
     const { dishes, isFetching } = this.props
     if (isFetching) return <Loading />
 
-    const dishArr = Object.keys(dishes).map(id => (
-      {
-        _id: id,
-        price: dishes[id].price,
-        desc: dishes[id].desc,
-        poster: dishes[id].poster
-      }
-    ))
     return (
-      <Dishes dishes={dishArr.slice().reverse()}
+      <Dishes dishes={dishes.slice().reverse()}
         onDelete={this.handleDelete}
         />
     )
