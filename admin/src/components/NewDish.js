@@ -20,11 +20,14 @@ class NewDish extends Component {
          return (!formData[prop])
       }
     )
-    if(unFilled.length === 0) {
+    if(unFilled.length === 0 ) {
       const name = formData.name
       const desc = formData.desc
       const price = formData.price
       const poster = this.state.poster
+      if(!poster) {
+        return alert("请上传海报")
+      }
       const data = { name, poster, price, desc }
       this.props.onSubmitDish(data, message)
       this.props.form.resetFields()
