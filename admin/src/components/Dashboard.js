@@ -2,7 +2,7 @@ import React from 'react'
 import Sidebar from './Sidebar'
 import { Route, Switch } from 'react-router-dom'
 import NewDishContainer from '../containers/NewDishContainer'
-import Dishes from './Dishes'
+import DishesContainer from '../containers/DishesContainer'
 import Orders from './Orders'
 import styled from 'styled-components'
 
@@ -43,7 +43,7 @@ const Dashboard = ({match, history}) => (
       <MainContent>
         <Switch>
           <Route exact path={`${match.url}/dishes/new`} component={NewDishContainer} />
-          <Route exact path={`${match.url}/dishes`} component={Dishes} />
+          <Route exact path={`${match.url}/dishes`} component={DishesContainer} />
           <Route exact path={`${match.url}/orders`} component={Orders} />
           <Route render={ () => <div>对不起，404 了</div> } />
         </Switch>

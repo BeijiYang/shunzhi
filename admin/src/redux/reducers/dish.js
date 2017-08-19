@@ -1,12 +1,7 @@
-let dish = {
-  all: {
-
-  }
-}
-const dishReducer = (state=dish, action) => {
+const dishReducer = (state={ all: {} }, action) => {
   switch (action.type) {
     case 'LOAD_DISHES':
-      return { ...dish, all: action.dishes }
+      return { ...state, all: action.dishes }
     default:
       return state
   }
