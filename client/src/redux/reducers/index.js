@@ -3,7 +3,7 @@ import { combineReducers } from 'redux'
 import account from './account'
 import { user, userById } from './user'
 import cart, * as fromCart from './cart'
-import dish, * as fromDish from './dish'
+import dishes, * as fromDish from './dishes'
 import comment from './comment'
 
 const getDish = (state, id) => fromDish.getDish(state.dish, id)
@@ -14,7 +14,7 @@ const getAddedIds = state => fromCart.getAddedIds(state.cart)
 const rootReducer = combineReducers({
   account,
   cart,
-  dish,
+  dishes,
   comment,
   user,
   userById

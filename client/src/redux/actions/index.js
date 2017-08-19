@@ -11,8 +11,9 @@ export const loadCurrentUser = (userId) => dispatch => {
 }
 
 export const loadDishes = () => dispatch => {
+  dispatch({ type: types.REQUEST_DISHES })
   axios.get(`${Settings.host}/dishes`).then(res => {
-      dispatch({ type: types.LOAD_DISHES, dishes: res.data.dishes })
+      dispatch({ type: types.RECEIVE_DISHES, dishes: res.data.dishes })
     }
   )
 }

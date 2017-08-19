@@ -18,7 +18,7 @@ class DishesContainer extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  dishes: state.dish.all
+  dishes: state.dishes
 })
 
 export default connect(mapStateToProps, { setTitle })(DishesContainer)

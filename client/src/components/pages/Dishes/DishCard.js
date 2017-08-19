@@ -3,13 +3,14 @@ import './dish-card.css'
 import CommentIcon from '../../../assets/icons/CommentIcon'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import Settings from '../../../settings'
 
 class DishCard extends Component {
   render() {
     const { dish } = this.props
     return(
       <Link to={`/dish/${this.props.dishId}`} className="dish-card">
-        <div style={{ 'backgroundImage' : `url(${dish.poster})` }}
+        <div style={{ 'backgroundImage' : `url(${Settings.host}/uploads/posters/${dish.poster})` }}
           className="dish-card-poster">
         </div>
         <div className="dish-card-detail">
@@ -23,7 +24,7 @@ class DishCard extends Component {
             <div className="dish-card-icon-inner">
               <CommentIcon color="#D0D0D0" />
               <span className="dish-comment-no">
-                {Object.keys(this.props.comments).filter(id => this.props.comments[id].dish._id === this.props.dishId).length}
+                {/*Object.keys(this.props.comments).filter(id => this.props.comments[id].dish._id === this.props.dishId).length */}
               </span>
             </div>
           </div>
