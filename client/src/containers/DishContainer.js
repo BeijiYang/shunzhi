@@ -14,7 +14,6 @@ class DishContainer extends Component {
   }
 
   render(){
-    console.log('xxxxxx', this.props.dishes)
     if(Object.keys(this.props.dishes).length !== 0){
       let { dishId } = this.props.match.params
       let dish = this.props.dishes[dishId]
@@ -36,7 +35,7 @@ class DishContainer extends Component {
 
 const mapStateToProps = (state) => ({
   dishes: state.dishes,
-  comments: state.comment.all,
+  comments: state.comment.byId,
   cart: state.cart
 })
 

@@ -1,5 +1,17 @@
 import * as types from '../ActionTypes'
 
+import { combineReducers } from 'redux'
+
+
+const all = (state=[], action) => {
+  switch (action.type) {
+    case types.RECEIVE_COMMENTS:
+      return action.comments
+    default:
+      return state
+  }
+}
+
 const byId = (state={}, action) => {
   switch (action.type) {
     case types.RECEIVE_COMMENTS:
@@ -15,4 +27,7 @@ const byId = (state={}, action) => {
   }
 }
 
-export default byId
+export default combineReducers({
+  byId,
+  all
+})

@@ -43,7 +43,6 @@ class Comment extends Component {
     let { comments } = this.props
     moment.locale('zh-cn')
 
-
     let hereCommentKeys = Object.keys(comments).filter(id => comments[id].dish._id === this.props.dishId)
 
     let commentList = hereCommentKeys.map( id => (
@@ -88,7 +87,7 @@ class Comment extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  comments: state.comment.all,
+  comments: state.comment.byId,
 })
 
 export default connect(mapStateToProps)(Comment)

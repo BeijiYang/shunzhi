@@ -4,7 +4,7 @@ import account from './account'
 import { user, userById } from './user'
 import cart, * as fromCart from './cart'
 import dishes, * as fromDish from './dishes'
-import comments from './comments'
+import comment from './comments'
 
 const getDish = (state, id) => fromDish.getDish(state.dish, id)
 const getQuantity = (state, id) => fromCart.getQuantity(state.cart, id)
@@ -15,7 +15,7 @@ const rootReducer = combineReducers({
   account,
   cart,
   dishes,
-  comments,
+  comment,
   user,
   userById
 })
