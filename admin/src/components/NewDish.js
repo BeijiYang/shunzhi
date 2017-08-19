@@ -51,10 +51,7 @@ class NewDish extends Component {
     const { getFieldDecorator, getFieldsError } = this.props.form;
     const config = {
       rules: [{ type: 'string', required: true, message: '必填项目' }],
-    };
-    const rangeConfig = {
-      rules: [{ type: 'array', required: true, message: 'Please select time!' }],
-    };
+    }
 
     return (
     <Page>
