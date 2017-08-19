@@ -1,5 +1,5 @@
 import React from 'react'
-import { Table } from 'antd'
+import { Table, message } from 'antd'
 import { Link } from 'react-router-dom'
 import Settings from '../settings'
 import styled from 'styled-components'
@@ -9,7 +9,9 @@ const Poster = styled.img`
 	width: 100px;
 `
 
-const DishTableColumns = [
+const Dishes = ({ dishes, onDelete }) => {
+
+  const DishTableColumns = [
   {
     title: '海报',
     dataIndex: 'poster',
@@ -40,13 +42,13 @@ const DishTableColumns = [
     title: '操作',
     dataIndex: '_id',
     key: '_id',
-    render: (text) => {
-      return <Link to="" onClick={() => console.log('delete')}>删除</Link>
+    render: (_id) => {
+      return <Link to="#" onClick={() => onDelete(_id, message)}>删除</Link>
     },
   }
 ]
 
-const Dishes = ({ dishes }) => (
+  return (
   <div className='page'>
     <div className='white-block'>
       <div>共{Object.keys(dishes).length}条</div>
@@ -60,6 +62,6 @@ const Dishes = ({ dishes }) => (
       />
     </div>
   </div>
-)
-
+  )
+}
 export default Dishes

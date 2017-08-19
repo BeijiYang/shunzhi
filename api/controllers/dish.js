@@ -1,5 +1,19 @@
 let Dish = require('../models/dish.js');
 
+
+exports.remove = function (req, res) {
+  let { id } = req.params
+  Dish.findById({_id: id}, function(err, dish) {
+    if (err) return res.status(500).json({error: err.message});
+    if (dish) {
+      dish.remove(function(err){
+        if (err) return res.status(500).json({error: err.message});
+        res.json({ message: '删除成功！' });
+      })
+    }
+  })
+}
+
 exports.all = function (req, res) {
   Dish.find(function (err, dishes) {
     if (err) return res.status(500).json({msg: '查找失败',err});

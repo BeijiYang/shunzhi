@@ -2,8 +2,14 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Dishes from '../components/Dishes'
 import Loading from '../components/Loading'
+import { deleteDish } from '../redux/actions'
 
 class DishesContainer extends Component {
+
+  handleDelete = (id, message) => {
+    console.log(id)
+    this.props.deleteDish(id, message)
+  }
 
   render() {
     const { dishes, isFetching } = this.props
@@ -18,7 +24,9 @@ class DishesContainer extends Component {
       }
     ))
     return (
-      <Dishes dishes={dishArr.slice().reverse()}/>
+      <Dishes dishes={dishArr.slice().reverse()}
+        onDelete={this.handleDelete}
+        />
     )
   }
 }
@@ -28,4 +36,4 @@ const mapStateToProps = (state) => ({
   isFetching: state.app.isFetching
 })
 
-export default connect(mapStateToProps)(DishesContainer)
+export default connect(mapStateToProps, { deleteDish })(DishesContainer)

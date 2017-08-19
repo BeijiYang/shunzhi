@@ -22,3 +22,12 @@ export const submitDish = (data, message, history) => dispatch => {
       alert(errMesg)
     })
 }
+
+export const deleteDish = (id, message) => dispatch => {
+  axios.delete(`${Settings.host}/dish/${id}`)
+  .then(
+    res => {
+      message.info('删除甜点成功')
+    }
+  )
+}

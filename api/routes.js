@@ -29,6 +29,6 @@ module.exports = function (app) {
   // dish
   app.post('/dish', Dish.new)
   app.post('/dish/poster', uploadPoster.single('poster'), Dish.uploadPoster)
-
+  app.delete('/dish/:id', Dish.remove)
   app.get('/dishes', Dish.all)
 }
