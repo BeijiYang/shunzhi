@@ -2,14 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import User from '../components/pages/User/User'
 import { followFriend, setTitle } from '../redux/actions'
-import Spinner from 'react-spinner'
-import 'react-spinner/react-spinner.css'
-import styled from 'styled-components'
-
-const StyledSpinner = styled(Spinner)`
-  position: absolute;
-  top: 50%;
-`
+import StyledSpinner from '../components/StyledSpinner'
 
 class UserContainer extends Component {
   componentWillMount () {

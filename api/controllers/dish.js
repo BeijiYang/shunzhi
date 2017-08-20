@@ -8,7 +8,7 @@ exports.remove = function (req, res) {
     if (dish) {
       dish.remove(function(err){
         if (err) return res.status(500).json({error: err.message});
-        setTimeout(() => res.json({ message: '删除成功！' }), 5000)
+        setTimeout(() => res.json({ message: '删除成功！' }), 3000)
       })
     }
   })
@@ -18,7 +18,7 @@ exports.all = function (req, res) {
   Dish.find(function (err, dishes) {
     if (err) return res.status(500).json({msg: '查找失败',err});
     if (dishes) {
-      return setTimeout(() => res.json({msg: '读取成功', dishes}), 5000)
+      return setTimeout(() => res.json({msg: '读取成功', dishes}), 3000)
     }
   })
 }

@@ -1,14 +1,10 @@
 import React, { Component } from 'react'
 import '../assets/css/App.css'
 import HomeContainer from './HomeContainer'
-import axios from 'axios'
-import Settings from '../settings'
 import AlertBox from '../components/shared/AlertBox/AlertBox'
 import SidebarContainer from './SidebarContainer'
 import CartButtonContainer from './CartButtonContainer'
 import LayoutContainer from './LayoutContainer'
-import store from '../redux/store'
-import * as types from '../redux/ActionTypes'
 
 import {
   BrowserRouter as Router,

@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import Dish from '../components/pages/Dish/Dish'
 import { connect } from 'react-redux'
 import { setTitle, addToCart } from '../redux/actions'
+import StyledSpinner from '../components/StyledSpinner'
+
 
 class DishContainer extends Component {
 
@@ -14,27 +16,28 @@ class DishContainer extends Component {
   }
 
   render(){
-    if(Object.keys(this.props.dishes).length !== 0){
-      let { dishId } = this.props.match.params
-      let dish = this.props.dishes[dishId]
+    let { dishId } = this.props.match.params
+    let { dishes, isFetching } = this.props
+    if(!isFetching){
       let isInCart =  this.props.cart.addedIds.includes(dishId)
       let { comments } = this.props
       let userId = localStorage.getItem('userId')
       let isAuthenticated =  userId !== 'null' && userId !== 'undefined'
       return (
-        <Dish dish={dish} comments={comments}
+        <Dish dish={dishes[dishId]} comments={comments}
           isInCart={isInCart} isAuthenticated={isAuthenticated}
           onBuy={this.buy}
           />
       )
     } else {
-      return null
+      return <StyledSpinner />
     }
   }
 }
 
 const mapStateToProps = (state) => ({
-  dishes: state.dishes,
+  isFetching: state.dish.isFetching,
+  dishes: state.dish.byId,
   comments: state.comment.byId,
   cart: state.cart
 })

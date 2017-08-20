@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import axios from 'axios'
-import Settings from '../settings'
 import Login from '../components/pages/Login/Login'
 import { connect } from 'react-redux'
 import { setTitle, showAlert, updateUser, login } from '../redux/actions'
