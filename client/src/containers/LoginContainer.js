@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import Login from '../components/pages/Login/Login'
 import { connect } from 'react-redux'
 import { setTitle, showAlert, updateUser, login } from '../redux/actions'
+import StyledSpinner from '../components/StyledSpinner'
+
 
 class LoginContainer extends Component {
   state = {
@@ -12,11 +14,11 @@ class LoginContainer extends Component {
     this.props.setTitle('登录')
     if (this.props.location.state) {
       const { from } = this.props.location.state
-      console.log('xxxxx--set referrer', from.pathname)
-
+      this.props.showAlert('请先登录')
+      this.props.location.state = null
+      // 如果这里不清空 state ，那么 showAlert 会执行两次
       this.setState({
-        // referrer: from.pathname
-        referrer: '/cart'
+        referrer: from.pathname
       })
     }
   }
@@ -27,9 +29,12 @@ class LoginContainer extends Component {
 
   render() {
     const { isFetching } = this.props
+    if (isFetching) {
+      return <StyledSpinner />
+    }
     return(
       <div>
-        <Login onFormSubmit={this.login} isFetching={isFetching} />
+        <Login onFormSubmit={this.login} />
       </div>
 
     )

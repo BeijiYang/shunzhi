@@ -7,7 +7,9 @@ import UserContainer from './UserContainer'
 import CartContainer from './CartContainer'
 import SignupContainer from './SignupContainer'
 import TitleHeader from '../components/shared/TitleHeader/TitleHeader'
+import StyledSpinner from '../components/StyledSpinner'
 import React, { Component } from 'react'
+import store from '../redux/store'
 import { connect } from 'react-redux'
 import {
   Switch,
@@ -19,7 +21,6 @@ import {
 // 这里用到了 isAuthenticated ，所以也要务必保证先在 login 的 isFetching 变成 false 之后，再执行这里的代码
 const PrivateRoute = ({component: Component, isAuthenticated, ...rest }) => (
   <Route { ...rest } render={(props) => {
-      console.log('xxxxxxxx---isAuth', isAuthenticated)
       if (isAuthenticated) {
         return <Component />
       } else {
@@ -33,7 +34,10 @@ const PrivateRoute = ({component: Component, isAuthenticated, ...rest }) => (
 
 class LayoutContainer extends Component {
   render(){
-    const { isAuthenticated } = this.props
+    const { isAuthenticated, isFetching } = this.props
+    if (isFetching) {
+      return <StyledSpinner />
+    }
     return(
       <div>
         <TitleHeader title={this.props.title} />
@@ -41,7 +45,7 @@ class LayoutContainer extends Component {
           <Route path="/login" component={LoginContainer} />
           <Route path="/signup" component={SignupContainer} />
           <Route path="/dashboard" component={DashboardContainer} />
-          <PrivateRoute  path="/profile" component={ProfileContainer} />
+          <PrivateRoute isAuthenticated={isAuthenticated} path="/profile" component={ProfileContainer} />
           <Route path="/dish/:dishId" component={DishContainer} />
           <Route path="/dishes" component={DishesContainer} />
           <PrivateRoute isAuthenticated={isAuthenticated} path="/cart" component={CartContainer} />
@@ -55,6 +59,7 @@ class LayoutContainer extends Component {
 const mapStateToProps = (state) => ({
   isAuthenticated: state.account.isAuthenticated,
   title: state.account.title,
+  isFetching: state.account.isFetching
 })
 
 export default connect(mapStateToProps)(LayoutContainer)
