@@ -2,14 +2,7 @@ import React, { Component } from 'react'
 import Login from '../components/pages/Login/Login'
 import { connect } from 'react-redux'
 import { setTitle, showAlert, updateUser, login } from '../redux/actions'
-import Spinner from 'react-spinner'
-import 'react-spinner/react-spinner.css'
-import styled from 'styled-components'
-
-const StyledSpinner = styled(Spinner)`
-  position: absolute;
-  top: 40%;
-`
+import StyledSpinner from '../components/StyledSpinner'
 
 class LoginContainer extends Component {
   state = {
