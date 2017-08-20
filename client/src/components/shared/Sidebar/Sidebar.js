@@ -19,10 +19,7 @@ class Sidebar extends Component {
   }
 
   render () {
-    const { currentUser } = this.props
-    const isAuthenticated = Object.keys(currentUser).length !== 0
-    // FIXME: isAuthenticated 一定要是放在 store 中的一个 flag
-    // 另外：Dan 的 isFetching 也是相关的
+    const { currentUser, isAuthenticated } = this.props
     let userInfo = (
       <div onClick={this.closeMenu} className="user-info-text">
         <Link to="/profile" className="bm-user-name">
@@ -46,7 +43,7 @@ class Sidebar extends Component {
             <div className="user-info">
               <img className="bm-img"
                 src="http://media.haoduoshipin.com/yummy/default-avatar.png" alt="avatar" />
-              {isAuthenticated ? userInfo : ''}
+              {isAuthenticated && userInfo}
             </div>
             <div className="bm-link-list">
               <Link onClick={this.closeMenu} to="/" className="menu-item" >首页</Link>

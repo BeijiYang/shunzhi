@@ -1,7 +1,9 @@
 import * as types from '../ActionTypes'
 
-
+// auth 相关： https://github.com/reactjs/redux/issues/826#issuecomment-187913191
 let account = {
+  isFetching: false,
+  isAuthenticated: false,
   currentUser: {},
   showAlert: false,
   alertMessage: '',
@@ -10,8 +12,14 @@ let account = {
 
 export default function accountReducer(state=account, action) {
   switch (action.type) {
-    case types.LOAD_CURRENT_USER:
-      return { ...state, currentUser: action.currentUser }
+    case types.REQUEST_CURRENT_USER:
+      return { ...state, isFetching: true }
+    case types.RECEIVE_CURRENT_USER:
+      return {
+        ...state, currentUser: action.currentUser,
+        isFetching: false,
+        isAuthenticated: true
+      }
     case types.UPDATE_USER:
       return { ...state, currentUser: action.currentUser }
     case types.SET_TITLE:

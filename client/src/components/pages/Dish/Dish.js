@@ -43,6 +43,7 @@ class Dish extends Component {
             <p className="dish-sub-detail">
               评论数：
               { Object.keys(comments).filter(id => comments[id].dish._id === dish._id).length }
+              {/*使用 https://github.com/paularmstrong/normalizr ? */}
             </p>
             <Comment dishId={dish._id} isAuthenticated={this.props.isAuthenticated}/>
           </div>

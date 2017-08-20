@@ -3,9 +3,10 @@ import axios from 'axios'
 import Settings from '../../settings'
 
 export const loadCurrentUser = (userId) => dispatch => {
+  dispatch({ type: types.REQUEST_CURRENT_USER })
   axios.get(`${Settings.host}/user/${userId}`).then(
     res => {
-      dispatch({ type: types.LOAD_CURRENT_USER, currentUser: res.data.user})
+      dispatch({ type: types.RECEIVE_CURRENT_USER, currentUser: res.data.user})
     }
   )
 }
