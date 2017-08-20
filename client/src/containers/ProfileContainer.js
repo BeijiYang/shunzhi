@@ -2,7 +2,7 @@ import React , { Component } from 'react'
 import LoginFirst from '../components/shared/LoginFirst'
 import Profile from '../components/pages/Profile/Profile'
 import { connect } from 'react-redux'
-import { removeFriend, followFriend, setTitle } from '../redux/actions'
+import { removeFriend, followFriend, setTitle, loadUsers } from '../redux/actions'
 import Spinner from 'react-spinner'
 import 'react-spinner/react-spinner.css'
 import styled from 'styled-components'
@@ -13,8 +13,10 @@ const StyledSpinner = styled(Spinner)`
 `
 
 class ProfileContainer extends Component {
-  componentWillMount () {
+  componentDidMount () {
+    // 使用 DidMount 让页面刷新的时候，不至于因为等待数据而空白很长时间
     this.props.setTitle('个人中心')
+    this.props.loadUsers()
   }
 
   onToggleFollow = (userId) => {
@@ -55,4 +57,9 @@ const mapStateToProps = (state) => ({
   currentUser: state.account.currentUser
 })
 
-export default connect(mapStateToProps, { removeFriend, followFriend, setTitle })(ProfileContainer)
+export default connect(mapStateToProps, {
+  removeFriend,
+  followFriend,
+  setTitle,
+  loadUsers
+})(ProfileContainer)

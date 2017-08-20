@@ -17,23 +17,7 @@ import {
   Redirect
 } from 'react-router-dom'
 
-
 class App extends Component {
-  componentDidMount() {
-    // LOAD_USERS
-    axios.get(`http://localhost:3008/users`).then(
-      function (res) {
-        store.dispatch({ type: 'LOAD_USERS', users: res.data.users })
-      }
-    )
-
-    axios.get(`${Settings.host}/comments`).then(
-      res => {
-        const { comments } = res.data
-        store.dispatch({ type: types.RECEIVE_COMMENTS , comments })
-      }
-    )
-  }
   render() {
     return (
       <div>

@@ -10,6 +10,14 @@ export const loadCurrentUser = (userId) => dispatch => {
   )
 }
 
+export const loadUsers = () => dispatch => {
+  axios.get(`${Settings.host}/users`).then(
+    res => {
+      dispatch({ type: types.LOAD_USERS, users: res.data.users })
+    }
+  )
+}
+
 export const loadDishes = () => dispatch => {
   dispatch({ type: types.REQUEST_DISHES })
   axios.get(`${Settings.host}/dishes`).then(res => {
@@ -82,4 +90,13 @@ export const removeFriend = (userId) => dispatch => {
 
 export const setTitle = (title) => dispatch => {
   dispatch({ type: types.SET_TITLE, title })
+}
+
+export const loadComments = () => dispatch => {
+  axios.get(`${Settings.host}/comments`).then(
+    res => {
+      const { comments } = res.data
+      dispatch({ type: types.RECEIVE_COMMENTS , comments })
+    }
+  )
 }
