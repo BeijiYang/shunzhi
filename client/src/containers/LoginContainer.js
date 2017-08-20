@@ -12,8 +12,11 @@ class LoginContainer extends Component {
     this.props.setTitle('登录')
     if (this.props.location.state) {
       const { from } = this.props.location.state
+      console.log('xxxxx--set referrer', from.pathname)
+
       this.setState({
-        referrer: from.pathname
+        // referrer: from.pathname
+        referrer: '/cart'
       })
     }
   }

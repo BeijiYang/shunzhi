@@ -17,9 +17,10 @@ import {
 
 
 // 这里用到了 isAuthenticated ，所以也要务必保证先在 login 的 isFetching 变成 false 之后，再执行这里的代码
-const PrivateRoute = ({component: Component, ...rest }) => (
+const PrivateRoute = ({component: Component, isAuthenticated, ...rest }) => (
   <Route { ...rest } render={(props) => {
-      if (props.isAuthenticated) {
+      console.log('xxxxxxxx---isAuth', isAuthenticated)
+      if (isAuthenticated) {
         return <Component />
       } else {
         return <Redirect to={{
@@ -32,6 +33,7 @@ const PrivateRoute = ({component: Component, ...rest }) => (
 
 class LayoutContainer extends Component {
   render(){
+    const { isAuthenticated } = this.props
     return(
       <div>
         <TitleHeader title={this.props.title} />
@@ -39,10 +41,10 @@ class LayoutContainer extends Component {
           <Route path="/login" component={LoginContainer} />
           <Route path="/signup" component={SignupContainer} />
           <Route path="/dashboard" component={DashboardContainer} />
-          <PrivateRoute path="/profile" component={ProfileContainer} />
+          <PrivateRoute  path="/profile" component={ProfileContainer} />
           <Route path="/dish/:dishId" component={DishContainer} />
           <Route path="/dishes" component={DishesContainer} />
-          <PrivateRoute path="/cart" component={CartContainer} />
+          <PrivateRoute isAuthenticated={isAuthenticated} path="/cart" component={CartContainer} />
           <Route path="/user/:id" component={UserContainer} />
         </Switch>
       </div>
