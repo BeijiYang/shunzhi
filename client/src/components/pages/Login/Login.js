@@ -3,6 +3,8 @@ import './login.css'
 import {
   Link
 } from 'react-router-dom'
+import StyledSpinner from '../../StyledSpinner'
+
 
 class Login extends Component {
 
@@ -15,6 +17,10 @@ class Login extends Component {
   }
 
   render() {
+    const { isFetching } = this.props
+    if (isFetching) {
+      return <StyledSpinner />
+    }
     return(
       <div style={{ 'height': `${window.innerHeight - 80}px`}}
         className="login">

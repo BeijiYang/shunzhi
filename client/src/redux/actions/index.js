@@ -108,11 +108,14 @@ export const login = (data, referrer, history) => dispatch => {
     dispatch({ type: types.LOGIN_SUCCESS, currentUser: res.data.user })
     localStorage.setItem('userId', res.data.user._id)
     let redirectTo = referrer || '/dashboard'
+    console.log('xxxxxxx redirectTo', redirectTo)
+    console.log('xxxx history', history)
     history.push(redirectTo)
+    // 注意：重定向到 cart 后，要保证用户已经登录了，不然还会跳回来
   }).catch(err => {
     if(err.response){
       const { msg } = err.response.data
-      this.props.showAlert(msg)
+      dispatch({ type: types.SHOW_ALERT, msg })
     }
   })
 }

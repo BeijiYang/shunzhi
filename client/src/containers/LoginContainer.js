@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Login from '../components/pages/Login/Login'
 import { connect } from 'react-redux'
 import { setTitle, showAlert, updateUser, login } from '../redux/actions'
-import StyledSpinner from '../components/StyledSpinner'
 
 class LoginContainer extends Component {
   state = {
@@ -27,8 +26,7 @@ class LoginContainer extends Component {
     const { isFetching } = this.props
     return(
       <div>
-        <Login onFormSubmit={this.login} />
-        {isFetching && <StyledSpinner />}
+        <Login onFormSubmit={this.login} isFetching={isFetching} />
       </div>
 
     )

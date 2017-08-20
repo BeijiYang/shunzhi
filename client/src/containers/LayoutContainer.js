@@ -15,9 +15,11 @@ import {
   Redirect
 } from 'react-router-dom'
 
+
+// 这里用到了 isAuthenticated ，所以也要务必保证先在 login 的 isFetching 变成 false 之后，再执行这里的代码
 const PrivateRoute = ({component: Component, ...rest }) => (
   <Route { ...rest } render={(props) => {
-      if (localStorage.getItem('userId')) {
+      if (props.isAuthenticated) {
         return <Component />
       } else {
         return <Redirect to={{
@@ -49,7 +51,8 @@ class LayoutContainer extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  title: state.account.title
+  isAuthenticated: state.account.isAuthenticated,
+  title: state.account.title,
 })
 
 export default connect(mapStateToProps)(LayoutContainer)
