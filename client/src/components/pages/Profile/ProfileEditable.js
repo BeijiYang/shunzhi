@@ -46,7 +46,7 @@ class ProfileEditable extends Component {
       err = '请上传图片'
       this.props.onUpdateAvatar({ err })
     } else if (parseInt(file.size/1024, 10) > 1024) {
-      err = `请不要上传大于 1M 的图片，当前图片 ${parseInt(file.size/1024)}K`
+      err = `请不要上传大于 1M 的图片，当前图片 ${parseInt(file.size/1024, 10)}K`
       this.props.onUpdateAvatar({ err })
     } else {
       const reader = new FileReader()

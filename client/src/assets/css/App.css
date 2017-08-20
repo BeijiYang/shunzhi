@@ -23,3 +23,7 @@ h1, h2, h3 {
 li {
   list-style: none;
 }
+
+#root {
+  min-height: 100vh;
+}

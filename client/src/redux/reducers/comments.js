@@ -2,7 +2,6 @@ import * as types from '../ActionTypes'
 
 import { combineReducers } from 'redux'
 
-
 const all = (state=[], action) => {
   switch (action.type) {
     case types.RECEIVE_COMMENTS:

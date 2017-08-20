@@ -3,6 +3,14 @@ import LoginFirst from '../components/shared/LoginFirst'
 import Profile from '../components/pages/Profile/Profile'
 import { connect } from 'react-redux'
 import { removeFriend, followFriend, setTitle } from '../redux/actions'
+import Spinner from 'react-spinner'
+import 'react-spinner/react-spinner.css'
+import styled from 'styled-components'
+
+const StyledSpinner = styled(Spinner)`
+  position: absolute;
+  top: 50%;
+`
 
 class ProfileContainer extends Component {
   componentWillMount () {
@@ -33,13 +41,10 @@ class ProfileContainer extends Component {
     if (dataReady) {
       return(
         <Profile currentUser={currentUser} users={usersWithoutMe} onToggleFollow={this.onToggleFollow}/>
-
       )
     }else {
       return(
-        <div className="loading">
-          loading ...
-        </div>
+        <StyledSpinner />
       )
     }
   }

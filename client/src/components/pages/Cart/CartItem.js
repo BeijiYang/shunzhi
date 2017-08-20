@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './cart-item.css'
-import Settings, { posterUrl } from '../../../settings'
+import { posterUrl } from '../../../settings'
 
 class CartItem extends Component {
 

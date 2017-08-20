@@ -4,7 +4,7 @@ import ShoppingIcon from './ShoppingIcon'
 import Comment from './Comment'
 import PieChart from './PieChart'
 import AreaChart from './AreaChart'
-import Settings, { posterUrl } from '../../../settings'
+import { posterUrl } from '../../../settings'
 
 
 class Dish extends Component {

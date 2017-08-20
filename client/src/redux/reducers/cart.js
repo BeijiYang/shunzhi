@@ -39,7 +39,6 @@ const quantityById = (state = initialState.quantityById, action) => {
   }
 }
 
-
 export const getQuantity = (state, dishId) => {
   return state.quantityById[dishId]
 }

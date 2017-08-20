@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import CommentIcon from '../../../assets/icons/CommentIcon'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
-import Settings, { posterUrl } from '../../../settings'
+import { posterUrl } from '../../../settings'
 
 
 class FeedItem extends Component {
