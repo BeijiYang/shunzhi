@@ -57,7 +57,7 @@ exports.login = function (req, res) {
     user.comparePassword(_user.password, function (err, isMatch) {
       if (err) return res.status(500).json({msg: '登陆失败，请重试',err});
       if (isMatch) {
-        res.json({
+        setTimeout(() => res.json({
           user: {
             _id: user._id,
             username: user.username,
@@ -66,7 +66,8 @@ exports.login = function (req, res) {
             followings: user.followings
           },
           msg: '登陆成功'
-        })
+        }), 2000)
+        // FIXME: intentional latency added
       }else {
         res.status(401).json({msg: '密码错误，请核对后重试'})
       }

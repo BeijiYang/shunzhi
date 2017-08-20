@@ -101,3 +101,18 @@ export const loadComments = () => dispatch => {
     }
   )
 }
+
+export const login = (data, referrer, history) => dispatch => {
+  dispatch({ type: types.LOGIN_REQUEST })
+  axios.post(`${Settings.host}/user/login`, data).then(res => {
+    dispatch({ type: types.LOGIN_SUCCESS, currentUser: res.data.user })
+    localStorage.setItem('userId', res.data.user._id)
+    let redirectTo = referrer || '/dashboard'
+    history.push(redirectTo)
+  }).catch(err => {
+    if(err.response){
+      const { msg } = err.response.data
+      this.props.showAlert(msg)
+    }
+  })
+}

@@ -3,7 +3,15 @@ import axios from 'axios'
 import Settings from '../settings'
 import Login from '../components/pages/Login/Login'
 import { connect } from 'react-redux'
-import { setTitle, showAlert, updateUser } from '../redux/actions'
+import { setTitle, showAlert, updateUser, login } from '../redux/actions'
+import Spinner from 'react-spinner'
+import 'react-spinner/react-spinner.css'
+import styled from 'styled-components'
+
+const StyledSpinner = styled(Spinner)`
+  position: absolute;
+  top: 40%;
+`
 
 class LoginContainer extends Component {
   state = {
@@ -21,28 +29,27 @@ class LoginContainer extends Component {
   }
 
   login = (data) => {
-    if(data.username === ''){
-      this.props.showAlert("用户名不能为空")
-      return
-    }
-    axios.post(`${Settings.host}/user/login`, data).then(res => {
-      this.props.updateUser(res.data.user)
-      localStorage.setItem('userId', res.data.user._id)
-      let redirectTo = this.state.referrer || '/dashboard'
-      this.props.history.push(redirectTo)
-    }).catch(err => {
-      if(err.response){
-        const { msg } = err.response.data
-        this.props.showAlert(msg)
-      }
-    })
+    this.props.login(data, this.state.referrer, this.props.history)
   }
 
   render() {
+    const { isFetching } = this.props
     return(
-      <Login onFormSubmit={this.login} />
+      <div>
+        <Login onFormSubmit={this.login} />
+        {isFetching && <StyledSpinner />}
+      </div>
+
     )
   }
 }
 
-export default connect(null, { setTitle, showAlert, updateUser })(LoginContainer)
+const mapStateToProps = (state) => ({
+  isFetching: state.account.isFetching
+})
+
+export default connect(mapStateToProps, {
+  setTitle,
+  showAlert,
+  updateUser,
+  login })(LoginContainer)

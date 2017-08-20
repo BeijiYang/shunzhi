@@ -20,8 +20,16 @@ export default function accountReducer(state=account, action) {
         isFetching: false,
         isAuthenticated: true
       }
-    case types.UPDATE_USER:
-      return { ...state, currentUser: action.currentUser }
+    case types.LOGIN_REQUEST:
+      return { ...state,
+        isFetching: true
+      }
+    case types.LOGIN_SUCCESS:
+      return { ...state,
+        currentUser: action.currentUser,
+        isAuthenticated: true,
+        isFetching: false
+       }
     case types.SET_TITLE:
       return { ...state, title: action.title }
     case 'LOG_OUT':

@@ -11,3 +11,7 @@ export const INCR_CART_ITEM       = 'INCR_CART_ITEM'
 export const DECR_CART_ITEM       = 'DECR_CART_ITEM'
 export const CHECKOUT_REQUEST     = 'CHECKOUT_REQUEST'
 export const RECEIVE_COMMENTS     = 'RECEIVE_COMMENTS'
+// below refer: https://auth0.com/blog/secure-your-react-and-redux-app-with-jwt-authentication/
+export const LOGIN_REQUEST        = 'LOGIN_REQUEST'
+export const LOGIN_SUCCESS        = 'LOGIN_SUCCESS'
+export const LOGIN_FAILURE        = 'LOGIN_FAILURE'
