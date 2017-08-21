@@ -6,8 +6,8 @@ export function user(state={ all: [] }, action) {
       return { ...state, all: action.users }
     case types.UPDATE_USER:
       let newAll = state.all.map(user => {
-        if(user._id === action.currentUser._id) {
-          return action.currentUser
+        if(user._id === action.user._id) {
+          return action.user
         }
         return user
       })

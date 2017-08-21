@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Login from '../components/pages/Login/Login'
 import { connect } from 'react-redux'
-import { setTitle, showAlert, updateUser, login } from '../redux/actions'
+import { setTitle, showAlert, login } from '../redux/actions'
 import StyledSpinner from '../components/StyledSpinner'
 
 
@@ -48,5 +48,4 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps, {
   setTitle,
   showAlert,
-  updateUser,
   login })(LoginContainer)

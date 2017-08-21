@@ -47,20 +47,21 @@ export const checkout = () => dispatch => {
   dispatch({ type: types.CHECKOUT_REQUEST })
 }
 
-export const updateUser = (currentUser) => dispatch => {
-  dispatch({ type: types.UPDATE_USER, currentUser })
-}
+
+const updateUser = (user) => ({
+  type: types.UPDATE_USER, user
+})
 
 export const updateSlogan = (data) => dispatch => {
   axios.put(`${Settings.host}/user`, data).then( res => {
-    updateUser(res.data.user)
+    dispatch(updateUser(res.data.user))
   })
 }
 
 export const updateAvatar = (formData) => dispatch => {
   axios.post(`${Settings.host}/avatar`, formData ).then(
     res => {
-      updateUser(res.data.user)
+      dispatch(updateUser(res.data.user))
     }
   )
 }
@@ -72,7 +73,7 @@ export const followFriend = (userId) => dispatch => {
   }
   axios.post(`${Settings.host}/add-following`, data).then(
     res => {
-      dispatch({ type: types.UPDATE_USER, currentUser: res.data.user })
+      dispatch(updateUser(res.data.user))
     }
   )
 }
@@ -84,7 +85,7 @@ export const removeFriend = (userId) => dispatch => {
   }
   axios.post(`${Settings.host}/remove-following`, data).then(
     res => {
-      dispatch({ type: types.UPDATE_USER, currentUser: res.data.user })
+      dispatch(updateUser(res.data.user))
     }
   )
 }
