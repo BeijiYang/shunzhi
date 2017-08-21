@@ -44,8 +44,10 @@ class Sidebar extends Component {
       <Menu isOpen={this.state.isOpen}
             customCrossIcon={ false }>
             <div className="user-info">
-              <img className="bm-img"
-                src={avatar} alt="avatar" />
+              <div className="bm-img"
+                   style={{ 'background-image': `url(${avatar})`}}
+                >
+              </div>
               {isAuthenticated && userInfo}
             </div>
             <div className="bm-link-list">
