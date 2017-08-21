@@ -32,6 +32,12 @@
   text-align: center;
 }
 
+.alert-box.show .alert-box-card {
+  opacity: 1;
+  width: 240px;
+  padding: 20px;
+}
+
 .alert-box .alert-box-card .alert-actions {
   display: none;
   margin-top: 20px;
@@ -39,11 +45,6 @@
   color: #F77062;
 }
 
-.alert-box.show .alert-box-card {
-  opacity: 1;
-  width: 240px;
-  padding: 20px;
-}
 .alert-box.show .alert-box-card .alert-actions {
   display: block;
 }
