@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { slide as Menu } from 'react-burger-menu'
+import Settings, { avatarUrl } from '../../../settings'
 import './sidebar.css'
 
 import {
@@ -37,12 +38,14 @@ class Sidebar extends Component {
       <Link onClick={this.closeMenu} to="/login" className="menu-item" >登录</Link>
     )
 
+    let avatar = currentUser.avatar ? avatarUrl(currentUser.avatar) : Settings.defaultAvatar
+
     return (
       <Menu isOpen={this.state.isOpen}
             customCrossIcon={ false }>
             <div className="user-info">
               <img className="bm-img"
-                src="http://media.haoduoshipin.com/yummy/default-avatar.png" alt="avatar" />
+                src={avatar} alt="avatar" />
               {isAuthenticated && userInfo}
             </div>
             <div className="bm-link-list">
