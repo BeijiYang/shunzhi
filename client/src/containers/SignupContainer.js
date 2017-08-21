@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import Settings from '../settings'
 import Signup from '../components/pages/Signup/Signup'
-import * as types from '../redux/ActionTypes'
+import { setTitle, showAlert } from '../redux/actions'
 import { connect } from 'react-redux'
 
 class SignupContainer extends Component {
   componentWillMount () {
-    this.props.dispatch({ type: types.SET_TITLE, title: '注册' })
+    this.props.setTitle('注册')
   }
 
   signup = (data) => {
@@ -20,7 +20,7 @@ class SignupContainer extends Component {
     }).catch(err => {
       if(err.response) {
         const { msg } = err.response.data
-        this.props.dispatch({ type: 'SHOW_ALERT', message: msg })
+        this.props.showAlert(msg)
       }
     })
   }
@@ -32,4 +32,4 @@ class SignupContainer extends Component {
   }
 }
 
-export default connect(null)(SignupContainer)
+export default connect(null, { setTitle, showAlert})(SignupContainer)
