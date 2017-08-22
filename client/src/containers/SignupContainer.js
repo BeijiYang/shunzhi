@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import axios from 'axios'
-import Settings from '../settings'
 import Signup from '../components/pages/Signup/Signup'
 import { setTitle, showAlert, signup } from '../redux/actions'
 import { connect } from 'react-redux'

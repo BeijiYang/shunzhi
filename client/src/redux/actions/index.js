@@ -23,7 +23,7 @@ export const signup = (data, history) => dispatch => {
   axios.post(`${Settings.host}/user/signup`, data).then(res => {
     if(res.data.user) {
       dispatch({ type: types.ADD_NEW_USER, user: res.data.user })
-      localStorage.setItem('userId', res.data.userId)
+      localStorage.setItem('userId', res.data.user._id)
       history.push('/dashboard')
     }
   }).catch(err => {
