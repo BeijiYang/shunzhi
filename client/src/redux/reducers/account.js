@@ -20,6 +20,7 @@ export default function accountReducer(state=account, action) {
         isFetching: false,
         isAuthenticated: true
       }
+    case types.ADD_NEW_USER:
     case types.UPDATE_USER:
       return {
         ...state,

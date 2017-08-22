@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import Settings from '../settings'
 import Signup from '../components/pages/Signup/Signup'
-import { setTitle, showAlert } from '../redux/actions'
+import { setTitle, showAlert, signup } from '../redux/actions'
 import { connect } from 'react-redux'
 
 class SignupContainer extends Component {
@@ -11,18 +11,7 @@ class SignupContainer extends Component {
   }
 
   signup = (data) => {
-    axios.post(`${Settings.host}/user/signup`, data).then(res => {
-      if(res.data.username) {
-        this.props.dispatch({ type: 'AUTH_USER', username: res.data.username })
-        localStorage.setItem('userId', res.data.userId)
-        this.props.history.push('/dashboard')
-      }
-    }).catch(err => {
-      if(err.response) {
-        const { msg } = err.response.data
-        this.props.showAlert(msg)
-      }
-    })
+    this.props.signup(data, this.props.history)
   }
 
   render() {
@@ -32,4 +21,4 @@ class SignupContainer extends Component {
   }
 }
 
-export default connect(null, { setTitle, showAlert})(SignupContainer)
+export default connect(null, { setTitle, showAlert, signup })(SignupContainer)
