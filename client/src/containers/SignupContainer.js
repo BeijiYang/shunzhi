@@ -4,6 +4,7 @@ import Settings from '../settings'
 import Signup from '../components/pages/Signup/Signup'
 import { setTitle, showAlert } from '../redux/actions'
 import { connect } from 'react-redux'
+import store from '../redux/store'
 
 class SignupContainer extends Component {
   componentWillMount () {
@@ -13,7 +14,8 @@ class SignupContainer extends Component {
   signup = (data) => {
     axios.post(`${Settings.host}/user/signup`, data).then(res => {
       if(res.data.username) {
-        this.props.dispatch({ type: 'AUTH_USER', username: res.data.username })
+        store.dispatch({ type: 'AUTH_USER', username: res.data.username })
+        // this.props.dispatch({ type: 'AUTH_USER', username: res.data.username })
         localStorage.setItem('userId', res.data.userId)
         this.props.history.push('/dashboard')
       }
