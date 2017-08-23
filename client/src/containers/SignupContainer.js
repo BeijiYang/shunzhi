@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Signup from '../components/pages/Signup/Signup'
 import { setTitle, showAlert, signup } from '../redux/actions'
 import { connect } from 'react-redux'
-import store from '../redux/store'
 
 class SignupContainer extends Component {
   componentWillMount () {
