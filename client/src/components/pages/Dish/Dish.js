@@ -15,7 +15,7 @@ class Dish extends Component {
       <div className="dish">
         <div className="dish-info">
           <div className="dish-img-wrap">
-            <div style={{ 'backgroundImage' : `url(${posterUrl(dish.poster)}`}}
+            <div style={{ 'backgroundImage' : `url(${posterUrl(dish.poster)})`}}
               className="img">
             </div>
           </div>
