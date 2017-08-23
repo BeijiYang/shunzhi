@@ -9,7 +9,6 @@ import SignupContainer from './SignupContainer'
 import TitleHeader from '../components/shared/TitleHeader/TitleHeader'
 import StyledSpinner from '../components/StyledSpinner'
 import React, { Component } from 'react'
-import store from '../redux/store'
 import { connect } from 'react-redux'
 import {
   Switch,

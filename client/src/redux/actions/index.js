@@ -19,6 +19,21 @@ export const loadUsers = () => dispatch => {
   )
 }
 
+export const signup = (data, history) => dispatch => {
+  axios.post(`${Settings.host}/user/signup`, data).then(res => {
+    if(res.data.user) {
+      dispatch({ type: types.ADD_NEW_USER, user: res.data.user })
+      localStorage.setItem('userId', res.data.user._id)
+      history.push('/dashboard')
+    }
+  }).catch(err => {
+    if(err.response) {
+      const { msg } = err.response.data
+      dispatch({ type: types.SHOW_ALERT, msg })
+    }
+  })
+}
+
 export const loadDishes = () => dispatch => {
   dispatch({ type: types.REQUEST_DISHES })
   axios.get(`${Settings.host}/dishes`).then(res => {

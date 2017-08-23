@@ -12,6 +12,8 @@ export function user(state={ all: [] }, action) {
         return user
       })
       return { ...state, all: newAll }
+    case types.ADD_NEW_USER:
+      return { ...state, all: [ ...state.all, action.user ]}
     default:
       return state
   }

@@ -11,11 +11,16 @@ exports.signup = function (req, res) {
       user = new User(_user);
       user.save(function (err,user) {
         if (err) return res.status(500).json({msg: '注册失败，请重试',err});
-        res.json({
-          userId: user._id,
-          username: user.username,
+        setTimeout(() => res.json({
+          user: {
+            _id: user._id,
+            username: user.username,
+            slogan: user.slogan,
+            avatar: user.avatar,
+            followings: user.followings
+          },
           msg: '注册成功'
-        })
+        }), 2000)
       })
     }
   })

@@ -45,7 +45,7 @@ class Sidebar extends Component {
             customCrossIcon={ false }>
             <div className="user-info">
               <div className="bm-img"
-                   style={{ 'background-image': `url(${avatar})`}}
+                   style={{ 'backgroundImage': `url(${avatar})`}}
                 >
               </div>
               {isAuthenticated && userInfo}
